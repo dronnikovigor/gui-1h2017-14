@@ -32,97 +32,146 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_5">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="pageMain">
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-9</y>
+          <width>951</width>
+          <height>571</height>
+         </rect>
         </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton">
-        <property name="minimumSize">
-         <size>
-          <width>300</width>
-          <height>50</height>
-         </size>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="playMusic">
+           <property name="minimumSize">
+            <size>
+             <width>300</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Угадай мелодию</string>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QPushButton" name="playFilm">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>300</width>
+             <height>50</height>
+            </size>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+           </property>
+           <property name="text">
+            <string>Угадай фильм</string>
+           </property>
+           <property name="flat">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="pageMusic">
+       <widget class="QLabel" name="label">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>81</width>
+          <height>101</height>
+         </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+         <string notr="true">image: url(:/images/res/music.png);</string>
         </property>
         <property name="text">
-         <string>Угадай мелодию</string>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
+         <string/>
         </property>
        </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>300</width>
-          <height>50</height>
-         </size>
+      </widget>
+      <widget class="QWidget" name="pageFilm">
+       <widget class="QLabel" name="label_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-10</y>
+          <width>81</width>
+          <height>81</height>
+         </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">font: 14pt &quot;Segoe UI&quot;;</string>
+         <string notr="true">image: url(:/images/res/film.png);</string>
         </property>
         <property name="text">
-         <string>Угадай фильм</string>
-        </property>
-        <property name="flat">
-         <bool>true</bool>
+         <string/>
         </property>
        </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
+      </widget>
+     </widget>
     </item>
    </layout>
-   <zorder>gridLayoutWidget</zorder>
-   <zorder>pushButton</zorder>
-   <zorder>pushButton_2</zorder>
-   <zorder>verticalSpacer_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -137,53 +186,62 @@
     <property name="title">
      <string>Игра</string>
     </property>
-    <addaction name="action"/>
-    <addaction name="action_2"/>
+    <addaction name="startAgain"/>
+    <addaction name="gameRules"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
      <string>О программе</string>
     </property>
-    <addaction name="action_3"/>
-    <addaction name="action_4"/>
+    <addaction name="help"/>
+    <addaction name="aboutCreators"/>
    </widget>
    <widget class="QMenu" name="menu_3">
     <property name="title">
      <string>Завершить</string>
     </property>
-    <addaction name="action_5"/>
-    <addaction name="action_6"/>
+    <addaction name="exitOnMain"/>
+    <addaction name="exitGame"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_3"/>
    <addaction name="menu_2"/>
   </widget>
-  <action name="action">
+  <action name="startAgain">
    <property name="text">
     <string>Начать заново</string>
    </property>
   </action>
-  <action name="action_2">
+  <action name="gameRules">
    <property name="text">
     <string>Правила игры</string>
    </property>
   </action>
-  <action name="action_3">
+  <action name="help">
    <property name="text">
     <string>Помощь</string>
    </property>
+   <property name="toolTip">
+    <string>Помощь</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
   </action>
-  <action name="action_4">
+  <action name="aboutCreators">
    <property name="text">
     <string>О приложении</string>
    </property>
   </action>
-  <action name="action_5">
+  <action name="exitOnMain">
    <property name="text">
     <string>Выйти в главное меню</string>
    </property>
+   <property name="shortcut">
+    <string>Esc</string>
+   </property>
   </action>
-  <action name="action_6">
+  <action name="exitGame">
    <property name="text">
     <string>Выход из игры</string>
    </property>

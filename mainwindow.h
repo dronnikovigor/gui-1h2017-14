@@ -16,6 +16,15 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_playMusic_clicked();
+
+    void on_playFilm_clicked();
+
+    void on_exitOnMain_triggered();
+
+    void on_exitGame_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
