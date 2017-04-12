@@ -29,3 +29,8 @@ Game::Game()
 {
 
 }
+
+Game::~Game()
+{
+
+}

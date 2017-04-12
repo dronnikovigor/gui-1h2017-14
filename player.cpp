@@ -46,3 +46,7 @@ Player::Player(QString n, unsigned int s, QString t)
     score = s;
     type = t;
 }
+Player::~Player()
+{
+
+}
