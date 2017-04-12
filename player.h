@@ -12,7 +12,7 @@ private:
 
 public:
     Player();
-    Player(QString n, unsigned int s);
+    Player(QString n, unsigned int s, QString t);
     ~Player();
 
     QString getName() const;
@@ -23,6 +23,8 @@ public:
 
     QString getType() const;
     void setType(const QString &value);
+
+    void addScore(unsigned int value);
 
 };
 

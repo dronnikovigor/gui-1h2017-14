@@ -20,6 +20,11 @@ void Player::setType(const QString &value)
     type = value;
 }
 
+void Player::addScore(unsigned int value)
+{
+    score += value;
+}
+
 unsigned int Player::getScore() const
 {
     return score;
@@ -33,4 +38,11 @@ void Player::setScore(unsigned int value)
 Player::Player()
 {
 
+}
+
+Player::Player(QString n, unsigned int s, QString t)
+{
+    name = n;
+    score = s;
+    type = t;
 }
