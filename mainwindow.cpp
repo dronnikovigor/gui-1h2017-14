@@ -6,8 +6,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-
+    QPixmap bkgnd(":/images/res/background.jpg");
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, bkgnd);
+    this->setPalette(palette);
 }
 
 MainWindow::~MainWindow()
@@ -17,21 +20,24 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_playMusic_clicked()
 {
-    ui->stackedWidget->setCurrentWidget(ui->pageMusic);
+    ui->gameWidget->setCurrentWidget(ui->pageMusic);
+    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
 }
 
 void MainWindow::on_playFilm_clicked()
 {
-    ui->stackedWidget->setCurrentWidget(ui->pageFilm);
+    ui->gameWidget->setCurrentWidget(ui->pageFilm);
+    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
 }
 
 
-void MainWindow::on_exitOnMain_triggered()
-{
-    ui->stackedWidget->setCurrentWidget(ui->pageMain);
-}
-
-void MainWindow::on_exitGame_triggered()
+void MainWindow::on_exitButton_clicked()
 {
     close();
+}
+
+void MainWindow::on_mainpageButton_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageMain);
+    ui->menuWidget->setCurrentWidget(ui->pageMainMenu);
 }

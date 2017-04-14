@@ -22,9 +22,9 @@ private slots:
 
     void on_playFilm_clicked();
 
-    void on_exitOnMain_triggered();
+    void on_exitButton_clicked();
 
-    void on_exitGame_triggered();
+    void on_mainpageButton_clicked();
 
 private:
     Ui::MainWindow *ui;
