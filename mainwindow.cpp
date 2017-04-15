@@ -11,6 +11,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
+
+    ui->gameWidget->setCurrentWidget(ui->pageMain);
+    ui->menuWidget->setCurrentWidget(ui->pageMainMenu);
 }
 
 MainWindow::~MainWindow()
@@ -40,4 +43,9 @@ void MainWindow::on_mainpageButton_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageMain);
     ui->menuWidget->setCurrentWidget(ui->pageMainMenu);
+}
+
+void MainWindow::on_exitButton_2_clicked()
+{
+    close();
 }
