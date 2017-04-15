@@ -5,5 +5,7 @@
         <file>res/music.png</file>
         <file>res/film.png</file>
         <file>res/logo.png</file>
+        <file>res/background_menu.png</file>
+        <file>res/button.png</file>
     </qresource>
 </RCC>
