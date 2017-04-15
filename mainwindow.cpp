@@ -14,6 +14,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->gameWidget->setCurrentWidget(ui->pageMain);
     ui->menuWidget->setCurrentWidget(ui->pageMainMenu);
+
+    Game game;
 }
 
 MainWindow::~MainWindow()
@@ -48,4 +50,26 @@ void MainWindow::on_mainpageButton_clicked()
 void MainWindow::on_exitButton_2_clicked()
 {
     close();
+}
+
+void MainWindow::on_statButton_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageStats);
+    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
+
+    ui->statBrowser->clear();
+    QSqlQuery query=game.getStats();
+    while (query.next())
+        {
+        QString login = query.value(0).toString();
+        QString music_score = query.value(1).toString();
+        QString film_score = query.value(2).toString();
+        ui->statBrowser->insertPlainText(login+" "+music_score+" "+film_score+"\n");
+        }
+}
+
+void MainWindow::on_statButton_2_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageStats);
+    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
 }

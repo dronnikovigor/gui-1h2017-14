@@ -28,6 +28,10 @@ private slots:
 
     void on_exitButton_2_clicked();
 
+    void on_statButton_clicked();
+
+    void on_statButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 

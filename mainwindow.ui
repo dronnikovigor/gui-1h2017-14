@@ -52,7 +52,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="pageMain">
        <layout class="QHBoxLayout" name="horizontalLayout">
@@ -317,6 +317,24 @@
         </property>
        </widget>
       </widget>
+      <widget class="QWidget" name="pageStats">
+       <widget class="QTextBrowser" name="statBrowser">
+        <property name="geometry">
+         <rect>
+          <x>230</x>
+          <y>150</y>
+          <width>481</width>
+          <height>361</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Segoe UI</family>
+          <pointsize>17</pointsize>
+         </font>
+        </property>
+       </widget>
+      </widget>
      </widget>
     </item>
     <item>
@@ -390,7 +408,7 @@
             </property>
             <property name="font">
              <font>
-              <family>Segoe UI</family>
+              <family>Comic Sans MS</family>
               <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
@@ -432,7 +450,7 @@ background-image: url(:/images/res/button.png);</string>
             </property>
             <property name="font">
              <font>
-              <family>Segoe UI</family>
+              <family>Comic Sans MS</family>
               <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
@@ -474,7 +492,7 @@ background-image: url(:/images/res/button.png);</string>
             </property>
             <property name="font">
              <font>
-              <family>Segoe UI</family>
+              <family>Comic Sans MS</family>
               <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
@@ -516,7 +534,7 @@ background-image: url(:/images/res/button.png);</string>
             </property>
             <property name="font">
              <font>
-              <family>Segoe UI</family>
+              <family>Comic Sans MS</family>
               <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
@@ -571,7 +589,7 @@ background-image: url(:/images/res/button.png);</string>
             </property>
             <property name="font">
              <font>
-              <family>Segoe UI</family>
+              <family>Comic Sans MS</family>
               <pointsize>13</pointsize>
               <weight>50</weight>
               <italic>false</italic>
@@ -613,7 +631,7 @@ background-image: url(:/images/res/button.png);</string>
             </property>
             <property name="font">
              <font>
-              <family>Segoe UI</family>
+              <family>Comic Sans MS</family>
               <pointsize>13</pointsize>
               <weight>50</weight>
               <italic>false</italic>
@@ -695,7 +713,7 @@ background-image: url(:/images/res/button.png);</string>
             </property>
             <property name="font">
              <font>
-              <family>Segoe UI</family>
+              <family>Comic Sans MS</family>
               <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
@@ -737,7 +755,7 @@ background-image: url(:/images/res/button.png);</string>
             </property>
             <property name="font">
              <font>
-              <family>Segoe UI</family>
+              <family>Comic Sans MS</family>
               <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
@@ -779,7 +797,7 @@ background-image: url(:/images/res/button.png);</string>
             </property>
             <property name="font">
              <font>
-              <family>Segoe UI</family>
+              <family>Comic Sans MS</family>
               <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
@@ -821,7 +839,7 @@ background-image: url(:/images/res/button.png);</string>
             </property>
             <property name="font">
              <font>
-              <family>Segoe UI</family>
+              <family>Comic Sans MS</family>
               <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
@@ -876,7 +894,7 @@ background-image: url(:/images/res/button.png);</string>
             </property>
             <property name="font">
              <font>
-              <family>Segoe UI</family>
+              <family>Comic Sans MS</family>
               <pointsize>13</pointsize>
               <weight>50</weight>
               <italic>false</italic>
@@ -918,7 +936,7 @@ background-image: url(:/images/res/button.png);</string>
             </property>
             <property name="font">
              <font>
-              <family>Segoe UI</family>
+              <family>Comic Sans MS</family>
               <pointsize>13</pointsize>
               <weight>50</weight>
               <italic>false</italic>
@@ -962,45 +980,6 @@ background-image: url(:/images/res/button.png);</string>
     </item>
    </layout>
   </widget>
-  <action name="startAgain">
-   <property name="text">
-    <string>Начать заново</string>
-   </property>
-  </action>
-  <action name="gameRules">
-   <property name="text">
-    <string>Правила игры</string>
-   </property>
-  </action>
-  <action name="help">
-   <property name="text">
-    <string>Помощь</string>
-   </property>
-   <property name="toolTip">
-    <string>Помощь</string>
-   </property>
-   <property name="shortcut">
-    <string>F1</string>
-   </property>
-  </action>
-  <action name="aboutCreators">
-   <property name="text">
-    <string>О приложении</string>
-   </property>
-  </action>
-  <action name="exitOnMain">
-   <property name="text">
-    <string>Выйти в главное меню</string>
-   </property>
-   <property name="shortcut">
-    <string>Esc</string>
-   </property>
-  </action>
-  <action name="exitGame">
-   <property name="text">
-    <string>Выход из игры</string>
-   </property>
-  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
