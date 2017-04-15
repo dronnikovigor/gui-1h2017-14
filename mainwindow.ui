@@ -391,7 +391,7 @@
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>14</pointsize>
+              <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -433,7 +433,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>14</pointsize>
+              <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -475,7 +475,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>14</pointsize>
+              <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -517,7 +517,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>14</pointsize>
+              <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -572,7 +572,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>14</pointsize>
+              <pointsize>13</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -614,7 +614,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>14</pointsize>
+              <pointsize>13</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -696,7 +696,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>14</pointsize>
+              <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -738,7 +738,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>14</pointsize>
+              <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -780,7 +780,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>14</pointsize>
+              <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -822,7 +822,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>14</pointsize>
+              <pointsize>16</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -877,7 +877,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>14</pointsize>
+              <pointsize>13</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -919,7 +919,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Segoe UI</family>
-              <pointsize>14</pointsize>
+              <pointsize>13</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
