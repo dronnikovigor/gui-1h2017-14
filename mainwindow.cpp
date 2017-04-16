@@ -14,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->gameWidget->setCurrentWidget(ui->pageMain);
     ui->menuWidget->setCurrentWidget(ui->pageMainMenu);
-
 }
 
 MainWindow::~MainWindow()
