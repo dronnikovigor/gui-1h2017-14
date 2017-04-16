@@ -32,9 +32,27 @@ QSqlQuery Game::getStats()
 {
     if (!db.isOpen())
         connectDB();
-    QSqlQuery query("SELECT login, music_score, film_score, (music_score+film_score) as total FROM players ORDER BY total DESC");
+    QSqlQuery query("SELECT login, music_score, film_score, (music_score+film_score) as total "
+                    "FROM players "
+                    "ORDER BY total DESC");
 
     return query;
+}
+
+bool Game::isUserSignUp(QString username, QString password)
+{
+    if (!db.isOpen())
+        connectDB();
+    QSqlQuery query("SELECT login, password"
+                    "FROM players "
+                    "WHERE login IS \"" + username + "\"");
+    while(query.next())
+    {
+        if (!query.size())
+            return false;
+        else return (query.value(1).toString() == password) ? true : false;
+    }
+
 }
 
 void Game::connectDB()

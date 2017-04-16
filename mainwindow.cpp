@@ -69,31 +69,87 @@ void MainWindow::on_statButton_2_clicked()
 void MainWindow::on_loginButton_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageLogin);
-    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
 }
 
 void MainWindow::on_loginButton_2_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageLogin);
-    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
 }
 
 void MainWindow::statsOut()
 {
     ui->statBrowser->clear();
-    QSqlQuery query=game.getStats();
+    QSqlQuery query = game.getStats();
 
     QString html;
-    html = "<table width=\"490\"><tr><td><b>Имя игрока</b></td><td><b>Музыка</b></td><td><b>Фильмы</b></td><td><b>Всего</b></td></tr>";
+    html = "<table width=\"490\"><tr><td><b>Имя игрока</b></td><td><b>Музыка</b></td>"
+           "<td><b>Фильмы</b></td><td><b>Всего</b></td></tr>";
 
     while (query.next())
         {
         QString login = query.value(0).toString();
         QString music_score = query.value(1).toString();
         QString film_score = query.value(2).toString();
-        int total = music_score.toInt()+film_score.toInt();
-        html += "<tr><td>"+login+"</td><td>"+music_score+"</td><td>"+film_score+"</td><td>"+QString::number(total)+"</td></tr>";
+        int total = music_score.toInt() + film_score.toInt();
+        html += "<tr><td>" + login + "</td><td>" + music_score + "</td><td>" +
+                film_score + "</td><td>" + QString::number(total) + "</td></tr>";
         }
     html += "</table>";
     ui->statBrowser->insertHtml(html);
+}
+
+void MainWindow::on_cancelButton_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageMain);
+    ui->menuWidget->setCurrentWidget(ui->pageMainMenu);
+}
+
+void MainWindow::on_loginButton_3_clicked()
+{
+    if (ui->username->text() != "" && ui->password->text() != "")
+    {
+
+        if (game.isUserSignUp(ui->username->text(), ui->password->text()))
+        {
+            game.login();
+            ui->name->setText("<html><head/><body><p align=\"center\">"
+                    "<span style=\" font-size:18pt; color:#6aaa49;\">" +
+                    game.getPlayer().getName() +
+                    "</span></p></body></html>");
+
+            ui->score->setText("<html><head/><body><p align=\"center\">"
+                    "<span style=\" font-size:18pt; color:#ffffff;\">" +
+                    QString::number(game.getPlayer().getSumScore()) +
+                    "</span></p></body></html>");
+
+            ui->gameWidget->setCurrentWidget(ui->pageMain);
+            ui->menuWidget->setCurrentWidget(ui->pageGameIn);
+        }
+        else
+        {
+            ui->label_5->setText("<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">"
+                                 "Неправильный логин и/или пароль!</span></p></body></html>");
+        }
+    }
+    else
+    {
+        ui->label_5->setText("<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">"
+                             "Все поля должны быть заполнены!</span></p></body></html>");
+    }
+
+}
+
+
+
+void MainWindow::on_exitButton_3_clicked()
+{
+    close();
+}
+
+void MainWindow::on_statButton_3_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageStats);
+    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
+
+    statsOut();
 }

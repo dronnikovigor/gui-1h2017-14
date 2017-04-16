@@ -25,6 +25,7 @@ public:
     QString signin(QString name, QString pass);
     void connectDB();
     QSqlQuery getStats();
+    bool isUserSignUp(QString username, QString password);
 };
 
 #endif // GAME_H

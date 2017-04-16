@@ -2,10 +2,11 @@
 
 Player::Player()
 {
-    name = "None";
+    name = "Player";
     musicScore = 0;
     filmScore = 0;
     type = "User";
+    sumScore = musicScore + filmScore;
 }
 
 Player::Player(QString n, int ms, int fs, QString t)
@@ -14,6 +15,7 @@ Player::Player(QString n, int ms, int fs, QString t)
     musicScore = ms;
     filmScore = fs;
     type = t;
+    sumScore = musicScore + filmScore;
 }
 Player::~Player()
 {
