@@ -7,25 +7,33 @@ class Player
 {
 private:
     QString name;
-    unsigned int score;
+    int musicScore;
+    int filmScore;
+    int sumScore;
     QString type;
 
 public:
     Player();
-    Player(QString n, unsigned int s, QString t);
+    Player(QString n, int ms, int fs, QString t);
     ~Player();
 
     QString getName() const;
     void setName(const QString &value);
 
-    unsigned int getScore() const;
-    void setScore(unsigned int value);
-
     QString getType() const;
     void setType(const QString &value);
 
-    void addScore(unsigned int value);
+    int getMusicScore() const;
+    void setMusicScore(int value);
 
+    int getFilmScore() const;
+    void setFilmScore(int value);
+
+    int getSumScore() const;
+    void setSumScore(int value);
+
+    void addMusicScore(int value);
+    void addFilmScore(int value);
 };
 
 #endif // PLAYER_H

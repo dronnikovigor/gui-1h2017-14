@@ -1,5 +1,25 @@
 #include "player.h"
 
+Player::Player()
+{
+    name = "None";
+    musicScore = 0;
+    filmScore = 0;
+    type = "User";
+}
+
+Player::Player(QString n, int ms, int fs, QString t)
+{
+    name = n;
+    musicScore = ms;
+    filmScore = fs;
+    type = t;
+}
+Player::~Player()
+{
+
+}
+
 QString Player::getName() const
 {
     return name;
@@ -20,33 +40,43 @@ void Player::setType(const QString &value)
     type = value;
 }
 
-void Player::addScore(unsigned int value)
+int Player::getMusicScore() const
 {
-    score += value;
+    return musicScore;
 }
 
-unsigned int Player::getScore() const
+void Player::setMusicScore(int value)
 {
-    return score;
+    musicScore = value;
+}
+int Player::getFilmScore() const
+{
+    return filmScore;
 }
 
-void Player::setScore(unsigned int value)
+void Player::setFilmScore(int value)
 {
-    score = value;
+    filmScore = value;
 }
 
-Player::Player()
+int Player::getSumScore() const
 {
-
+    return sumScore;
 }
 
-Player::Player(QString n, unsigned int s, QString t)
+void Player::setSumScore(int value)
 {
-    name = n;
-    score = s;
-    type = t;
+    sumScore = value;
 }
-Player::~Player()
-{
 
+void Player::addMusicScore(int value)
+{
+    musicScore += value;
+    sumScore = musicScore + filmScore;
+}
+
+void Player::addFilmScore(int value)
+{
+    filmScore += value;
+    sumScore = musicScore + filmScore;
 }
