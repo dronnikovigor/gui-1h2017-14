@@ -59,13 +59,20 @@ void MainWindow::on_statButton_clicked()
 
     ui->statBrowser->clear();
     QSqlQuery query=game.getStats();
+
+    QString html;
+    html = "<table width=\"490\"><tr><td><b>Имя игрока</b></td><td><b>Музыка</b></td><td><b>Фильмы</b></td><td><b>Всего</b></td></tr>";
+
     while (query.next())
         {
         QString login = query.value(0).toString();
         QString music_score = query.value(1).toString();
         QString film_score = query.value(2).toString();
-        ui->statBrowser->insertPlainText(login+" "+music_score+" "+film_score+"\n");
+        int total = music_score.toInt()+film_score.toInt();
+        html += "<tr><td>"+login+"</td><td>"+music_score+"</td><td>"+film_score+"</td><td>"+QString::number(total)+"</td></tr>";
         }
+    html += "</table>";
+    ui->statBrowser->insertHtml(html);
 }
 
 void MainWindow::on_statButton_2_clicked()
