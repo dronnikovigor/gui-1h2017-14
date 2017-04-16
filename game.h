@@ -12,6 +12,7 @@ class Game
 {
 private:
     Player player;
+    QSqlDatabase db;
 public:
     Game();
     ~Game();
@@ -22,7 +23,7 @@ public:
     QString login(QString name, QString pass);
     QString logout();
     QString signin(QString name, QString pass);
-
+    void connectDB();
     QSqlQuery getStats();
 };
 
