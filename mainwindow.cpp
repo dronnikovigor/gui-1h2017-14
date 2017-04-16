@@ -111,7 +111,7 @@ void MainWindow::on_loginButton_3_clicked()
 
         if (game.isUserSignUp(ui->username->text(), ui->password->text()))
         {
-            game.login();
+            game.login(ui->username->text(), ui->password->text());
             ui->name->setText("<html><head/><body><p align=\"center\">"
                     "<span style=\" font-size:18pt; color:#6aaa49;\">" +
                     game.getPlayer().getName() +

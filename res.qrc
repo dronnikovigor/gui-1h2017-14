@@ -8,5 +8,6 @@
         <file>res/background_menu.png</file>
         <file>res/button.png</file>
         <file>res/backgroud_login.png</file>
+        <file>res/img.png</file>
     </qresource>
 </RCC>

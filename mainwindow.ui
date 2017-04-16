@@ -149,6 +149,9 @@
                <property name="autoFillBackground">
                 <bool>false</bool>
                </property>
+               <property name="styleSheet">
+                <string notr="true">image: url(:/images/res/img.png);</string>
+               </property>
                <property name="text">
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Введите логин и пароль&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                </property>
