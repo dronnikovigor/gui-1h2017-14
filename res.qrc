@@ -7,5 +7,6 @@
         <file>res/logo.png</file>
         <file>res/background_menu.png</file>
         <file>res/button.png</file>
+        <file>res/backgroud_login.png</file>
     </qresource>
 </RCC>

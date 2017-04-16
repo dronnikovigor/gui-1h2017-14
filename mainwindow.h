@@ -32,10 +32,16 @@ private slots:
 
     void on_statButton_2_clicked();
 
+    void on_loginButton_clicked();
+
+    void on_loginButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 
     Game game;
+
+    void statsOut();
 };
 
 #endif // MAINWINDOW_H

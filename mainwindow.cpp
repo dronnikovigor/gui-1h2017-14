@@ -56,6 +56,31 @@ void MainWindow::on_statButton_clicked()
     ui->gameWidget->setCurrentWidget(ui->pageStats);
     ui->menuWidget->setCurrentWidget(ui->pageGameOut);
 
+    statsOut();
+}
+
+void MainWindow::on_statButton_2_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageStats);
+    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
+
+    statsOut();
+}
+
+void MainWindow::on_loginButton_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageLogin);
+    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
+}
+
+void MainWindow::on_loginButton_2_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageLogin);
+    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
+}
+
+void MainWindow::statsOut()
+{
     ui->statBrowser->clear();
     QSqlQuery query=game.getStats();
 
@@ -72,10 +97,4 @@ void MainWindow::on_statButton_clicked()
         }
     html += "</table>";
     ui->statBrowser->insertHtml(html);
-}
-
-void MainWindow::on_statButton_2_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageStats);
-    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
 }
