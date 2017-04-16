@@ -321,17 +321,25 @@
        <widget class="QTextBrowser" name="statBrowser">
         <property name="geometry">
          <rect>
-          <x>230</x>
+          <x>210</x>
           <y>150</y>
-          <width>481</width>
-          <height>361</height>
+          <width>500</width>
+          <height>400</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <family>Segoe UI</family>
+          <family>Comic Sans MS</family>
           <pointsize>17</pointsize>
+          <weight>50</weight>
+          <italic>false</italic>
+          <bold>false</bold>
          </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+font: 17pt &quot;Comic Sans MS&quot;;
+background-color: rgb(52, 78, 127);</string>
         </property>
        </widget>
       </widget>
