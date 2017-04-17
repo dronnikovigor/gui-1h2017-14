@@ -44,7 +44,7 @@ QSqlQuery Game::getUserFromDB(QString username)
 {
     if (!db.isOpen())
         connectDB();
-    QSqlQuery query("SELECT login, password, music_score, film_score, type"
+    QSqlQuery query("SELECT login, password, type "
                     "FROM players "
                     "WHERE login IS \"" + username + "\"");
     return query;
