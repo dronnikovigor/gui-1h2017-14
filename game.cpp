@@ -10,10 +10,11 @@ void Game::setPlayer(const Player &value)
     player = value;
 }
 
-QString Game::login(QString name, QString pass)
+void Game::login(QString name, int ms, int fs, QString t)
 {
-    QString str;
-    return str;
+
+    Player p(name, ms, fs, t);
+    player = p;
 }
 
 QString Game::logout()
@@ -39,20 +40,14 @@ QSqlQuery Game::getStats()
     return query;
 }
 
-bool Game::isUserSignUp(QString username, QString password)
+QSqlQuery Game::getUserFromDB(QString username)
 {
     if (!db.isOpen())
         connectDB();
-    QSqlQuery query("SELECT login, password"
+    QSqlQuery query("SELECT login, password, music_score, film_score, type"
                     "FROM players "
                     "WHERE login IS \"" + username + "\"");
-    while(query.next())
-    {
-        if (!query.size())
-            return false;
-        else return (query.value(1).toString() == password) ? true : false;
-    }
-
+    return query;
 }
 
 void Game::connectDB()

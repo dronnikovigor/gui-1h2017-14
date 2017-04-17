@@ -24,13 +24,13 @@ MainWindow::~MainWindow()
 void MainWindow::on_playMusic_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageMusic);
-    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
+    ui->menuWidget->setCurrentWidget(ui->pageGameIn);
 }
 
 void MainWindow::on_playFilm_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageFilm);
-    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
+    ui->menuWidget->setCurrentWidget(ui->pageGameIn);
 }
 
 
@@ -108,10 +108,23 @@ void MainWindow::on_loginButton_3_clicked()
 {
     if (ui->username->text() != "" && ui->password->text() != "")
     {
-
-        if (game.isUserSignUp(ui->username->text(), ui->password->text()))
+        QSqlQuery query = game.getUserFromDB(ui->username->text());
+        QString l;
+        QString p;
+        int ms;
+        int fs;
+        QString t;
+        while (query.next()) {
+            l = query.value(0).toString();
+            p = query.value(1).toString();
+            ms = query.value(2).toInt();
+            fs = query.value(3).toInt();
+            t = query.value(4).toString();
+        }
+        if (p == ui->password->text())
         {
-            game.login(ui->username->text(), ui->password->text());
+            game.login(l, ms, fs, t);
+
             ui->name->setText("<html><head/><body><p align=\"center\">"
                     "<span style=\" font-size:18pt; color:#6aaa49;\">" +
                     game.getPlayer().getName() +

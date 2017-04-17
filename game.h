@@ -20,12 +20,12 @@ public:
     Player getPlayer() const;
     void setPlayer(const Player &value);
 
-    QString login(QString name, QString pass);
+    void login(QString name, int ms, int fs, QString t);
     QString logout();
     QString signin(QString name, QString pass);
     void connectDB();
     QSqlQuery getStats();
-    bool isUserSignUp(QString username, QString password);
+    QSqlQuery getUserFromDB(QString username);
 };
 
 #endif // GAME_H
