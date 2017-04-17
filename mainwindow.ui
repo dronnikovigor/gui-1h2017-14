@@ -113,9 +113,6 @@
             <property name="autoFillBackground">
              <bool>false</bool>
             </property>
-            <property name="styleSheet">
-             <string notr="true">image: url(:/images/res/backgroud_login.png);</string>
-            </property>
             <layout class="QGridLayout" name="gridLayout">
              <item row="1" column="0">
               <spacer name="verticalSpacer_14">
@@ -148,9 +145,6 @@
                </property>
                <property name="autoFillBackground">
                 <bool>false</bool>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">image: url(:/images/res/img.png);</string>
                </property>
                <property name="text">
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Введите логин и пароль&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -208,8 +202,7 @@
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color: rgb(106, 170, 73);
-image: url(:/images/res/button.png);
+                  <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
                  </property>
@@ -251,10 +244,9 @@ background-image: url(:/images/res/button.png);</string>
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color: rgb(106, 170, 73);
-background-image: url(:/images/res/button.png);
+                  <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);</string>
                  </property>
                  <property name="text">
                   <string>Вход</string>
@@ -306,6 +298,9 @@ image: url(:/images/res/button.png);</string>
                      <family>Comic Sans MS</family>
                      <pointsize>10</pointsize>
                     </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true"/>
                    </property>
                    <property name="text">
                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Логин&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -859,9 +854,9 @@ background-color: rgb(52, 78, 127);</string>
                <colorrole role="Button">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>0</red>
-                  <green>0</green>
-                  <blue>0</blue>
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -886,18 +881,18 @@ background-color: rgb(52, 78, 127);</string>
                <colorrole role="Base">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>0</red>
-                  <green>0</green>
-                  <blue>0</blue>
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="Window">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>0</red>
-                  <green>0</green>
-                  <blue>0</blue>
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -924,9 +919,9 @@ background-color: rgb(52, 78, 127);</string>
                <colorrole role="Button">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>0</red>
-                  <green>0</green>
-                  <blue>0</blue>
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -951,18 +946,18 @@ background-color: rgb(52, 78, 127);</string>
                <colorrole role="Base">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>0</red>
-                  <green>0</green>
-                  <blue>0</blue>
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="Window">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>0</red>
-                  <green>0</green>
-                  <blue>0</blue>
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -989,9 +984,9 @@ background-color: rgb(52, 78, 127);</string>
                <colorrole role="Button">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>0</red>
-                  <green>0</green>
-                  <blue>0</blue>
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -1016,18 +1011,18 @@ background-color: rgb(52, 78, 127);</string>
                <colorrole role="Base">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>0</red>
-                  <green>0</green>
-                  <blue>0</blue>
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
                  </color>
                 </brush>
                </colorrole>
                <colorrole role="Window">
                 <brush brushstyle="SolidPattern">
                  <color alpha="255">
-                  <red>0</red>
-                  <green>0</green>
-                  <blue>0</blue>
+                  <red>255</red>
+                  <green>255</green>
+                  <blue>255</blue>
                  </color>
                 </brush>
                </colorrole>
@@ -1053,8 +1048,7 @@ background-color: rgb(52, 78, 127);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(0, 0, 0);
-selection-color: rgb(255, 255, 255);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1096,7 +1090,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1138,7 +1132,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1180,7 +1174,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1235,7 +1229,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1277,7 +1271,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1359,7 +1353,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1401,7 +1395,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1443,7 +1437,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1485,7 +1479,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1540,7 +1534,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1582,7 +1576,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1704,7 +1698,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1746,7 +1740,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1801,7 +1795,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>
@@ -1843,7 +1837,7 @@ background-image: url(:/images/res/button.png);</string>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">background-color: rgb(106, 170, 73);
+             <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);</string>
             </property>

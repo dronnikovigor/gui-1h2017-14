@@ -12,6 +12,12 @@ MainWindow::MainWindow(QWidget *parent) :
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
 
+    QPixmap bkgnd2(":/images/res/background_login.png");
+    bkgnd2 = bkgnd2.scaled(ui->widgetLogin->size(), Qt::IgnoreAspectRatio);
+    palette.setBrush(QPalette::Background, bkgnd2);
+    ui->widgetLogin->setAutoFillBackground(true);
+    ui->widgetLogin->setPalette(palette);
+
     ui->gameWidget->setCurrentWidget(ui->pageMain);
     ui->menuWidget->setCurrentWidget(ui->pageMainMenu);
 }
