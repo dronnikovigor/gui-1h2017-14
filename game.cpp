@@ -1,5 +1,4 @@
 #include "game.h"
-
 Player Game::getPlayer() const
 {
     return player;
@@ -60,10 +59,22 @@ void Game::connectDB()
     }
 }
 
+QString Game::playGame(QString type)
+{
+    if (type == "music"){
+        return gameMusic.play();
+    }
+
+}
+
+
 Game::Game()
 {
     if (!db.isOpen())
         connectDB();
+
+    QTime midnight(0,0,0);
+    qsrand(midnight.secsTo(QTime::currentTime()));
 }
 
 Game::~Game()

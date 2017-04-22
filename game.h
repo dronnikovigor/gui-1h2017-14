@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include "player.h"
+#include "music.h"
 #include <QString>
 #include <QList>
 #include "QtSql/QSqlDatabase"
@@ -12,6 +13,7 @@ class Game
 {
 private:
     Player player;
+    Music gameMusic;
     QSqlDatabase db;
 public:
     Game();
@@ -26,6 +28,7 @@ public:
     void connectDB();
     QSqlQuery getStats();
     QSqlQuery getUserFromDB(QString username);
+    QString playGame(QString type);
 };
 
 #endif // GAME_H

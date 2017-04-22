@@ -64,7 +64,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="pageLogin">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -718,6 +718,28 @@ background-image: url(:/images/res/button.png);</string>
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+       <widget class="QLabel" name="rightAnswer">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>170</y>
+          <width>401</width>
+          <height>33</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <family>Comic Sans MS</family>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);</string>
+        </property>
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; color:#ffffff;&quot;&gt;TextLabel&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </widget>

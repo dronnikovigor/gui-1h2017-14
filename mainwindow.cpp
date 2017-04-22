@@ -31,6 +31,8 @@ void MainWindow::on_playMusic_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageMusic);
     ui->menuWidget->setCurrentWidget(ui->pageGameIn);
+
+    ui->rightAnswer->setText(game.playGame("music"));
 }
 
 void MainWindow::on_playFilm_clicked()
