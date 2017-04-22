@@ -2,4 +2,6 @@
 
 ---------------------------------------------
 
+QtCreator project.
+
 Project contains SQLite database.
