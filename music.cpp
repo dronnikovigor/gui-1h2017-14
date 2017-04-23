@@ -4,9 +4,9 @@ Music::Music():QuestCards()
 
 }
 
-QString Music::play()
+void Music::play()
 {
-    return getContent(type);
+    getContent(type);
 }
 
 bool Music::getAnswerCheck()

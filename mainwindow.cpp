@@ -32,7 +32,9 @@ void MainWindow::on_playMusic_clicked()
     ui->gameWidget->setCurrentWidget(ui->pageMusic);
     ui->menuWidget->setCurrentWidget(ui->pageGameIn);
 
-    ui->rightAnswer->setText(game.playGame("music"));
+    game.eraseContent("music");
+
+    updatePlayScreen("music");
 }
 
 void MainWindow::on_playFilm_clicked()
@@ -173,4 +175,35 @@ void MainWindow::on_statButton_3_clicked()
     ui->menuWidget->setCurrentWidget(ui->pageGameOut);
 
     statsOut();
+}
+
+void MainWindow::on_answerButton_1_clicked()
+{
+    updatePlayScreen("music");
+}
+
+
+void MainWindow::on_answerButton_2_clicked()
+{
+    updatePlayScreen("music");
+}
+
+void MainWindow::on_answerButton_3_clicked()
+{
+    updatePlayScreen("music");
+}
+
+void MainWindow::on_answerButton_4_clicked()
+{
+    updatePlayScreen("music");
+}
+
+void MainWindow::updatePlayScreen(QString type)
+{
+    game.playGame(type);
+
+    ui->answerButton_1->setText(game.getAnswer(type, 1));
+    ui->answerButton_2->setText(game.getAnswer(type, 2));
+    ui->answerButton_3->setText(game.getAnswer(type, 3));
+    ui->answerButton_4->setText(game.getRightAnswerName(type));
 }

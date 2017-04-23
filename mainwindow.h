@@ -44,12 +44,22 @@ private slots:
 
     void on_statButton_3_clicked();
 
+    void on_answerButton_1_clicked();
+
+    void on_answerButton_2_clicked();
+
+    void on_answerButton_3_clicked();
+
+    void on_answerButton_4_clicked();
+
+
 private:
     Ui::MainWindow *ui;
 
     Game game;
 
     void statsOut();
+    void updatePlayScreen(QString type);
 };
 
 #endif // MAINWINDOW_H

@@ -10,7 +10,7 @@ private:
     bool answerCheck = true;
 public:
     Music();
-    QString play();
+    void play();
     bool getAnswerCheck();
 };
 

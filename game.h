@@ -28,7 +28,10 @@ public:
     void connectDB();
     QSqlQuery getStats();
     QSqlQuery getUserFromDB(QString username);
-    QString playGame(QString type);
+    void playGame(QString type);
+    QString getAnswer(QString type, int id);
+    QString getRightAnswerName(QString type);
+    void eraseContent(QString type);
 };
 
 #endif // GAME_H

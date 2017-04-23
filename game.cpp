@@ -24,8 +24,8 @@ QString Game::logout()
 
 QString Game::signin(QString name, QString pass)
 {
-    QString str;
-    return str;
+    QString str = name;
+    return str = pass;
 }
 
 QSqlQuery Game::getStats()
@@ -59,14 +59,38 @@ void Game::connectDB()
     }
 }
 
-QString Game::playGame(QString type)
+void Game::playGame(QString type)
 {
     if (type == "music"){
-        return gameMusic.play();
+        gameMusic.play();
     }
-
+    else
+    {
+        gameMusic.play();
+    }
 }
 
+QString Game::getAnswer(QString type, int id)
+{
+    if (type == "music"){
+        return gameMusic.getRandomAnsName(type, id);
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+QString Game::getRightAnswerName(QString type)
+{
+    if (type == "music"){
+        return gameMusic.getNameFrDB(type);
+    }
+    else
+    {
+        return 0;
+    }
+}
 
 Game::Game()
 {
@@ -81,4 +105,15 @@ Game::~Game()
 {
     if (db.isOpen())
         db.close();
+}
+
+void Game::eraseContent(QString type)
+{
+    if (type == "music"){
+        gameMusic.erase();
+    }
+    else
+    {
+        //gameMusic.erase();
+    }
 }
