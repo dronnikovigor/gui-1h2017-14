@@ -1,44 +1,65 @@
 #include "game.h"
+
+/*Конструктор класса Game по умолчанию*/
+Game::Game()
+{
+    if (!db.isOpen())
+        connectDB();
+
+    QTime midnight(0,0,0);
+    qsrand(midnight.secsTo(QTime::currentTime()));
+}
+
+/*Деструктор класса Game*/
+Game::~Game()
+{
+    if (db.isOpen())
+        db.close();
+}
+
+/*Функция возвращает объект Игрок*/
 Player Game::getPlayer() const
 {
     return player;
 }
 
+/*???*/
 void Game::setPlayer(const Player &value)
 {
     player = value;
 }
 
+/*Функция производит логин пользователя.
+Переменные:
+@name - имя пользователя
+@ms - счет в игре Музыка
+@fs - счет в игре Фильмы
+@t - тип пользователя
+*/
 void Game::login(QString name, int ms, int fs, QString t)
 {
-
     Player p(name, ms, fs, t);
     player = p;
 }
 
+/*Функция для разлогинивания пользователя*/
 QString Game::logout()
 {
     QString str;
     return str;
 }
 
+/*???*/
 QString Game::signin(QString name, QString pass)
 {
     QString str = name;
     return str = pass;
 }
 
-QSqlQuery Game::getStats()
-{
-    if (!db.isOpen())
-        connectDB();
-    QSqlQuery query("SELECT login, music_score, film_score, (music_score+film_score) as total "
-                    "FROM players "
-                    "ORDER BY total DESC");
-
-    return query;
-}
-
+/*Функция получения данных пользователя из БД.
+Переменные:
+@username - логин пользователя
+*/
 QSqlQuery Game::getUserFromDB(QString username)
 {
     if (!db.isOpen())
@@ -49,6 +70,18 @@ QSqlQuery Game::getUserFromDB(QString username)
     return query;
 }
 
+/*Функция получения общей статистики из БД*/
+QSqlQuery Game::getStats()
+{
+    if (!db.isOpen())
+        connectDB();
+    QSqlQuery query("SELECT login, music_score, film_score, (music_score+film_score) as total "
+                    "FROM players "
+                    "ORDER BY total DESC");
+    return query;
+}
+
+/*Функция для установки соединения с БД*/
 void Game::connectDB()
 {
     if (!db.isOpen())
@@ -59,6 +92,10 @@ void Game::connectDB()
     }
 }
 
+/*Функция запуска игрового процесса
+Переменные:
+@type - тип игры
+*/
 void Game::playGame(QString type)
 {
     if (type == "music"){
@@ -70,10 +107,15 @@ void Game::playGame(QString type)
     }
 }
 
+/*Функция получения названия для варианта ответа
+Переменные:
+@type - тип игры
+@id - номер кнопки
+*/
 QString Game::getAnswer(QString type, int id)
 {
     if (type == "music"){
-        return gameMusic.getRandomAnsName(type, id);
+        return gameMusic.getRandomAnsName(type, id-1);
     }
     else
     {
@@ -81,6 +123,10 @@ QString Game::getAnswer(QString type, int id)
     }
 }
 
+/*Функция получения названия для правильного варианта ответа
+Переменные:
+@type - тип игры
+*/
 QString Game::getRightAnswerName(QString type)
 {
     if (type == "music"){
@@ -92,21 +138,26 @@ QString Game::getRightAnswerName(QString type)
     }
 }
 
-Game::Game()
+/*Функция для проверки ответа пользователя
+Переменные:
+@type - тип игры
+@id - номер кнопки ответа
+*/
+bool Game::checkAnswerId(QString type, int id)
 {
-    if (!db.isOpen())
-        connectDB();
-
-    QTime midnight(0,0,0);
-    qsrand(midnight.secsTo(QTime::currentTime()));
+    if (type == "music"){
+        gameMusic.answerCheck(id);
+    }
+    else
+    {
+        //gameMusic.erase();
+    }
 }
 
-Game::~Game()
-{
-    if (db.isOpen())
-        db.close();
-}
-
+/*Функция для перезапуска игры при выходе на главный экран
+Переменные:
+@type - тип игры
+*/
 void Game::eraseContent(QString type)
 {
     if (type == "music"){
@@ -118,13 +169,3 @@ void Game::eraseContent(QString type)
     }
 }
 
-bool Game::checkAnswerId(QString type, int id)
-{
-    if (type == "music"){
-        gameMusic.answerCheck(id);
-    }
-    else
-    {
-        //gameMusic.erase();
-    }
-}

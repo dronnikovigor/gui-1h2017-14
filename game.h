@@ -15,6 +15,7 @@ private:
     Player player;
     Music gameMusic;
     QSqlDatabase db;
+
 public:
     Game();
     ~Game();
@@ -25,14 +26,17 @@ public:
     void login(QString name, int ms, int fs, QString t);
     QString logout();
     QString signin(QString name, QString pass);
-    void connectDB();
-    QSqlQuery getStats();
     QSqlQuery getUserFromDB(QString username);
+    QSqlQuery getStats();
+
+    void connectDB();
+
     void playGame(QString type);
+
     QString getAnswer(QString type, int id);
-    QString getRightAnswerName(QString type);
-    void eraseContent(QString type);
+    QString getRightAnswerName(QString type);    
     bool checkAnswerId(QString type, int id);
+    void eraseContent(QString type);
 };
 
 #endif // GAME_H

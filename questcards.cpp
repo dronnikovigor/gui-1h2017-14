@@ -78,7 +78,7 @@ void QuestCards::getRandomAns()
 
 QString QuestCards::getRandomAnsName(QString type, int id)
 {
-    QSqlQuery query("SELECT id, name FROM " + type + " WHERE id IS \"" + QString::number(randomId.at(id-1)) + "\"");
+    QSqlQuery query("SELECT id, name FROM " + type + " WHERE id IS \"" + QString::number(randomId.at(id)) + "\"");
     QString id_str;
     QString name_str;
     while (query.next())
