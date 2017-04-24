@@ -34,7 +34,9 @@ void MainWindow::on_playMusic_clicked()
 
     game.eraseContent("music");
 
-    updatePlayScreen("music");
+    player = new QMediaPlayer;
+    updatePlayScreen("music");    
+
 }
 
 void MainWindow::on_playFilm_clicked()
@@ -201,6 +203,12 @@ void MainWindow::on_answerButton_4_clicked()
 void MainWindow::updatePlayScreen(QString type)
 {
     game.playGame(type);
+
+    if (type=="music"){
+        player -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.getRightAnswerName(type)+".mp3"));
+        player -> setVolume(80);
+        player -> play();
+    }
 
     ui->answerButton_1->setText(game.getAnswer(type, 1));
     ui->answerButton_2->setText(game.getAnswer(type, 2));

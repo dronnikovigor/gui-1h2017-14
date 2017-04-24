@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QListView>
 #include <game.h>
+#include <QtMultimedia/QMediaPlayer>
+#include <QtMultimedia/qmediaplayer.h>
 
 namespace Ui {
 class MainWindow;
@@ -57,6 +59,7 @@ private:
     Ui::MainWindow *ui;
 
     Game game;
+    QMediaPlayer * player;
 
     void statsOut();
     void updatePlayScreen(QString type);
