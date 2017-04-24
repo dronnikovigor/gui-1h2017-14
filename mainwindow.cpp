@@ -213,5 +213,5 @@ void MainWindow::updatePlayScreen(QString type)
     ui->answerButton_1->setText(game.getAnswer(type, 1));
     ui->answerButton_2->setText(game.getAnswer(type, 2));
     ui->answerButton_3->setText(game.getAnswer(type, 3));
-    ui->answerButton_4->setText(game.getRightAnswerName(type));
+    ui->answerButton_4->setText(game.getAnswer(type, 4));
 }

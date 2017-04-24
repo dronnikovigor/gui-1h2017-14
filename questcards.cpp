@@ -33,6 +33,7 @@ void QuestCards::getContent(QString type)
         return "Game over";*/
     answerId = getNum();
     getRandomAns();
+    randomId.insert(qrand()%4, answerId);
 }
 
 int QuestCards::getNum()
