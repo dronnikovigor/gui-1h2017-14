@@ -9,7 +9,3 @@ void Music::play()
     getContent(type);
 }
 
-bool Music::getAnswerCheck()
-{
-    return answerCheck;
-}

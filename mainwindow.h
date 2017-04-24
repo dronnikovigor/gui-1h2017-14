@@ -63,6 +63,7 @@ private:
 
     void statsOut();
     void updatePlayScreen(QString type);
+    bool checkAnswer(QString type, int id);
 };
 
 #endif // MAINWINDOW_H

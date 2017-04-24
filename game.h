@@ -32,6 +32,7 @@ public:
     QString getAnswer(QString type, int id);
     QString getRightAnswerName(QString type);
     void eraseContent(QString type);
+    bool checkAnswerId(QString type, int id);
 };
 
 #endif // GAME_H

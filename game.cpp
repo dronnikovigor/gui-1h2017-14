@@ -117,3 +117,14 @@ void Game::eraseContent(QString type)
         //gameMusic.erase();
     }
 }
+
+bool Game::checkAnswerId(QString type, int id)
+{
+    if (type == "music"){
+        gameMusic.answerCheck(id);
+    }
+    else
+    {
+        //gameMusic.erase();
+    }
+}

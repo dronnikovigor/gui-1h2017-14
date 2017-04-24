@@ -24,6 +24,7 @@ public:
     QList<int> getRandomIdList();
     QString getRandomAnsName(QString type, int id);
 
+    bool answerCheck(int id);
     void erase();
 };
 

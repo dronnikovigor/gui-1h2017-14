@@ -102,3 +102,12 @@ void QuestCards::erase()
     answerId = 0;
     N = 0;
 }
+
+
+bool QuestCards::answerCheck(int id)
+{
+    if (randomId.at(id) == answerId)
+        return true;
+    else
+        return false;
+}

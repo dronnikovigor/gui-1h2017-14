@@ -181,23 +181,23 @@ void MainWindow::on_statButton_3_clicked()
 
 void MainWindow::on_answerButton_1_clicked()
 {
-    updatePlayScreen("music");
+    checkAnswer("music", 1);
 }
 
 
 void MainWindow::on_answerButton_2_clicked()
 {
-    updatePlayScreen("music");
+    checkAnswer("music", 2);
 }
 
 void MainWindow::on_answerButton_3_clicked()
 {
-    updatePlayScreen("music");
+    checkAnswer("music", 3);
 }
 
 void MainWindow::on_answerButton_4_clicked()
 {
-    updatePlayScreen("music");
+    checkAnswer("music", 4);
 }
 
 void MainWindow::updatePlayScreen(QString type)
@@ -216,3 +216,13 @@ void MainWindow::updatePlayScreen(QString type)
     ui->answerButton_3->setText(game.getAnswer(type, 3));
     ui->answerButton_4->setText(game.getAnswer(type, 4));
 }
+
+bool MainWindow::checkAnswer(QString type, int id)
+{
+    if(game.checkAnswerId(type, id-1)){
+        updatePlayScreen(type);
+    }
+    else
+        close();
+}
+
