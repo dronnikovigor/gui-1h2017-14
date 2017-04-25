@@ -146,7 +146,7 @@ QString Game::getRightAnswerName(QString type)
 bool Game::checkAnswerId(QString type, int id)
 {
     if (type == "music"){
-        gameMusic.answerCheck(id);
+        return gameMusic.answerCheck(id);
     }
     else
     {

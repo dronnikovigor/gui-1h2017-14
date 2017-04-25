@@ -217,7 +217,7 @@ void MainWindow::updatePlayScreen(QString type)
     ui->answerButton_4->setText(game.getAnswer(type, 4));
 }
 
-bool MainWindow::checkAnswer(QString type, int id)
+void MainWindow::checkAnswer(QString type, int id)
 {
     if(game.checkAnswerId(type, id-1)){
         updatePlayScreen(type);
