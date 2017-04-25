@@ -4,8 +4,8 @@ Music::Music():QuestCards()
 
 }
 
-void Music::play()
+bool Music::play()
 {
-    getContent(type);
+    return getContent(type);
 }
 

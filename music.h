@@ -9,7 +9,7 @@ private:
     const QString type = "music";
 public:
     Music();
-    void play();
+    bool play();
 };
 
 #endif // MUSIC_H

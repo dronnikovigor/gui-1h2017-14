@@ -55,6 +55,7 @@ private slots:
     void on_answerButton_4_clicked();
 
 
+
 private:
     Ui::MainWindow *ui;
 
@@ -64,6 +65,7 @@ private:
     void statsOut();
     void updatePlayScreen(QString type);
     void checkAnswer(QString type, int id);
+    void backgroundMusic();
 };
 
 #endif // MAINWINDOW_H

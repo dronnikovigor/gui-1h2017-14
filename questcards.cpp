@@ -24,16 +24,16 @@ QString QuestCards::getNameFrDB(QString type)
     return name_str;
 }
 
-void QuestCards::getContent(QString type)
+bool QuestCards::getContent(QString type)
 {
-    QSqlQuery query("SELECT id FROM " + type);
-    query.last();
-    N = query.at() + 1;
-    /*if (N == usedContent.size())
-        return "Game over";*/
-    answerId = getNum();
-    getRandomAns();
-    randomId.insert(qrand()%4, answerId);
+    if (checkN(type)){
+        answerId = getNum();
+        getRandomAns();
+        randomId.insert(qrand()%4, answerId);
+        return true;
+    }
+    else
+        return false;
 }
 
 int QuestCards::getNum()
@@ -110,4 +110,30 @@ bool QuestCards::answerCheck(int id)
         return true;
     else
         return false;
+}
+
+bool QuestCards::checkN(QString type)
+{
+    QSqlQuery query("SELECT id FROM " + type);
+    query.last();
+    N = query.at() + 1;
+    if (N == usedContent.size())
+        return false;
+    return true;
+}
+
+QString QuestCards::backgroundMusic()
+{
+    QSqlQuery query("SELECT id FROM music");
+    query.last();
+    query.exec("SELECT id, name FROM music WHERE id IS \"" + QString::number((qrand() % (query.at()+1))+1) + "\"");
+    QString id_str;
+    QString name_str;
+    while (query.next())
+        {
+        id_str = query.value(0).toString();
+        name_str = query.value(1).toString();
+        }
+
+    return name_str;
 }

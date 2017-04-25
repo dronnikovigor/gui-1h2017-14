@@ -16,7 +16,7 @@ private:
 public:
     QuestCards();
     ~QuestCards();
-    void getContent(QString type);
+    bool getContent(QString type);
     int getNum();
     QString getNameFrDB(QString type);
     void getRandomAns();
@@ -26,6 +26,9 @@ public:
 
     bool answerCheck(int id);
     void erase();
+
+    bool checkN(QString type);
+    QString backgroundMusic();
 };
 
 #endif // QUESTCARDS_H

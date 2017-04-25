@@ -19,7 +19,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widgetLogin->setPalette(palette);
 
     ui->gameWidget->setCurrentWidget(ui->pageMain);
-    ui->menuWidget->setCurrentWidget(ui->pageMainMenu);
+    ui->menuWidget->setCurrentWidget(ui->pageMainMenu);    
+
+    player = new QMediaPlayer;
+    backgroundMusic();
 }
 
 MainWindow::~MainWindow()
@@ -34,9 +37,7 @@ void MainWindow::on_playMusic_clicked()
 
     game.eraseContent("music");
 
-    player = new QMediaPlayer;
-    updatePlayScreen("music");    
-
+    updatePlayScreen("music");
 }
 
 void MainWindow::on_playFilm_clicked()
@@ -89,7 +90,8 @@ void MainWindow::on_loginButton_2_clicked()
 }
 
 void MainWindow::statsOut()
-{
+{    
+    player -> setVolume(30);
     ui->statBrowser->clear();
     QSqlQuery query = game.getStats();
 
@@ -202,19 +204,24 @@ void MainWindow::on_answerButton_4_clicked()
 
 void MainWindow::updatePlayScreen(QString type)
 {
-    game.playGame(type);
-
-    if (type=="music"){
-        player -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.getRightAnswerName(type)+".mp3"));
-        player -> setVolume(80);
-        player -> setPosition(0);
-        player -> play();
+    if(!game.playGame(type)){
+        player -> setVolume(30);
+        on_statButton_clicked();
     }
+    else
+    {
+        if (type=="music"){
+            player -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.getRightAnswerName(type)+".mp3"));
+            player -> setVolume(80);
+            player -> setPosition(0);
+            player -> play();
+        }
 
-    ui->answerButton_1->setText(game.getAnswer(type, 1));
-    ui->answerButton_2->setText(game.getAnswer(type, 2));
-    ui->answerButton_3->setText(game.getAnswer(type, 3));
-    ui->answerButton_4->setText(game.getAnswer(type, 4));
+        ui->answerButton_1->setText(game.getAnswer(type, 1));
+        ui->answerButton_2->setText(game.getAnswer(type, 2));
+        ui->answerButton_3->setText(game.getAnswer(type, 3));
+        ui->answerButton_4->setText(game.getAnswer(type, 4));
+    }
 }
 
 void MainWindow::checkAnswer(QString type, int id)
@@ -226,3 +233,9 @@ void MainWindow::checkAnswer(QString type, int id)
         close();
 }
 
+void MainWindow::backgroundMusic()
+{
+    player -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.bckgMusic()+".mp3"));
+    player -> setVolume(30);
+    player -> play();
+}

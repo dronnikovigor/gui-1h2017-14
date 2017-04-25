@@ -96,14 +96,14 @@ void Game::connectDB()
 Переменные:
 @type - тип игры
 */
-void Game::playGame(QString type)
+bool Game::playGame(QString type)
 {
     if (type == "music"){
-        gameMusic.play();
+        return gameMusic.play();
     }
     else
     {
-        gameMusic.play();
+        return gameMusic.play();
     }
 }
 
@@ -169,3 +169,8 @@ void Game::eraseContent(QString type)
     }
 }
 
+/*Функция для получения рандомной песни для фона*/
+QString Game::bckgMusic()
+{
+    return gameMusic.backgroundMusic();
+}

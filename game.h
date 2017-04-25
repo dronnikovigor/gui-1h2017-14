@@ -31,12 +31,14 @@ public:
 
     void connectDB();
 
-    void playGame(QString type);
+    bool playGame(QString type);
 
     QString getAnswer(QString type, int id);
     QString getRightAnswerName(QString type);    
     bool checkAnswerId(QString type, int id);
     void eraseContent(QString type);
+
+    QString bckgMusic();
 };
 
 #endif // GAME_H
