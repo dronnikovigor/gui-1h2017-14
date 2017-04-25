@@ -150,7 +150,7 @@ bool Game::checkAnswerId(QString type, int id)
     }
     else
     {
-        //gameMusic.erase();
+        return false;//
     }
 }
 
