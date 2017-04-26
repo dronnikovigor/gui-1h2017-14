@@ -1,6 +1,8 @@
 #include "game.h"
 
-/*Конструктор класса Game по умолчанию*/
+/*
+ * Конструктор класса Game по умолчанию
+*/
 Game::Game()
 {
     if (!db.isOpen())
@@ -10,55 +12,138 @@ Game::Game()
     qsrand(midnight.secsTo(QTime::currentTime()));
 }
 
-/*Деструктор класса Game*/
+/*
+ * Деструктор класса Game
+*/
 Game::~Game()
 {
     if (db.isOpen())
         db.close();
 }
 
-/*Функция возвращает объект Игрок*/
+/*
+ * Функция возвращает объект класса Player
+*/
 Player Game::getPlayer() const
 {
     return player;
 }
 
-/*???*/
+/*
+ * Функция изменяет текущего игрока
+ * Переменные:
+ * @vslue - новый игрок
+*/
 void Game::setPlayer(const Player &value)
 {
     player = value;
 }
 
-/*Функция производит логин пользователя.
-Переменные:
-@name - имя пользователя
-@ms - счет в игре Музыка
-@fs - счет в игре Фильмы
-@t - тип пользователя
+/* Функция производит логин пользователя.
+ * Взвращает true, если пароль правильный, и
+ * false, если неправильный.
+ * Переменные:
+ * @name - имя пользователя
+ * @pass - пароль
 */
-void Game::login(QString name, int ms, int fs, QString t)
+bool Game::login(QString name, QString pass)
 {
-    Player p(name, ms, fs, t);
+    if (!db.isOpen()){
+        connectDB();
+    }
+    QSqlQuery query = getUserFromDB(name);
+    QString l;
+    QString p;
+    int ms;
+    int fs;
+    QString t;
+
+    while (query.next()) {
+        l = query.value(0).toString();
+        p = query.value(1).toString();
+        ms = query.value(2).toInt();
+        fs = query.value(3).toInt();
+        t = query.value(4).toString();
+    }
+    if (p == pass)
+    {
+        Player p(name, ms, fs, t);
+        player = p;
+
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+/*
+ * Функция для разлогинивания пользователя
+*/
+void Game::logout()
+{
+    Player p;
     player = p;
 }
 
-/*Функция для разлогинивания пользователя*/
-QString Game::logout()
+/*
+ * Функция регистрирует пользователя в игре и логинит его
+ * Взвращает true, если пользователя с таким логном нет, и
+ * false, если есть.
+ * Параметры:
+ * @name - имя пользователя
+ * @pass - пароль
+*/
+bool Game::signup(QString name, QString pass)
 {
-    QString str;
-    return str;
+    if (!db.isOpen()){
+        connectDB();
+    }
+    QSqlQuery query_check = getUserFromDB(name);
+
+    int ms = player.getMusicScore();
+    int fs = player.getFilmScore();
+
+    query_check.next();
+    QString n = query_check.value(0).toString();
+    if (n == ""){
+        QSqlQuery query;
+        query.prepare("INSERT INTO players (login, password, music_score, film_score, type)"
+                      "VALUES(?, ?, ?, ?, ?);");
+        query.addBindValue(name);
+        query.addBindValue(pass);
+        query.addBindValue(ms);
+        query.addBindValue(fs);
+        query.addBindValue("user");
+        query.exec();
+
+        Player p(name, ms, fs, "user");
+        player = p;
+        return true;
+    }
+    else {
+        return false;
+    }
+
 }
 
-/*???*/
-QString Game::signin(QString name, QString pass)
+/*
+ * Функция проверяет залогинен ли сейчас какой-либо пользователь
+*/
+bool Game::isLogin()
 {
-    QString str = name;
-    return str = pass;
+    if (player.getName() != "Player"){
+        return true;
+    }
+    else {
+        return false;
+    }
 }
-
-/*Функция получения данных пользователя из БД.
-Переменные:
-@username - логин пользователя
+/*
+ * Функция получения данных пользователя из БД.
+ * Переменные:
+ * @username - логин пользователя
 */
 QSqlQuery Game::getUserFromDB(QString username)
 {
@@ -70,7 +155,9 @@ QSqlQuery Game::getUserFromDB(QString username)
     return query;
 }
 
-/*Функция получения общей статистики из БД*/
+/*
+ * Функция получения общей статистики из БД
+*/
 QSqlQuery Game::getStats()
 {
     if (!db.isOpen())
@@ -81,7 +168,9 @@ QSqlQuery Game::getStats()
     return query;
 }
 
-/*Функция для установки соединения с БД*/
+/*
+ * Функция для установки соединения с БД
+*/
 void Game::connectDB()
 {
     if (!db.isOpen())
@@ -92,9 +181,10 @@ void Game::connectDB()
     }
 }
 
-/*Функция запуска игрового процесса
-Переменные:
-@type - тип игры
+/*
+ * Функция запуска игрового процесса
+ * Переменные:
+ * @type - тип игры
 */
 bool Game::playGame(QString type)
 {
@@ -107,10 +197,10 @@ bool Game::playGame(QString type)
     }
 }
 
-/*Функция получения названия для варианта ответа
-Переменные:
-@type - тип игры
-@id - номер кнопки
+/* Функция получения названия для варианта ответа
+ * Переменные:
+ * @type - тип игры
+ * @id - номер кнопки
 */
 QString Game::getAnswer(QString type, int id)
 {
@@ -123,9 +213,10 @@ QString Game::getAnswer(QString type, int id)
     }
 }
 
-/*Функция получения названия для правильного варианта ответа
-Переменные:
-@type - тип игры
+/*
+ * Функция получения названия для правильного варианта ответа
+ * Переменные:
+ * @type - тип игры
 */
 QString Game::getRightAnswerId(QString type)
 {
@@ -138,10 +229,11 @@ QString Game::getRightAnswerId(QString type)
     }
 }
 
-/*Функция для проверки ответа пользователя
-Переменные:
-@type - тип игры
-@id - номер кнопки ответа
+/*
+ * Функция для проверки ответа пользователя
+ * Переменные:
+ * @type - тип игры
+ * @id - номер кнопки ответа
 */
 bool Game::checkAnswerId(QString type, int id)
 {
@@ -154,9 +246,10 @@ bool Game::checkAnswerId(QString type, int id)
     }
 }
 
-/*Функция для перезапуска игры при выходе на главный экран
-Переменные:
-@type - тип игры
+/*
+ * Функция для перезапуска игры при выходе на главный экран
+ * Переменные:
+ * @type - тип игры
 */
 void Game::eraseContent(QString type)
 {
@@ -169,7 +262,9 @@ void Game::eraseContent(QString type)
     }
 }
 
-/*Функция для получения рандомной песни для фона*/
+/*
+ * Функция для получения рандомной песни для фона
+*/
 QString Game::bckgMusic()
 {
     return gameMusic.backgroundMusic();

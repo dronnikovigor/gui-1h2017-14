@@ -54,7 +54,14 @@ private slots:
 
     void on_answerButton_4_clicked();
 
+    void on_signupButton_clicked();
 
+    void on_cancelButton_2_clicked();
+
+    void on_signupButton_3_clicked();
+
+
+    void on_signupButton_2_clicked();
 
 private:
     Ui::MainWindow *ui;

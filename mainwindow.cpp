@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
     palette.setBrush(QPalette::Background, bkgnd2);
     ui->widgetLogin->setAutoFillBackground(true);
     ui->widgetLogin->setPalette(palette);
+    ui->widgetLogin_2->setAutoFillBackground(true);
+    ui->widgetLogin_2->setPalette(palette);
 
     ui->gameWidget->setCurrentWidget(ui->pageMain);
     ui->menuWidget->setCurrentWidget(ui->pageMainMenu);    
@@ -122,23 +124,8 @@ void MainWindow::on_loginButton_3_clicked()
 {
     if (ui->username->text() != "" && ui->password->text() != "")
     {
-        QSqlQuery query = game.getUserFromDB(ui->username->text());
-        QString l;
-        QString p;
-        int ms;
-        int fs;
-        QString t;
-        while (query.next()) {
-            l = query.value(0).toString();
-            p = query.value(1).toString();
-            ms = query.value(2).toInt();
-            fs = query.value(3).toInt();
-            t = query.value(4).toString();
-        }
-        if (p == ui->password->text())
+        if (game.login(ui->username->text(), ui->password->text()))
         {
-            game.login(l, ms, fs, t);
-
             ui->name->setText("<html><head/><body><p align=\"center\">"
                     "<span style=\" font-size:18pt; color:#6aaa49;\">" +
                     game.getPlayer().getName() +
@@ -163,7 +150,6 @@ void MainWindow::on_loginButton_3_clicked()
         ui->label_5->setText("<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">"
                              "Все поля должны быть заполнены!</span></p></body></html>");
     }
-
 }
 
 
@@ -211,7 +197,9 @@ void MainWindow::updatePlayScreen(QString type)
     else
     {
         if (type=="music"){
-            player -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.getRightAnswerId(type)+".mp3"));
+            player -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath() +
+                                                   "/../../gui-1h2017-14/res/music/" +
+                                                   game.getRightAnswerId(type) + ".mp3"));
             player -> setVolume(80);
             player -> setPosition(0);
             player -> play();
@@ -238,4 +226,55 @@ void MainWindow::backgroundMusic()
     player -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.bckgMusic()+".mp3"));
     player -> setVolume(30);
     player -> play();
+}
+
+void MainWindow::on_signupButton_3_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageSignup);
+}
+
+void MainWindow::on_cancelButton_2_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageMain);
+    ui->menuWidget->setCurrentWidget(ui->pageMainMenu);
+}
+
+void MainWindow::on_signupButton_clicked()
+{
+    if (ui->username_2->text() != "" && ui->password_2->text() != "")
+    {
+        if(game.signup(ui->username_2->text(), ui->password_2->text()))
+        {
+            ui->name->setText("<html><head/><body><p align=\"center\">"
+                    "<span style=\" font-size:18pt; color:#6aaa49;\">" +
+                    game.getPlayer().getName() +
+                    "</span></p></body></html>");
+
+            ui->score->setText("<html><head/><body><p align=\"center\">"
+                    "<span style=\" font-size:18pt; color:#ffffff;\">" +
+                    QString::number(game.getPlayer().getSumScore()) +
+                    "</span></p></body></html>");
+
+            ui->gameWidget->setCurrentWidget(ui->pageMain);
+            ui->menuWidget->setCurrentWidget(ui->pageGameIn);
+        }
+        else
+        {
+            ui->label_6->setText("<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">"
+                                 "Игрок с таким логином</span></p><p align=\"center\"><span style=\" color:#ffffff;\">"
+                                 "уже зарегистрирован!</span></p></body></html>");
+
+        }
+    }
+    else
+    {
+        ui->label_6->setText("<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">"
+                             "Все поля должны быть заполнены!</span></p></body></html>");
+    }
+
+}
+
+void MainWindow::on_signupButton_2_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageSignup);
 }

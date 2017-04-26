@@ -23,9 +23,10 @@ public:
     Player getPlayer() const;
     void setPlayer(const Player &value);
 
-    void login(QString name, int ms, int fs, QString t);
-    QString logout();
-    QString signin(QString name, QString pass);
+    bool login(QString name, QString pass);
+    void logout();
+    bool isLogin();
+    bool signup(QString name, QString pass);
     QSqlQuery getUserFromDB(QString username);
     QSqlQuery getStats();
 
