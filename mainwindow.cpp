@@ -218,7 +218,10 @@ void MainWindow::checkAnswer(QString type, int id)
         updatePlayScreen(type);
     }
     else
-        close();
+    {
+        player -> setVolume(30);
+        on_statButton_clicked();
+    }
 }
 
 void MainWindow::backgroundMusic()

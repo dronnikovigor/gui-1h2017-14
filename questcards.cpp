@@ -78,7 +78,7 @@ QString QuestCards::getRandomAnsName(QString type, int id)
         name_str = query.value(1).toString();
         }
 
-    return name_str;
+    return name_str.left(30);
 }
 
 QList<int> QuestCards::getRandomIdList()
