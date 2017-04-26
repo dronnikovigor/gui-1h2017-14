@@ -127,10 +127,10 @@ QString Game::getAnswer(QString type, int id)
 Переменные:
 @type - тип игры
 */
-QString Game::getRightAnswerName(QString type)
+QString Game::getRightAnswerId(QString type)
 {
     if (type == "music"){
-        return gameMusic.getNameFrDB(type);
+        return gameMusic.getRightAnswerId();
     }
     else
     {

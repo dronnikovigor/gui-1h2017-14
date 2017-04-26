@@ -18,7 +18,7 @@ public:
     ~QuestCards();
     bool getContent(QString type);
     int getNum();
-    QString getNameFrDB(QString type);
+    QString getRightAnswerId();
     void getRandomAns();
 
     QList<int> getRandomIdList();

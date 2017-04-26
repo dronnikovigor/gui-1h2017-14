@@ -9,19 +9,10 @@ QuestCards::~QuestCards()
 
 }
 
-QString QuestCards::getNameFrDB(QString type)
-{
-    QSqlQuery query("SELECT id, name FROM " + type + " WHERE id IS \"" + QString::number(answerId) + "\"");
-    usedContent.append(answerId);
-    QString id_str;
-    QString name_str;
-    while (query.next())
-        {
-        id_str = query.value(0).toString();
-        name_str = query.value(1).toString();
-        }
-
-    return name_str;
+QString QuestCards::getRightAnswerId()
+{    
+    usedContent.append(answerId);    
+    return QString::number(answerId);
 }
 
 bool QuestCards::getContent(QString type)
@@ -126,14 +117,5 @@ QString QuestCards::backgroundMusic()
 {
     QSqlQuery query("SELECT id FROM music");
     query.last();
-    query.exec("SELECT id, name FROM music WHERE id IS \"" + QString::number((qrand() % (query.at()+1))+1) + "\"");
-    QString id_str;
-    QString name_str;
-    while (query.next())
-        {
-        id_str = query.value(0).toString();
-        name_str = query.value(1).toString();
-        }
-
-    return name_str;
+    return QString::number((qrand() % (query.at()+1))+1);
 }

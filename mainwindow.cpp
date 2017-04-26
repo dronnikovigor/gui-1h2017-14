@@ -211,7 +211,7 @@ void MainWindow::updatePlayScreen(QString type)
     else
     {
         if (type=="music"){
-            player -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.getRightAnswerName(type)+".mp3"));
+            player -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.getRightAnswerId(type)+".mp3"));
             player -> setVolume(80);
             player -> setPosition(0);
             player -> play();

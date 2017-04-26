@@ -34,7 +34,7 @@ public:
     bool playGame(QString type);
 
     QString getAnswer(QString type, int id);
-    QString getRightAnswerName(QString type);    
+    QString getRightAnswerId(QString type);
     bool checkAnswerId(QString type, int id);
     void eraseContent(QString type);
 
