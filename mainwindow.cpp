@@ -19,9 +19,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widgetLogin->setPalette(palette);
     ui->widgetLogin_2->setAutoFillBackground(true);
     ui->widgetLogin_2->setPalette(palette);
+    ui->widgetCreators->setAutoFillBackground(true);
+    ui->widgetCreators->setPalette(palette);
+
+    setNameAndScore();
 
     ui->gameWidget->setCurrentWidget(ui->pageMain);
-    ui->menuWidget->setCurrentWidget(ui->pageMainMenu);    
+    ui->menuWidget->setCurrentWidget(ui->pageMenuLogout);
 
     player = new QMediaPlayer;
     backgroundMusic();
@@ -35,7 +39,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_playMusic_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageMusic);
-    ui->menuWidget->setCurrentWidget(ui->pageGameIn);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 
     game.eraseContent("music");
 
@@ -45,19 +49,7 @@ void MainWindow::on_playMusic_clicked()
 void MainWindow::on_playFilm_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageFilm);
-    ui->menuWidget->setCurrentWidget(ui->pageGameIn);
-}
-
-
-void MainWindow::on_exitButton_clicked()
-{
-    close();
-}
-
-void MainWindow::on_mainpageButton_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageMain);
-    ui->menuWidget->setCurrentWidget(ui->pageMainMenu);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 }
 
 void MainWindow::on_exitButton_2_clicked()
@@ -65,10 +57,26 @@ void MainWindow::on_exitButton_2_clicked()
     close();
 }
 
+void MainWindow::on_exitButton_3_clicked()
+{
+    close();
+}
+
+void MainWindow::on_mainpageButton_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageMain);
+    if(game.isLogin()){
+        ui->menuWidget->setCurrentWidget(ui->pageMenuLogin);
+    }
+    else{
+        ui->menuWidget->setCurrentWidget(ui->pageMenuLogout);
+    }
+}
+
 void MainWindow::on_statButton_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageStats);
-    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 
     statsOut();
 }
@@ -76,19 +84,17 @@ void MainWindow::on_statButton_clicked()
 void MainWindow::on_statButton_2_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageStats);
-    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 
     statsOut();
 }
 
-void MainWindow::on_loginButton_clicked()
+void MainWindow::on_statButton_3_clicked()
 {
-    ui->gameWidget->setCurrentWidget(ui->pageLogin);
-}
+    ui->gameWidget->setCurrentWidget(ui->pageStats);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 
-void MainWindow::on_loginButton_2_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageLogin);
+    statsOut();
 }
 
 void MainWindow::statsOut()
@@ -114,10 +120,16 @@ void MainWindow::statsOut()
     ui->statBrowser->insertHtml(html);
 }
 
+void MainWindow::on_loginButton_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageLogin);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+}
+
 void MainWindow::on_cancelButton_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageMain);
-    ui->menuWidget->setCurrentWidget(ui->pageMainMenu);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuLogout);
 }
 
 void MainWindow::on_loginButton_3_clicked()
@@ -126,18 +138,10 @@ void MainWindow::on_loginButton_3_clicked()
     {
         if (game.login(ui->username->text(), ui->password->text()))
         {
-            ui->name->setText("<html><head/><body><p align=\"center\">"
-                    "<span style=\" font-size:18pt; color:#6aaa49;\">" +
-                    game.getPlayer().getName() +
-                    "</span></p></body></html>");
-
-            ui->score->setText("<html><head/><body><p align=\"center\">"
-                    "<span style=\" font-size:18pt; color:#ffffff;\">" +
-                    QString::number(game.getPlayer().getSumScore()) +
-                    "</span></p></body></html>");
+            setNameAndScore();
 
             ui->gameWidget->setCurrentWidget(ui->pageMain);
-            ui->menuWidget->setCurrentWidget(ui->pageGameIn);
+            ui->menuWidget->setCurrentWidget(ui->pageMenuLogin);
         }
         else
         {
@@ -150,21 +154,6 @@ void MainWindow::on_loginButton_3_clicked()
         ui->label_5->setText("<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">"
                              "Все поля должны быть заполнены!</span></p></body></html>");
     }
-}
-
-
-
-void MainWindow::on_exitButton_3_clicked()
-{
-    close();
-}
-
-void MainWindow::on_statButton_3_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageStats);
-    ui->menuWidget->setCurrentWidget(ui->pageGameOut);
-
-    statsOut();
 }
 
 void MainWindow::on_answerButton_1_clicked()
@@ -231,15 +220,37 @@ void MainWindow::backgroundMusic()
     player -> play();
 }
 
-void MainWindow::on_signupButton_3_clicked()
+void MainWindow::setNameAndScore()
+{
+    ui->name->setText("<html><head/><body><p align=\"center\">"
+            "<span style=\" font-size:18pt; color:#6aaa49;\">" +
+            game.getPlayer().getName() +
+            "</span></p></body></html>");
+    ui->name_2->setText("<html><head/><body><p align=\"center\">"
+            "<span style=\" font-size:18pt; color:#6aaa49;\">" +
+            game.getPlayer().getName() +
+            "</span></p></body></html>");
+
+    ui->score->setText("<html><head/><body><p align=\"center\">"
+            "<span style=\" font-size:18pt; color:#ffffff;\">" +
+            QString::number(game.getPlayer().getSumScore()) +
+            "</span></p></body></html>");
+    ui->score_2->setText("<html><head/><body><p align=\"center\">"
+            "<span style=\" font-size:18pt; color:#ffffff;\">" +
+            QString::number(game.getPlayer().getSumScore()) +
+            "</span></p></body></html>");
+}
+
+void MainWindow::on_signupButton_2_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageSignup);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 }
 
 void MainWindow::on_cancelButton_2_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageMain);
-    ui->menuWidget->setCurrentWidget(ui->pageMainMenu);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuLogout);
 }
 
 void MainWindow::on_signupButton_clicked()
@@ -248,18 +259,10 @@ void MainWindow::on_signupButton_clicked()
     {
         if(game.signup(ui->username_2->text(), ui->password_2->text()))
         {
-            ui->name->setText("<html><head/><body><p align=\"center\">"
-                    "<span style=\" font-size:18pt; color:#6aaa49;\">" +
-                    game.getPlayer().getName() +
-                    "</span></p></body></html>");
-
-            ui->score->setText("<html><head/><body><p align=\"center\">"
-                    "<span style=\" font-size:18pt; color:#ffffff;\">" +
-                    QString::number(game.getPlayer().getSumScore()) +
-                    "</span></p></body></html>");
+            setNameAndScore();
 
             ui->gameWidget->setCurrentWidget(ui->pageMain);
-            ui->menuWidget->setCurrentWidget(ui->pageGameIn);
+            ui->menuWidget->setCurrentWidget(ui->pageMenuLogin);
         }
         else
         {
@@ -277,7 +280,14 @@ void MainWindow::on_signupButton_clicked()
 
 }
 
-void MainWindow::on_signupButton_2_clicked()
+void MainWindow::on_creatorsButton_clicked()
 {
-    ui->gameWidget->setCurrentWidget(ui->pageSignup);
+    ui->gameWidget->setCurrentWidget(ui->pageCreators);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+}
+
+void MainWindow::on_creatorsButton_2_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageCreators);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 }
