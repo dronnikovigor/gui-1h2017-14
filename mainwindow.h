@@ -79,7 +79,7 @@ private:
     Ui::MainWindow *ui;
 
     Game game;
-    QMediaPlayer * player;
+    QMediaPlayer * mediaPlayer;
     int bkgdMusicValue = 20;
     int musicPlayerValue = 80;
 

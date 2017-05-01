@@ -21,13 +21,12 @@ public:
     QString getRightAnswerId();
     void getRandomAns();
 
-    QList<int> getRandomIdList();
     QString getRandomAnsName(QString type, int id);
 
-    bool answerCheck(int id);
+    bool checkAnswer(int id);
     void erase();
 
-    bool checkN(QString type);
+    bool checkUsedSize(QString type);
     QString backgroundMusic();
 };
 

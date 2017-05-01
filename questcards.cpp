@@ -10,15 +10,15 @@ QuestCards::~QuestCards()
 }
 
 QString QuestCards::getRightAnswerId()
-{    
-    usedContent.append(answerId);    
+{
     return QString::number(answerId);
 }
 
 bool QuestCards::getContent(QString type)
 {
-    if (checkN(type)){
+    if (checkUsedSize(type)){
         answerId = getNum();
+        usedContent.append(answerId);
         getRandomAns();
         randomId.insert(qrand()%4, answerId);
         return true;
@@ -81,11 +81,6 @@ QString QuestCards::getRandomAnsName(QString type, int id)
     return name_str.left(30);
 }
 
-QList<int> QuestCards::getRandomIdList()
-{
-    return randomId;
-}
-
 void QuestCards::erase()
 {
     usedContent.clear();
@@ -95,7 +90,7 @@ void QuestCards::erase()
 }
 
 
-bool QuestCards::answerCheck(int id)
+bool QuestCards::checkAnswer(int id)
 {
     if (randomId.at(id) == answerId)
         return true;
@@ -103,7 +98,7 @@ bool QuestCards::answerCheck(int id)
         return false;
 }
 
-bool QuestCards::checkN(QString type)
+bool QuestCards::checkUsedSize(QString type)
 {
     QSqlQuery query("SELECT id FROM " + type);
     query.last();

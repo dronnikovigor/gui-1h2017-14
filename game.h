@@ -39,7 +39,7 @@ public:
     bool checkAnswerId(QString type, int id);
     void eraseContent(QString type);
 
-    QString bckgMusic();
+    QString playBkgdMusic();
 };
 
 #endif // GAME_H

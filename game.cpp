@@ -32,7 +32,7 @@ Player Game::getPlayer() const
 /*
  * Функция изменяет текущего игрока
  * Переменные:
- * @vslue - новый игрок
+ * @value - новый игрок
 */
 void Game::setPlayer(const Player &value)
 {
@@ -238,7 +238,7 @@ QString Game::getRightAnswerId(QString type)
 bool Game::checkAnswerId(QString type, int id)
 {
     if (type == "music"){
-        return gameMusic.answerCheck(id);
+        return gameMusic.checkAnswer(id);
     }
     else
     {
@@ -265,7 +265,7 @@ void Game::eraseContent(QString type)
 /*
  * Функция для получения рандомной песни для фона
 */
-QString Game::bckgMusic()
+QString Game::playBkgdMusic()
 {
     return gameMusic.backgroundMusic();
 }

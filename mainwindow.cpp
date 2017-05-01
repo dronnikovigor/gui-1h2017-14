@@ -29,7 +29,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->gameWidget->setCurrentWidget(ui->pageMain);
     ui->menuWidget->setCurrentWidget(ui->pageMenuLogout);
 
-    player = new QMediaPlayer;
+    mediaPlayer = new QMediaPlayer;
     backgroundMusic();
 }
 
@@ -66,7 +66,7 @@ void MainWindow::on_exitButton_3_clicked()
 
 void MainWindow::on_mainpageButton_clicked()
 {
-    player->setVolume(bkgdMusicValue);
+    mediaPlayer->setVolume(bkgdMusicValue);
     ui->gameWidget->setCurrentWidget(ui->pageMain);
     if(game.isLogin()){
         ui->menuWidget->setCurrentWidget(ui->pageMenuLogin);
@@ -78,7 +78,7 @@ void MainWindow::on_mainpageButton_clicked()
 
 void MainWindow::on_statButton_clicked()
 {
-    player->setVolume(bkgdMusicValue);
+    mediaPlayer->setVolume(bkgdMusicValue);
     ui->gameWidget->setCurrentWidget(ui->pageStats);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 
@@ -189,12 +189,12 @@ void MainWindow::updatePlayScreen(QString type)
     else
     {
         if (type=="music"){
-            player -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath() +
+            mediaPlayer -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath() +
                                                    "/../../gui-1h2017-14/res/music/" +
                                                    game.getRightAnswerId(type) + ".mp3"));
-            player -> setVolume(musicPlayerValue);
-            player -> setPosition(0);
-            player -> play();
+            mediaPlayer -> setVolume(musicPlayerValue);
+            mediaPlayer -> setPosition(0);
+            mediaPlayer -> play();
         }
 
         ui->answerButton_1->setText(game.getAnswer(type, 1));
@@ -211,16 +211,16 @@ void MainWindow::checkAnswer(QString type, int id)
     }
     else
     {
-        player -> setVolume(bkgdMusicValue);
+        mediaPlayer -> setVolume(bkgdMusicValue);
         on_statButton_clicked();
     }
 }
 
 void MainWindow::backgroundMusic()
 {
-    player -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.bckgMusic()+".mp3"));
-    player -> setVolume(bkgdMusicValue);
-    player -> play();
+    mediaPlayer -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.playBkgdMusic()+".mp3"));
+    mediaPlayer -> setVolume(bkgdMusicValue);
+    mediaPlayer -> play();
 }
 
 void MainWindow::setNameAndScore()
@@ -311,7 +311,7 @@ void MainWindow::on_settingsButton_2_clicked()
 void MainWindow::on_bkgdMusicVolumeSlider_valueChanged(int value)
 {
     bkgdMusicValue = value;
-    player->setVolume(bkgdMusicValue);
+    mediaPlayer->setVolume(bkgdMusicValue);
 }
 
 void MainWindow::on_musicPlayerVolumeSlider_valueChanged(int value)
