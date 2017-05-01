@@ -91,6 +91,7 @@ void MainWindow::on_mainpageButton_clicked()
 
 void MainWindow::on_statButton_clicked()
 {
+    ui->statsLabel->setText("Статистика");
     mediaPlayer->setVolume(bkgdMusicValue);
     ui->gameWidget->setCurrentWidget(ui->pageStats);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
@@ -100,6 +101,7 @@ void MainWindow::on_statButton_clicked()
 
 void MainWindow::on_statButton_2_clicked()
 {
+    ui->statsLabel->setText("Статистика");
     ui->gameWidget->setCurrentWidget(ui->pageStats);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 
@@ -108,6 +110,7 @@ void MainWindow::on_statButton_2_clicked()
 
 void MainWindow::on_statButton_3_clicked()
 {
+    ui->statsLabel->setText("Статистика");
     ui->gameWidget->setCurrentWidget(ui->pageStats);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 
@@ -181,7 +184,6 @@ void MainWindow::on_answerButton_1_clicked()
     checkAnswer("music", 1);
 }
 
-
 void MainWindow::on_answerButton_2_clicked()
 {
     checkAnswer("music", 2);
@@ -216,8 +218,6 @@ void MainWindow::on_answerButton_8_clicked()
 {
     checkAnswer("films", 4);
 }
-
-
 
 void MainWindow::on_signupButton_2_clicked()
 {
@@ -365,6 +365,7 @@ void MainWindow::checkAnswer(QString type, int id)
 
 void MainWindow::backgroundMusic()
 {
+    mediaPlaylist->clear();
     for (int i = 0; i <= 60; i++)
         mediaPlaylist->addMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.playBkgdMusic()+".mp3"));
     mediaPlayer->setPlaylist(mediaPlaylist);
@@ -416,8 +417,9 @@ void MainWindow::howtoOut()
 
 void MainWindow::playerLose(QString message)
 {
-    mediaPlayer->setVolume(bkgdMusicValue);
+    backgroundMusic();
     on_statButton_clicked();
+    ui->statsLabel->setText(message);
     tmr->stop();
 }
 

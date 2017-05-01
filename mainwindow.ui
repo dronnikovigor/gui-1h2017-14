@@ -64,7 +64,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>4</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="pageLogin">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -1628,6 +1628,27 @@ background-image: url(:/images/res/button.png);</string>
            </spacer>
           </item>
           <item>
+           <widget class="QLabel" name="statsLabel">
+            <property name="font">
+             <font>
+              <family>Comic Sans MS</family>
+              <pointsize>20</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);</string>
+            </property>
+            <property name="text">
+             <string>Статистика</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QTextBrowser" name="statBrowser">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -2387,7 +2408,7 @@ font: 17pt &quot;Comic Sans MS&quot;;</string>
                <string notr="true">color: rgb(106, 170, 73);</string>
               </property>
               <property name="text">
-               <string>Count</string>
+               <string>0</string>
               </property>
               <property name="alignment">
                <set>Qt::AlignCenter</set>
