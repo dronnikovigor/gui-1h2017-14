@@ -1810,6 +1810,7 @@ p, li { white-space: pre-wrap; }
               </widget>
              </item>
              <item row="4" column="3">
+              <widget class="QSlider" name="bkgdMusicVolumeSlider">
                <property name="minimumSize">
                 <size>
                  <width>200</width>
@@ -1852,6 +1853,7 @@ p, li { white-space: pre-wrap; }
               </spacer>
              </item>
              <item row="5" column="3">
+              <widget class="QSlider" name="musicPlayerVolumeSlider">
                <property name="minimumSize">
                 <size>
                  <width>200</width>

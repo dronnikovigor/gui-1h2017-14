@@ -64,6 +64,7 @@ void MainWindow::on_exitButton_3_clicked()
 
 void MainWindow::on_mainpageButton_clicked()
 {
+    player->setVolume(bkgdMusicValue);
     ui->gameWidget->setCurrentWidget(ui->pageMain);
     if(game.isLogin()){
         ui->menuWidget->setCurrentWidget(ui->pageMenuLogin);
