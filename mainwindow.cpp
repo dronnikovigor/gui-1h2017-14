@@ -76,6 +76,7 @@ void MainWindow::on_mainpageButton_clicked()
 
 void MainWindow::on_statButton_clicked()
 {
+    player->setVolume(bkgdMusicValue);
     ui->gameWidget->setCurrentWidget(ui->pageStats);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 
@@ -99,8 +100,7 @@ void MainWindow::on_statButton_3_clicked()
 }
 
 void MainWindow::statsOut()
-{    
-    player -> setVolume(bkgdMusicValue);
+{
     ui->statBrowser->clear();
     QSqlQuery query = game.getStats();
 
@@ -308,5 +308,4 @@ void MainWindow::on_bkgdMusicVolumeSlider_valueChanged(int value)
 void MainWindow::on_musicPlayerVolumeSlider_valueChanged(int value)
 {
     musicPlayerValue = value;
-    player->setVolume(musicPlayerValue);
 }
