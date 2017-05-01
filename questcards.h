@@ -24,6 +24,7 @@ public:
 
     int getNum();
     QString getRightAnswerId();
+    QString getUsedSize();
     void getRandomAns();
 
     bool checkAnswer(int id);

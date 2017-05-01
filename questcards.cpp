@@ -14,6 +14,11 @@ QString QuestCards::getRightAnswerId()
     return QString::number(answerId);
 }
 
+QString QuestCards::getUsedSize()
+{
+    return QString::number(usedContent.size()-1);
+}
+
 int QuestCards::getNum()
 {
     int randomId = qrand() % N +1;

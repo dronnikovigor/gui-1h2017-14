@@ -232,6 +232,22 @@ QString Game::getRightAnswerId(QString type)
 }
 
 /*
+ * Функция получения количества угаданных вопросоы
+ * Переменные:
+ * @type - тип игры
+*/
+QString Game::getRightAnswerCount(QString type)
+{
+    if (type == "music"){
+        return questCards[0]->getUsedSize();
+    }
+    else
+    {
+        return 0;
+    }
+}
+
+/*
  * Функция для проверки ответа пользователя
  * Переменные:
  * @type - тип игры
