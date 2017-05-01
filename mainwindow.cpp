@@ -41,15 +41,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
-
     delete tmr;
-}
-
-void MainWindow::updateTimer()
-{
-    ui->timerLabel->setText(QString::number(++seconds));
-    if (seconds == 60)
-        playerLose("Закончилось время!");
 }
 
 void MainWindow::on_playMusic_clicked()
@@ -117,29 +109,6 @@ void MainWindow::on_statButton_3_clicked()
     statsOut();
 }
 
-void MainWindow::statsOut()
-{
-    ui->statBrowser->clear();
-    QSqlQuery query = game.getStats();
-
-    QString html;
-    html = "<table width=\"490\"><tr><td style=\"padding: 10px 0px 0px 10px\"><b>Имя игрока</b></td><td style=\"padding: 10px 0px 0px 5px\"><b>Музыка</b></td>"
-           "<td style=\"padding: 10px 0px 0px 5px\"><b>Фильмы</b></td><td style=\"padding: 10px 0px 0px 5px\"><b>Всего</b></td></tr>";
-
-    while (query.next())
-        {
-        QString login = query.value(0).toString();
-        QString music_score = query.value(1).toString();
-        QString film_score = query.value(2).toString();
-        int total = music_score.toInt() + film_score.toInt();
-        html += "<tr><td style=\"padding: 5px 0px 0px 10px\">" + login + "</td><td style=\"padding: 5px 0px 0px 5px\">" +
-                music_score + "</td><td style=\"padding: 5px 0px 0px 5px\">" +
-                film_score + "</td><td style=\"padding: 5px 0px 0px 5px\">" + QString::number(total) + "</td></tr>";
-        }
-    html += "</table>";
-    ui->statBrowser->insertHtml(html);
-}
-
 void MainWindow::on_loginButton_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageLogin);
@@ -176,6 +145,32 @@ void MainWindow::on_loginButton_3_clicked()
     }
 }
 
+void MainWindow::on_signupButton_clicked()
+{
+    if (ui->username_2->text() != "" && ui->password_2->text() != "")
+    {
+        if(game.signup(ui->username_2->text(), ui->password_2->text()))
+        {
+            setNameAndScore();
+
+            ui->gameWidget->setCurrentWidget(ui->pageMain);
+            ui->menuWidget->setCurrentWidget(ui->pageMenuLogin);
+        }
+        else
+        {
+            ui->label_6->setText("<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">"
+                                 "Игрок с таким логином</span></p><p align=\"center\"><span style=\" color:#ffffff;\">"
+                                 "уже зарегистрирован!</span></p></body></html>");
+
+        }
+    }
+    else
+    {
+        ui->label_6->setText("<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">"
+                             "Все поля должны быть заполнены!</span></p></body></html>");
+    }
+}
+
 void MainWindow::on_answerButton_1_clicked()
 {
     checkAnswer("music", 1);
@@ -195,6 +190,101 @@ void MainWindow::on_answerButton_3_clicked()
 void MainWindow::on_answerButton_4_clicked()
 {
     checkAnswer("music", 4);
+}
+
+void MainWindow::on_signupButton_2_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageSignup);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+}
+
+void MainWindow::on_cancelButton_2_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageMain);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuLogout);
+}
+
+void MainWindow::on_creatorsButton_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageCreators);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+}
+
+void MainWindow::on_creatorsButton_2_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageCreators);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+}
+
+void MainWindow::on_settingsButton_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageSettings);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+}
+
+
+void MainWindow::on_settingsButton_2_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageSettings);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+}
+
+void MainWindow::on_bkgdMusicVolumeSlider_valueChanged(int value)
+{
+    bkgdMusicValue = value;
+    mediaPlayer->setVolume(bkgdMusicValue);
+}
+
+void MainWindow::on_musicPlayerVolumeSlider_valueChanged(int value)
+{
+    musicPlayerValue = value;
+}
+
+void MainWindow::on_rulesButton_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageHelp);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+
+    howtoOut();
+}
+
+void MainWindow::on_rulesButton_2_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageHelp);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+
+    howtoOut();
+}
+
+void MainWindow::on_rulesButton_3_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageHelp);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+
+    howtoOut();
+}
+
+void MainWindow::statsOut()
+{
+    ui->statBrowser->clear();
+    QSqlQuery query = game.getStats();
+
+    QString html;
+    html = "<table width=\"490\"><tr><td style=\"padding: 10px 0px 0px 10px\"><b>Имя игрока</b></td><td style=\"padding: 10px 0px 0px 5px\"><b>Музыка</b></td>"
+           "<td style=\"padding: 10px 0px 0px 5px\"><b>Фильмы</b></td><td style=\"padding: 10px 0px 0px 5px\"><b>Всего</b></td></tr>";
+
+    while (query.next())
+        {
+        QString login = query.value(0).toString();
+        QString music_score = query.value(1).toString();
+        QString film_score = query.value(2).toString();
+        int total = music_score.toInt() + film_score.toInt();
+        html += "<tr><td style=\"padding: 5px 0px 0px 10px\">" + login + "</td><td style=\"padding: 5px 0px 0px 5px\">" +
+                music_score + "</td><td style=\"padding: 5px 0px 0px 5px\">" +
+                film_score + "</td><td style=\"padding: 5px 0px 0px 5px\">" + QString::number(total) + "</td></tr>";
+        }
+    html += "</table>";
+    ui->statBrowser->insertHtml(html);
 }
 
 void MainWindow::updatePlayScreen(QString type)
@@ -260,103 +350,11 @@ void MainWindow::setNameAndScore()
             "</span></p></body></html>");
 }
 
-void MainWindow::on_signupButton_2_clicked()
+void MainWindow::updateTimer()
 {
-    ui->gameWidget->setCurrentWidget(ui->pageSignup);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
-}
-
-void MainWindow::on_cancelButton_2_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageMain);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuLogout);
-}
-
-void MainWindow::on_signupButton_clicked()
-{
-    if (ui->username_2->text() != "" && ui->password_2->text() != "")
-    {
-        if(game.signup(ui->username_2->text(), ui->password_2->text()))
-        {
-            setNameAndScore();
-
-            ui->gameWidget->setCurrentWidget(ui->pageMain);
-            ui->menuWidget->setCurrentWidget(ui->pageMenuLogin);
-        }
-        else
-        {
-            ui->label_6->setText("<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">"
-                                 "Игрок с таким логином</span></p><p align=\"center\"><span style=\" color:#ffffff;\">"
-                                 "уже зарегистрирован!</span></p></body></html>");
-
-        }
-    }
-    else
-    {
-        ui->label_6->setText("<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">"
-                             "Все поля должны быть заполнены!</span></p></body></html>");
-    }
-
-}
-
-void MainWindow::on_creatorsButton_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageCreators);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
-}
-
-void MainWindow::on_creatorsButton_2_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageCreators);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
-}
-
-void MainWindow::on_settingsButton_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageSettings);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
-}
-
-
-void MainWindow::on_settingsButton_2_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageSettings);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
-}
-
-void MainWindow::on_bkgdMusicVolumeSlider_valueChanged(int value)
-{
-    bkgdMusicValue = value;
-    mediaPlayer->setVolume(bkgdMusicValue);
-}
-
-void MainWindow::on_musicPlayerVolumeSlider_valueChanged(int value)
-{
-    musicPlayerValue = value;
-}
-
-void MainWindow::on_rulesButton_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageHelp);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
-
-    howtoOut();
-}
-
-void MainWindow::on_rulesButton_2_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageHelp);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
-
-    howtoOut();
-}
-
-void MainWindow::on_rulesButton_3_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageHelp);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
-
-    howtoOut();
+    ui->timerLabel->setText(QString::number(++seconds));
+    if (seconds == 60)
+        playerLose("Закончилось время!");
 }
 
 void MainWindow::howtoOut()
