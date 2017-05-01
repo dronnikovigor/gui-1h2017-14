@@ -6,6 +6,7 @@
 #include <game.h>
 #include <QtMultimedia/QMediaPlayer>
 #include <QtMultimedia/qmediaplayer.h>
+#include <QFile>
 
 namespace Ui {
 class MainWindow;
@@ -66,6 +67,14 @@ private slots:
 
     void on_musicPlayerVolumeSlider_valueChanged(int value);
 
+    void on_rulesButton_clicked();
+
+    void on_rulesButton_2_clicked();
+
+    void on_rulesButton_3_clicked();
+
+    void on_settingsButton_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -75,6 +84,7 @@ private:
     int musicPlayerValue = 80;
 
     void statsOut();
+    void howtoOut();
     void updatePlayScreen(QString type);
     void checkAnswer(QString type, int id);
     void backgroundMusic();

@@ -19,6 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widgetLogin->setPalette(palette);
     ui->widgetLogin_2->setAutoFillBackground(true);
     ui->widgetLogin_2->setPalette(palette);
+    ui->widgetCreators->setAutoFillBackground(true);
+    ui->widgetCreators->setPalette(palette);
     ui->widgetSettings->setAutoFillBackground(true);
     ui->widgetSettings->setPalette(palette);
 
@@ -299,6 +301,13 @@ void MainWindow::on_settingsButton_clicked()
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 }
 
+
+void MainWindow::on_settingsButton_2_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageSettings);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+}
+
 void MainWindow::on_bkgdMusicVolumeSlider_valueChanged(int value)
 {
     bkgdMusicValue = value;
@@ -309,3 +318,42 @@ void MainWindow::on_musicPlayerVolumeSlider_valueChanged(int value)
 {
     musicPlayerValue = value;
 }
+
+void MainWindow::on_rulesButton_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageHelp);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+
+    howtoOut();
+}
+
+void MainWindow::on_rulesButton_2_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageHelp);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+
+    howtoOut();
+}
+
+void MainWindow::on_rulesButton_3_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageHelp);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+
+    howtoOut();
+}
+
+void MainWindow::howtoOut()
+{
+    ui->howtoBrowser->clear();
+    QFile file(":/text/res/how_to_play.txt");
+    if (!file.open(QIODevice::ReadOnly))
+        return;
+    else
+    {
+         QString html;
+         html = "<p style=\"margin: 30px 20px 20px 20px;\">"+ QString::fromUtf8(file.readAll())+"</p>";
+         ui->howtoBrowser->insertHtml(html);
+    }
+}
+

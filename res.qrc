@@ -9,4 +9,7 @@
         <file>res/button.png</file>
         <file>res/background_login.png</file>
     </qresource>
+    <qresource prefix="/text">
+        <file>res/how_to_play.txt</file>
+    </qresource>
 </RCC>
