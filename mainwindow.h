@@ -60,11 +60,19 @@ private slots:
 
     void on_creatorsButton_2_clicked();
 
+    void on_settingsButton_clicked();
+
+    void on_bkgdMusicVolumeSlider_valueChanged(int value);
+
+    void on_musicPlayerVolumeSlider_valueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
 
     Game game;
     QMediaPlayer * player;
+    int bkgdMusicValue = 20;
+    int musicPlayerValue = 80;
 
     void statsOut();
     void updatePlayScreen(QString type);

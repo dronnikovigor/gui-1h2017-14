@@ -19,6 +19,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widgetLogin->setPalette(palette);
     ui->widgetLogin_2->setAutoFillBackground(true);
     ui->widgetLogin_2->setPalette(palette);
+    ui->widgetSettings->setAutoFillBackground(true);
+    ui->widgetSettings->setPalette(palette);
 
     setNameAndScore();
 
@@ -97,7 +99,7 @@ void MainWindow::on_statButton_3_clicked()
 
 void MainWindow::statsOut()
 {    
-    player -> setVolume(30);
+    player -> setVolume(bkgdMusicValue);
     ui->statBrowser->clear();
     QSqlQuery query = game.getStats();
 
@@ -179,7 +181,6 @@ void MainWindow::on_answerButton_4_clicked()
 void MainWindow::updatePlayScreen(QString type)
 {
     if(!game.playGame(type)){
-        player -> setVolume(30);
         on_statButton_clicked();
     }
     else
@@ -188,7 +189,7 @@ void MainWindow::updatePlayScreen(QString type)
             player -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath() +
                                                    "/../../gui-1h2017-14/res/music/" +
                                                    game.getRightAnswerId(type) + ".mp3"));
-            player -> setVolume(80);
+            player -> setVolume(musicPlayerValue);
             player -> setPosition(0);
             player -> play();
         }
@@ -207,7 +208,7 @@ void MainWindow::checkAnswer(QString type, int id)
     }
     else
     {
-        player -> setVolume(30);
+        player -> setVolume(bkgdMusicValue);
         on_statButton_clicked();
     }
 }
@@ -215,7 +216,7 @@ void MainWindow::checkAnswer(QString type, int id)
 void MainWindow::backgroundMusic()
 {
     player -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.bckgMusic()+".mp3"));
-    player -> setVolume(30);
+    player -> setVolume(bkgdMusicValue);
     player -> play();
 }
 
@@ -289,4 +290,22 @@ void MainWindow::on_creatorsButton_2_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageCreators);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+}
+
+void MainWindow::on_settingsButton_clicked()
+{
+    ui->gameWidget->setCurrentWidget(ui->pageSettings);
+    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+}
+
+void MainWindow::on_bkgdMusicVolumeSlider_valueChanged(int value)
+{
+    bkgdMusicValue = value;
+    player->setVolume(bkgdMusicValue);
+}
+
+void MainWindow::on_musicPlayerVolumeSlider_valueChanged(int value)
+{
+    musicPlayerValue = value;
+    player->setVolume(musicPlayerValue);
 }
