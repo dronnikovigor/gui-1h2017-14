@@ -13,7 +13,7 @@ class Game
 {
 private:
     Player player;
-    Music gameMusic;
+    QuestCards *questCards[2];
     QSqlDatabase db;
 
 public:

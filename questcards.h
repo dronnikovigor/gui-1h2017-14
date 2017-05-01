@@ -8,25 +8,27 @@
 
 class QuestCards
 {
-private:
+protected:
     QList <int> usedContent;
-    int answerId;
     QList <int> randomId;
+    int answerId;
     int N;
+    QString type;
+
 public:
     QuestCards();
-    ~QuestCards();
-    bool getContent(QString type);
+    virtual QString getRandomAnsName(int id) = 0;
+    virtual ~QuestCards() = 0;
+    virtual bool getContent() = 0;
+    virtual bool checkUsedSize() = 0;
+
     int getNum();
     QString getRightAnswerId();
     void getRandomAns();
 
-    QString getRandomAnsName(QString type, int id);
-
     bool checkAnswer(int id);
     void erase();
 
-    bool checkUsedSize(QString type);
     QString backgroundMusic();
 };
 

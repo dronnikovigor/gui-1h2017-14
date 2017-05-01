@@ -5,11 +5,12 @@
 
 class Music : public QuestCards
 {
-private:
-    const QString type = "music";
 public:
     Music();
     bool play();
+    bool getContent();
+    QString getRandomAnsName(int id);
+    bool checkUsedSize();
 };
 
 #endif // MUSIC_H

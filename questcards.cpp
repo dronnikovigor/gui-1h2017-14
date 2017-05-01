@@ -14,19 +14,6 @@ QString QuestCards::getRightAnswerId()
     return QString::number(answerId);
 }
 
-bool QuestCards::getContent(QString type)
-{
-    if (checkUsedSize(type)){
-        answerId = getNum();
-        usedContent.append(answerId);
-        getRandomAns();
-        randomId.insert(qrand()%4, answerId);
-        return true;
-    }
-    else
-        return false;
-}
-
 int QuestCards::getNum()
 {
     int randomId = qrand() % N +1;
@@ -67,20 +54,6 @@ void QuestCards::getRandomAns()
     }
 }
 
-QString QuestCards::getRandomAnsName(QString type, int id)
-{
-    QSqlQuery query("SELECT id, name FROM " + type + " WHERE id IS \"" + QString::number(randomId.at(id)) + "\"");
-    QString id_str;
-    QString name_str;
-    while (query.next())
-        {
-        id_str = query.value(0).toString();
-        name_str = query.value(1).toString();
-        }
-
-    return name_str.left(30);
-}
-
 void QuestCards::erase()
 {
     usedContent.clear();
@@ -96,16 +69,6 @@ bool QuestCards::checkAnswer(int id)
         return true;
     else
         return false;
-}
-
-bool QuestCards::checkUsedSize(QString type)
-{
-    QSqlQuery query("SELECT id FROM " + type);
-    query.last();
-    N = query.at() + 1;
-    if (N == usedContent.size())
-        return false;
-    return true;
 }
 
 QString QuestCards::backgroundMusic()

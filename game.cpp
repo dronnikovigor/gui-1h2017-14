@@ -9,7 +9,9 @@ Game::Game()
         connectDB();
 
     QTime midnight(0,0,0);
-    qsrand(midnight.secsTo(QTime::currentTime()));
+    qsrand(midnight.secsTo(QTime::currentTime()));    
+
+    questCards[0] = new Music();
 }
 
 /*
@@ -189,11 +191,11 @@ void Game::connectDB()
 bool Game::playGame(QString type)
 {
     if (type == "music"){
-        return gameMusic.play();
+        return questCards[0]->getContent();
     }
     else
     {
-        return gameMusic.play();
+        //return gameMusic.play();
     }
 }
 
@@ -205,7 +207,7 @@ bool Game::playGame(QString type)
 QString Game::getAnswer(QString type, int id)
 {
     if (type == "music"){
-        return gameMusic.getRandomAnsName(type, id-1);
+        return questCards[0]->getRandomAnsName(id-1);
     }
     else
     {
@@ -221,7 +223,7 @@ QString Game::getAnswer(QString type, int id)
 QString Game::getRightAnswerId(QString type)
 {
     if (type == "music"){
-        return gameMusic.getRightAnswerId();
+        return questCards[0]->getRightAnswerId();
     }
     else
     {
@@ -238,7 +240,7 @@ QString Game::getRightAnswerId(QString type)
 bool Game::checkAnswerId(QString type, int id)
 {
     if (type == "music"){
-        return gameMusic.checkAnswer(id);
+        return questCards[0]->checkAnswer(id);
     }
     else
     {
@@ -254,7 +256,7 @@ bool Game::checkAnswerId(QString type, int id)
 void Game::eraseContent(QString type)
 {
     if (type == "music"){
-        gameMusic.erase();
+        questCards[0]->erase();
     }
     else
     {
@@ -267,5 +269,5 @@ void Game::eraseContent(QString type)
 */
 QString Game::playBkgdMusic()
 {
-    return gameMusic.backgroundMusic();
+    return questCards[0]->backgroundMusic();
 }
