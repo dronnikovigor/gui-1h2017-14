@@ -19,8 +19,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widgetLogin->setPalette(palette);
     ui->widgetLogin_2->setAutoFillBackground(true);
     ui->widgetLogin_2->setPalette(palette);
-    ui->widgetCreators->setAutoFillBackground(true);
-    ui->widgetCreators->setPalette(palette);
 
     setNameAndScore();
 
@@ -104,8 +102,8 @@ void MainWindow::statsOut()
     QSqlQuery query = game.getStats();
 
     QString html;
-    html = "<table width=\"490\"><tr><td><b>Имя игрока</b></td><td><b>Музыка</b></td>"
-           "<td><b>Фильмы</b></td><td><b>Всего</b></td></tr>";
+    html = "<table width=\"490\"><tr><td style=\"padding: 10px 0px 0px 10px\"><b>Имя игрока</b></td><td style=\"padding: 10px 0px 0px 5px\"><b>Музыка</b></td>"
+           "<td style=\"padding: 10px 0px 0px 5px\"><b>Фильмы</b></td><td style=\"padding: 10px 0px 0px 5px\"><b>Всего</b></td></tr>";
 
     while (query.next())
         {
@@ -113,8 +111,9 @@ void MainWindow::statsOut()
         QString music_score = query.value(1).toString();
         QString film_score = query.value(2).toString();
         int total = music_score.toInt() + film_score.toInt();
-        html += "<tr><td>" + login + "</td><td>" + music_score + "</td><td>" +
-                film_score + "</td><td>" + QString::number(total) + "</td></tr>";
+        html += "<tr><td style=\"padding: 5px 0px 0px 10px\">" + login + "</td><td style=\"padding: 5px 0px 0px 5px\">" +
+                music_score + "</td><td style=\"padding: 5px 0px 0px 5px\">" +
+                film_score + "</td><td style=\"padding: 5px 0px 0px 5px\">" + QString::number(total) + "</td></tr>";
         }
     html += "</table>";
     ui->statBrowser->insertHtml(html);
