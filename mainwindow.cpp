@@ -31,17 +31,30 @@ MainWindow::MainWindow(QWidget *parent) :
 
     mediaPlayer = new QMediaPlayer;
     backgroundMusic();
+
+    seconds = 0;
+    tmr = new QTimer(this);
+    tmr->setInterval(1000);
+    connect(tmr, SIGNAL(timeout()), this, SLOT(updateTimer()));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+
+    delete tmr;
+}
+
+void MainWindow::updateTimer()
+{
+    ui->timerLabel->setText(QString::number(++seconds));
 }
 
 void MainWindow::on_playMusic_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageMusic);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+    tmr->start();
 
     game.eraseContent("music");
 
@@ -52,6 +65,7 @@ void MainWindow::on_playFilm_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageFilm);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+    tmr->start();
 }
 
 void MainWindow::on_exitButton_2_clicked()
@@ -197,6 +211,7 @@ void MainWindow::updatePlayScreen(QString type)
             mediaPlayer -> play();
             ui->countRightAnswers->setText(game.getRightAnswerCount("music"));
         }
+        ui->timerLabel->setText(QString::number(seconds=0));
         ui->answerButton_1->setText(game.getAnswer(type, 1));
         ui->answerButton_2->setText(game.getAnswer(type, 2));
         ui->answerButton_3->setText(game.getAnswer(type, 3));
@@ -213,6 +228,7 @@ void MainWindow::checkAnswer(QString type, int id)
     {
         mediaPlayer -> setVolume(bkgdMusicValue);
         on_statButton_clicked();
+        tmr->stop();
     }
 }
 

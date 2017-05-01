@@ -7,6 +7,7 @@
 #include <QtMultimedia/QMediaPlayer>
 #include <QtMultimedia/qmediaplayer.h>
 #include <QFile>
+#include <QTimer>
 
 namespace Ui {
 class MainWindow;
@@ -75,13 +76,17 @@ private slots:
 
     void on_settingsButton_2_clicked();
 
+    void updateTimer();
+
 private:
     Ui::MainWindow *ui;
 
     Game game;
     QMediaPlayer * mediaPlayer;
+    QTimer *tmr; //Адресная переменная таймера
     int bkgdMusicValue = 20;
     int musicPlayerValue = 80;
+    int seconds;
 
     void statsOut();
     void howtoOut();
