@@ -28,13 +28,15 @@ SOURCES += main.cpp\
 		player.cpp \
 		game.cpp \
     questcards.cpp \
-    music.cpp
+    music.cpp \
+    film.cpp
 
 HEADERS  += mainwindow.h \
 		player.h \
 		game.h \
     questcards.h \
-    music.h
+    music.h \
+    film.h
 
 FORMS    += mainwindow.ui
 

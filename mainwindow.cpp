@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->menuWidget->setCurrentWidget(ui->pageMenuLogout);
 
     mediaPlayer = new QMediaPlayer;
+    mediaPlaylist = new QMediaPlaylist(mediaPlayer);
     backgroundMusic();
 
     seconds = 0;
@@ -60,6 +61,10 @@ void MainWindow::on_playFilm_clicked()
     ui->gameWidget->setCurrentWidget(ui->pageFilm);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
     tmr->start();
+
+    game.eraseContent("films");
+
+    updatePlayScreen("films");
 }
 
 void MainWindow::on_exitButton_2_clicked()
@@ -192,6 +197,28 @@ void MainWindow::on_answerButton_4_clicked()
     checkAnswer("music", 4);
 }
 
+void MainWindow::on_answerButton_5_clicked()
+{
+    checkAnswer("films", 1);
+}
+
+void MainWindow::on_answerButton_6_clicked()
+{
+    checkAnswer("films", 2);
+}
+
+void MainWindow::on_answerButton_7_clicked()
+{
+    checkAnswer("films", 3);
+}
+
+void MainWindow::on_answerButton_8_clicked()
+{
+    checkAnswer("films", 4);
+}
+
+
+
 void MainWindow::on_signupButton_2_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageSignup);
@@ -295,19 +322,33 @@ void MainWindow::updatePlayScreen(QString type)
     else
     {
         if (type=="music"){
-            mediaPlayer -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath() +
+            mediaPlayer->setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath() +
                                                    "/../../gui-1h2017-14/res/music/" +
                                                    game.getRightAnswerId(type) + ".mp3"));
-            mediaPlayer -> setVolume(musicPlayerValue);
-            mediaPlayer -> setPosition(0);
-            mediaPlayer -> play();
+            mediaPlayer->setVolume(musicPlayerValue);
+            mediaPlayer->setPosition(0);
+            mediaPlayer->play();
             ui->countRightAnswers->setText(game.getRightAnswerCount("music"));
+            ui->answerButton_1->setText(game.getAnswer(type, 1));
+            ui->answerButton_2->setText(game.getAnswer(type, 2));
+            ui->answerButton_3->setText(game.getAnswer(type, 3));
+            ui->answerButton_4->setText(game.getAnswer(type, 4));
+        }
+        else
+        {
+            ui->filmLabel->setPixmap(QPixmap(QApplication::applicationDirPath() +
+                                                                  "/../../gui-1h2017-14/res/films/" +
+                                                                  game.getRightAnswerId(type) + ".jpg"));
+            ui->filmLabel->setScaledContents(true);
+            ui->filmLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+
+            ui->countRightAnswers->setText(game.getRightAnswerCount("films"));
+            ui->answerButton_5->setText(game.getAnswer(type, 1));
+            ui->answerButton_6->setText(game.getAnswer(type, 2));
+            ui->answerButton_7->setText(game.getAnswer(type, 3));
+            ui->answerButton_8->setText(game.getAnswer(type, 4));
         }
         ui->timerLabel->setText(QString::number(seconds=0));
-        ui->answerButton_1->setText(game.getAnswer(type, 1));
-        ui->answerButton_2->setText(game.getAnswer(type, 2));
-        ui->answerButton_3->setText(game.getAnswer(type, 3));
-        ui->answerButton_4->setText(game.getAnswer(type, 4));
     }
 }
 
@@ -324,9 +365,11 @@ void MainWindow::checkAnswer(QString type, int id)
 
 void MainWindow::backgroundMusic()
 {
-    mediaPlayer -> setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.playBkgdMusic()+".mp3"));
-    mediaPlayer -> setVolume(bkgdMusicValue);
-    mediaPlayer -> play();
+    for (int i = 0; i <= 60; i++)
+        mediaPlaylist->addMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.playBkgdMusic()+".mp3"));
+    mediaPlayer->setPlaylist(mediaPlaylist);
+    mediaPlayer->setVolume(bkgdMusicValue);
+    mediaPlayer->play();
 }
 
 void MainWindow::setNameAndScore()
@@ -373,7 +416,9 @@ void MainWindow::howtoOut()
 
 void MainWindow::playerLose(QString message)
 {
-    mediaPlayer -> setVolume(bkgdMusicValue);
+    mediaPlayer->setVolume(bkgdMusicValue);
     on_statButton_clicked();
     tmr->stop();
 }
+
+

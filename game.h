@@ -3,6 +3,7 @@
 
 #include "player.h"
 #include "music.h"
+#include "film.h"
 #include <QString>
 #include <QList>
 #include "QtSql/QSqlDatabase"

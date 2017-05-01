@@ -12,6 +12,7 @@ Game::Game()
     qsrand(midnight.secsTo(QTime::currentTime()));    
 
     questCards[0] = new Music();
+    questCards[1] = new Film();
 }
 
 /*
@@ -195,7 +196,7 @@ bool Game::playGame(QString type)
     }
     else
     {
-        //return gameMusic.play();
+        return questCards[1]->getContent();
     }
 }
 
@@ -211,7 +212,7 @@ QString Game::getAnswer(QString type, int id)
     }
     else
     {
-        return 0;
+        return questCards[1]->getRandomAnsName(id-1);
     }
 }
 
@@ -227,7 +228,7 @@ QString Game::getRightAnswerId(QString type)
     }
     else
     {
-        return 0;
+        return questCards[1]->getRightAnswerId();
     }
 }
 
@@ -243,7 +244,7 @@ QString Game::getRightAnswerCount(QString type)
     }
     else
     {
-        return 0;
+        return questCards[1]->getUsedSize();
     }
 }
 
@@ -260,7 +261,7 @@ bool Game::checkAnswerId(QString type, int id)
     }
     else
     {
-        return false;//
+        return questCards[1]->checkAnswer(id);
     }
 }
 
@@ -276,7 +277,7 @@ void Game::eraseContent(QString type)
     }
     else
     {
-        //gameMusic.erase();
+        questCards[1]->erase();
     }
 }
 

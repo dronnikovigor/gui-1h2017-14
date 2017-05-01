@@ -6,6 +6,7 @@
 #include <game.h>
 #include <QtMultimedia/QMediaPlayer>
 #include <QtMultimedia/qmediaplayer.h>
+#include <QMediaPlaylist>
 #include <QFile>
 #include <QTimer>
 
@@ -78,11 +79,20 @@ private slots:
 
     void updateTimer();
 
+    void on_answerButton_7_clicked();
+
+    void on_answerButton_8_clicked();
+
+    void on_answerButton_6_clicked();
+
+    void on_answerButton_5_clicked();
+
 private:
     Ui::MainWindow *ui;
 
     Game game;
     QMediaPlayer * mediaPlayer;
+    QMediaPlaylist * mediaPlaylist;
     QTimer *tmr; //Адресная переменная таймера
     int bkgdMusicValue = 20;
     int musicPlayerValue = 80;
