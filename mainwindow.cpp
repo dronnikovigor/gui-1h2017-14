@@ -48,6 +48,8 @@ MainWindow::~MainWindow()
 void MainWindow::updateTimer()
 {
     ui->timerLabel->setText(QString::number(++seconds));
+    if (seconds == 60)
+        playerLose("Закончилось время!");
 }
 
 void MainWindow::on_playMusic_clicked()
@@ -226,9 +228,7 @@ void MainWindow::checkAnswer(QString type, int id)
     }
     else
     {
-        mediaPlayer -> setVolume(bkgdMusicValue);
-        on_statButton_clicked();
-        tmr->stop();
+        playerLose("Неверный ответ!");
     }
 }
 
@@ -373,3 +373,9 @@ void MainWindow::howtoOut()
     }
 }
 
+void MainWindow::playerLose(QString message)
+{
+    mediaPlayer -> setVolume(bkgdMusicValue);
+    on_statButton_clicked();
+    tmr->stop();
+}

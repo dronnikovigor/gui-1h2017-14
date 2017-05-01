@@ -94,6 +94,7 @@ private:
     void checkAnswer(QString type, int id);
     void backgroundMusic();
     void setNameAndScore();
+    void playerLose(QString message);
 };
 
 #endif // MAINWINDOW_H
