@@ -64,7 +64,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>8</number>
       </property>
       <widget class="QWidget" name="pageLogin">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -1681,7 +1681,8 @@ background-image: url(:/images/res/button.png);</string>
              <string notr="true">color: rgb(255, 255, 255);
 background-image: url(:/images/res/background_login.png);
 background-color: rgba(255, 255, 255, 0);
-font: 17pt &quot;Comic Sans MS&quot;;</string>
+font: 17pt &quot;Comic Sans MS&quot;;
+border: 0px;</string>
             </property>
            </widget>
           </item>
@@ -2250,7 +2251,8 @@ p, li { white-space: pre-wrap; }
              <string notr="true">color: rgb(255, 255, 255);
 background-image: url(:/images/res/background_login.png);
 background-color: rgba(255, 255, 255, 0);
-font: 17pt &quot;Comic Sans MS&quot;;</string>
+font: 17pt &quot;Comic Sans MS&quot;;
+border: 0px;</string>
             </property>
            </widget>
           </item>
