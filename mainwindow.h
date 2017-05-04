@@ -78,6 +78,7 @@ private slots:
     void on_settingsButton_2_clicked();
 
     void updateTimer();
+    void updateButton();
 
     void on_answerButton_7_clicked();
 
@@ -93,19 +94,21 @@ private:
     Game game;
     QMediaPlayer * mediaPlayer;
     QMediaPlaylist * mediaPlaylist;
-    QTimer *tmr; //Адресная переменная таймера
+    QTimer *tmr;
+    QTimer *tmr_btn;
     int bkgdMusicValue = 20;
     int musicPlayerValue = 80;
     int seconds;
+    QString actualGame;
 
     void statsOut();
     void howtoOut();
-    void updatePlayScreen(QString type);
-    void checkAnswer(QString type, int id);
+    void updatePlayScreen();
+    void checkAnswer(int id);
     void backgroundMusic();
     void setNameAndScore();
     void playerLose(QString message);
-    void playerWin(QString type);
+    void playerWin();
 };
 
 #endif // MAINWINDOW_H

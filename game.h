@@ -37,6 +37,7 @@ public:
 
     QString getAnswer(QString type, int id);
     QString getRightAnswerId(QString type);
+    QString getRightAnswerNameStr(QString type);
     QString getRightAnswerCount(QString type);
     bool checkAnswerId(QString type, int id);
     void eraseContent(QString type);

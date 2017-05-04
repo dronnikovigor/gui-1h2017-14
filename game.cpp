@@ -217,7 +217,7 @@ QString Game::getAnswer(QString type, int id)
 }
 
 /*
- * Функция получения названия для правильного варианта ответа
+ * Функция получения номера для правильного варианта ответа
  * Переменные:
  * @type - тип игры
 */
@@ -229,6 +229,22 @@ QString Game::getRightAnswerId(QString type)
     else
     {
         return questCards[1]->getRightAnswerId();
+    }
+}
+
+/*
+ * Функция получения названия для правильного варианта ответа
+ * Переменные:
+ * @type - тип игры
+*/
+QString Game::getRightAnswerNameStr(QString type)
+{
+    if (type == "music"){
+        return questCards[0]->getRightAnswerName();
+    }
+    else
+    {
+        return questCards[1]->getRightAnswerName();
     }
 }
 

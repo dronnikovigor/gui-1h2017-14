@@ -14,6 +14,20 @@ QString QuestCards::getRightAnswerId()
     return QString::number(answerId);
 }
 
+QString QuestCards::getRightAnswerName()
+{
+    QSqlQuery query("SELECT id, name FROM " + type + " WHERE id IS \"" + QString::number(answerId) + "\"");
+    QString id_str;
+    QString name_str;
+    while (query.next())
+        {
+        id_str = query.value(0).toString();
+        name_str = query.value(1).toString();
+        }
+
+    return name_str;
+}
+
 QString QuestCards::getUsedSize()
 {
     return QString::number(usedContent.size()-1);

@@ -64,7 +64,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>8</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="pageLogin">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -1177,10 +1177,15 @@ background-image: url(:/images/res/button.png);</string>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+text-align: left;
+padding: 0 10 0 10;</string>
                   </property>
                   <property name="text">
                    <string>ans_1</string>
+                  </property>
+                  <property name="autoRepeat">
+                   <bool>false</bool>
                   </property>
                   <property name="flat">
                    <bool>true</bool>
@@ -1219,10 +1224,15 @@ background-image: url(:/images/res/button.png);</string>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+text-align: left;
+padding: 0 10 0 10;</string>
                   </property>
                   <property name="text">
                    <string>ans_2</string>
+                  </property>
+                  <property name="autoRepeat">
+                   <bool>true</bool>
                   </property>
                   <property name="flat">
                    <bool>true</bool>
@@ -1278,10 +1288,15 @@ background-image: url(:/images/res/button.png);</string>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+text-align: left;
+padding: 0 10 0 10;</string>
                   </property>
                   <property name="text">
                    <string>ans_3</string>
+                  </property>
+                  <property name="autoRepeat">
+                   <bool>true</bool>
                   </property>
                   <property name="flat">
                    <bool>true</bool>
@@ -1320,10 +1335,15 @@ background-image: url(:/images/res/button.png);</string>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+text-align: left;
+padding: 0 10 0 10;</string>
                   </property>
                   <property name="text">
                    <string>ans_4</string>
+                  </property>
+                  <property name="autoRepeat">
+                   <bool>true</bool>
                   </property>
                   <property name="flat">
                    <bool>true</bool>
@@ -1432,7 +1452,9 @@ background-image: url(:/images/res/button.png);</string>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+text-align:left;
+padding: 0 10 0 10;</string>
                   </property>
                   <property name="text">
                    <string>ans_7</string>
@@ -1465,7 +1487,9 @@ background-image: url(:/images/res/button.png);</string>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+text-align:left;
+padding: 0 10 0 10;</string>
                   </property>
                   <property name="text">
                    <string>ans_8</string>
@@ -1515,7 +1539,9 @@ background-image: url(:/images/res/button.png);</string>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+text-align:left;
+padding: 0 10 0 10;</string>
                   </property>
                   <property name="text">
                    <string>ans_6</string>
@@ -1548,7 +1574,9 @@ background-image: url(:/images/res/button.png);</string>
                   <property name="styleSheet">
                    <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+text-align:left;
+padding: 0 10 0 10;</string>
                   </property>
                   <property name="text">
                    <string>ans_5</string>
@@ -2543,6 +2571,9 @@ background-image: url(:/images/res/button.png);</string>
               <italic>false</italic>
               <bold>false</bold>
              </font>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
             </property>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(255, 255, 255);

@@ -37,6 +37,10 @@ MainWindow::MainWindow(QWidget *parent) :
     tmr = new QTimer(this);
     tmr->setInterval(1000);
     connect(tmr, SIGNAL(timeout()), this, SLOT(updateTimer()));
+
+    tmr_btn = new QTimer(this);
+    tmr_btn->setInterval(5000);
+    connect(tmr_btn, SIGNAL(timeout()), this, SLOT(updateButton()));
 }
 
 MainWindow::~MainWindow()
@@ -47,24 +51,28 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_playMusic_clicked()
 {
+    actualGame = "music";
     ui->gameWidget->setCurrentWidget(ui->pageMusic);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
     tmr->start();
+    tmr_btn->start();
 
-    game.eraseContent("music");
+    game.eraseContent(actualGame);
 
-    updatePlayScreen("music");
+    updatePlayScreen();
 }
 
 void MainWindow::on_playFilm_clicked()
 {
+    actualGame = "films";
     ui->gameWidget->setCurrentWidget(ui->pageFilm);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
     tmr->start();
+    tmr_btn->start();
 
-    game.eraseContent("films");
+    game.eraseContent(actualGame);
 
-    updatePlayScreen("films");
+    updatePlayScreen();
 }
 
 void MainWindow::on_exitButton_2_clicked()
@@ -181,42 +189,42 @@ void MainWindow::on_signupButton_clicked()
 
 void MainWindow::on_answerButton_1_clicked()
 {
-    checkAnswer("music", 1);
+    checkAnswer(1);
 }
 
 void MainWindow::on_answerButton_2_clicked()
 {
-    checkAnswer("music", 2);
+    checkAnswer(2);
 }
 
 void MainWindow::on_answerButton_3_clicked()
 {
-    checkAnswer("music", 3);
+    checkAnswer(3);
 }
 
 void MainWindow::on_answerButton_4_clicked()
 {
-    checkAnswer("music", 4);
+    checkAnswer(4);
 }
 
 void MainWindow::on_answerButton_5_clicked()
 {
-    checkAnswer("films", 1);
+    checkAnswer(1);
 }
 
 void MainWindow::on_answerButton_6_clicked()
 {
-    checkAnswer("films", 2);
+    checkAnswer(2);
 }
 
 void MainWindow::on_answerButton_7_clicked()
 {
-    checkAnswer("films", 3);
+    checkAnswer(3);
 }
 
 void MainWindow::on_answerButton_8_clicked()
 {
-    checkAnswer("films", 4);
+    checkAnswer(4);
 }
 
 void MainWindow::on_signupButton_2_clicked()
@@ -314,53 +322,57 @@ void MainWindow::statsOut()
     ui->statBrowser->insertHtml(html);
 }
 
-void MainWindow::updatePlayScreen(QString type)
+void MainWindow::updatePlayScreen()
 {
-    if(!game.playGame(type)){
+    if(!game.playGame(actualGame)){
         on_statButton_clicked();
-        playerWin(type);
+        playerWin();
     }
     else
     {
-        if (type=="music"){
+        tmr_btn->setInterval(5000);
+        if (actualGame=="music"){
             mediaPlayer->setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath() +
                                                    "/../../gui-1h2017-14/res/music/" +
-                                                   game.getRightAnswerId(type) + ".mp3"));
+                                                   game.getRightAnswerId(actualGame) + ".mp3"));
             mediaPlayer->setVolume(musicPlayerValue);
             mediaPlayer->setPosition(0);
             mediaPlayer->play();
-            ui->countRightAnswers->setText(game.getRightAnswerCount("music"));
-            ui->answerButton_1->setText(game.getAnswer(type, 1));
-            ui->answerButton_2->setText(game.getAnswer(type, 2));
-            ui->answerButton_3->setText(game.getAnswer(type, 3));
-            ui->answerButton_4->setText(game.getAnswer(type, 4));
+            ui->countRightAnswers->setText(game.getRightAnswerCount(actualGame));
+            ui->answerButton_1->setText(game.getAnswer(actualGame, 1));
+            ui->answerButton_2->setText(game.getAnswer(actualGame, 2));
+            ui->answerButton_3->setText(game.getAnswer(actualGame, 3));
+            ui->answerButton_4->setText(game.getAnswer(actualGame, 4));
         }
         else
         {
             ui->filmLabel->setPixmap(QPixmap(QApplication::applicationDirPath() +
                                                                   "/../../gui-1h2017-14/res/films/" +
-                                                                  game.getRightAnswerId(type) + ".jpg"));
+                                                                  game.getRightAnswerId(actualGame) + ".jpg"));
             ui->filmLabel->setScaledContents(true);
             ui->filmLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
 
-            ui->countRightAnswers->setText(game.getRightAnswerCount("films"));
-            ui->answerButton_5->setText(game.getAnswer(type, 1));
-            ui->answerButton_6->setText(game.getAnswer(type, 2));
-            ui->answerButton_7->setText(game.getAnswer(type, 3));
-            ui->answerButton_8->setText(game.getAnswer(type, 4));
+            ui->countRightAnswers->setText(game.getRightAnswerCount(actualGame));
+            ui->answerButton_5->setText(game.getAnswer(actualGame, 1));
+            ui->answerButton_6->setText(game.getAnswer(actualGame, 2));
+            ui->answerButton_7->setText(game.getAnswer(actualGame, 3));
+            ui->answerButton_8->setText(game.getAnswer(actualGame, 4));
         }
         ui->timerLabel->setText(QString::number(seconds=0));
     }
 }
 
-void MainWindow::checkAnswer(QString type, int id)
+void MainWindow::checkAnswer(int id)
 {
-    if(game.checkAnswerId(type, id-1)){
-        updatePlayScreen(type);
+    if(game.checkAnswerId(actualGame, id-1)){
+        updatePlayScreen();
     }
     else
     {
-        playerLose("Неверный ответ!");
+        if (actualGame == "music")
+            playerLose("Неверный ответ!\nЭто был трек " + game.getRightAnswerNameStr(actualGame) + ".");
+        else
+            playerLose("Неверный ответ!\nЭто был фильм " + game.getRightAnswerNameStr(actualGame) + ".");
     }
 }
 
@@ -402,6 +414,53 @@ void MainWindow::updateTimer()
         playerLose("Закончилось время!");
 }
 
+void MainWindow::updateButton()
+{
+    tmr_btn->setInterval(100);
+    if (actualGame == "music")
+    {
+        if (ui->answerButton_1->text().size() == 0 ||
+                ui->answerButton_2->text().size() == 0 ||
+                ui->answerButton_3->text().size() == 0 ||
+                ui->answerButton_4->text().size() == 0)
+        {
+            ui->answerButton_1->setText(game.getAnswer(actualGame, 1));
+            ui->answerButton_2->setText(game.getAnswer(actualGame, 2));
+            ui->answerButton_3->setText(game.getAnswer(actualGame, 3));
+            ui->answerButton_4->setText(game.getAnswer(actualGame, 4));
+            tmr_btn->setInterval(3000);
+        }
+        else
+        {
+            ui->answerButton_1->setText(ui->answerButton_1->text().remove(0,1));
+            ui->answerButton_2->setText(ui->answerButton_2->text().remove(0,1));
+            ui->answerButton_3->setText(ui->answerButton_3->text().remove(0,1));
+            ui->answerButton_4->setText(ui->answerButton_4->text().remove(0,1));
+        }
+    }
+    else
+    {
+        if (ui->answerButton_5->text().size() == 0 ||
+                ui->answerButton_6->text().size() == 0 ||
+                ui->answerButton_7->text().size() == 0 ||
+                ui->answerButton_8->text().size() == 0)
+        {
+            ui->answerButton_5->setText(game.getAnswer(actualGame, 1));
+            ui->answerButton_6->setText(game.getAnswer(actualGame, 2));
+            ui->answerButton_7->setText(game.getAnswer(actualGame, 3));
+            ui->answerButton_8->setText(game.getAnswer(actualGame, 4));
+            tmr_btn->setInterval(3000);
+        }
+        else
+        {
+            ui->answerButton_5->setText(ui->answerButton_5->text().remove(0,1));
+            ui->answerButton_6->setText(ui->answerButton_6->text().remove(0,1));
+            ui->answerButton_7->setText(ui->answerButton_7->text().remove(0,1));
+            ui->answerButton_8->setText(ui->answerButton_8->text().remove(0,1));
+        }
+    }
+}
+
 void MainWindow::howtoOut()
 {
     ui->howtoBrowser->clear();
@@ -425,15 +484,15 @@ void MainWindow::playerLose(QString message)
 }
 
 
-void MainWindow::playerWin(QString type)
+void MainWindow::playerWin()
 {
     backgroundMusic();
     on_statButton_clicked();
     ui->statsLabel->setText("Вы выиграли!");
-    if (type == "music")
-        ui->countRightAnswers->setText(QString::number((game.getRightAnswerCount("music")).toInt()+1));
+    if (actualGame == "music")
+        ui->countRightAnswers->setText(QString::number((game.getRightAnswerCount(actualGame)).toInt()+1));
     else
 
-        ui->countRightAnswers->setText(QString::number((game.getRightAnswerCount("films")).toInt()+1));
+        ui->countRightAnswers->setText(QString::number((game.getRightAnswerCount(actualGame)).toInt()+1));
     tmr->stop();
 }
