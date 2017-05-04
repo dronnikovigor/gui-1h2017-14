@@ -105,6 +105,7 @@ private:
     void backgroundMusic();
     void setNameAndScore();
     void playerLose(QString message);
+    void playerWin(QString type);
 };
 
 #endif // MAINWINDOW_H

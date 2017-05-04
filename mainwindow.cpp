@@ -318,6 +318,7 @@ void MainWindow::updatePlayScreen(QString type)
 {
     if(!game.playGame(type)){
         on_statButton_clicked();
+        playerWin(type);
     }
     else
     {
@@ -424,3 +425,15 @@ void MainWindow::playerLose(QString message)
 }
 
 
+void MainWindow::playerWin(QString type)
+{
+    backgroundMusic();
+    on_statButton_clicked();
+    ui->statsLabel->setText("Вы выиграли!");
+    if (type == "music")
+        ui->countRightAnswers->setText(QString::number((game.getRightAnswerCount("music")).toInt()+1));
+    else
+
+        ui->countRightAnswers->setText(QString::number((game.getRightAnswerCount("films")).toInt()+1));
+    tmr->stop();
+}
