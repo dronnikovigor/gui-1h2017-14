@@ -77,9 +77,6 @@ private slots:
 
     void on_settingsButton_2_clicked();
 
-    void updateTimer();
-    void updateButton();
-
     void on_answerButton_7_clicked();
 
     void on_answerButton_8_clicked();
@@ -87,6 +84,10 @@ private slots:
     void on_answerButton_6_clicked();
 
     void on_answerButton_5_clicked();
+
+    void updateTimer();
+    void updateButton();
+    void gameEnd();
 
 private:
     Ui::MainWindow *ui;
@@ -96,6 +97,7 @@ private:
     QMediaPlaylist * mediaPlaylist;
     QTimer *tmr;
     QTimer *tmr_btn;
+    QTimer *tmr_end;
     int bkgdMusicValue = 20;
     int musicPlayerValue = 80;
     int seconds;

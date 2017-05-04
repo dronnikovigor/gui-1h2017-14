@@ -41,6 +41,10 @@ MainWindow::MainWindow(QWidget *parent) :
     tmr_btn = new QTimer(this);
     tmr_btn->setInterval(5000);
     connect(tmr_btn, SIGNAL(timeout()), this, SLOT(updateButton()));
+
+    tmr_end = new QTimer(this);
+    tmr_end->setInterval(5000);
+    connect(tmr_end, SIGNAL(timeout()), this, SLOT(gameEnd()));
 }
 
 MainWindow::~MainWindow()
@@ -87,6 +91,7 @@ void MainWindow::on_exitButton_3_clicked()
 
 void MainWindow::on_mainpageButton_clicked()
 {
+    tmr_end->stop();
     mediaPlayer->setVolume(bkgdMusicValue);
     ui->gameWidget->setCurrentWidget(ui->pageMain);
     if(game.isLogin()){
@@ -99,6 +104,7 @@ void MainWindow::on_mainpageButton_clicked()
 
 void MainWindow::on_statButton_clicked()
 {
+    tmr_end->stop();
     ui->statsLabel->setText("Статистика");
     mediaPlayer->setVolume(bkgdMusicValue);
     ui->gameWidget->setCurrentWidget(ui->pageStats);
@@ -109,6 +115,7 @@ void MainWindow::on_statButton_clicked()
 
 void MainWindow::on_statButton_2_clicked()
 {
+    tmr_end->stop();
     ui->statsLabel->setText("Статистика");
     ui->gameWidget->setCurrentWidget(ui->pageStats);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
@@ -118,6 +125,7 @@ void MainWindow::on_statButton_2_clicked()
 
 void MainWindow::on_statButton_3_clicked()
 {
+    tmr_end->stop();
     ui->statsLabel->setText("Статистика");
     ui->gameWidget->setCurrentWidget(ui->pageStats);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
@@ -277,6 +285,7 @@ void MainWindow::on_musicPlayerVolumeSlider_valueChanged(int value)
 
 void MainWindow::on_rulesButton_clicked()
 {
+    tmr_end->stop();
     ui->gameWidget->setCurrentWidget(ui->pageHelp);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 
@@ -285,6 +294,7 @@ void MainWindow::on_rulesButton_clicked()
 
 void MainWindow::on_rulesButton_2_clicked()
 {
+    tmr_end->stop();
     ui->gameWidget->setCurrentWidget(ui->pageHelp);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 
@@ -292,7 +302,8 @@ void MainWindow::on_rulesButton_2_clicked()
 }
 
 void MainWindow::on_rulesButton_3_clicked()
-{
+{    
+    tmr_end->stop();
     ui->gameWidget->setCurrentWidget(ui->pageHelp);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 
@@ -370,9 +381,11 @@ void MainWindow::checkAnswer(int id)
     else
     {
         if (actualGame == "music")
-            playerLose("Неверный ответ!\nЭто был трек " + game.getRightAnswerNameStr(actualGame) + ".");
+            playerLose("<table width=\"490\"><tr><td style=\"padding: 150px 10px 10px 10px;\"><center>Неверный ответ!<br>Это был трек "
+                       + game.getRightAnswerNameStr(actualGame) + ".</center></td></tr></table>");
         else
-            playerLose("Неверный ответ!\nЭто был фильм " + game.getRightAnswerNameStr(actualGame) + ".");
+            playerLose("<table width=\"490\"><tr><td style=\"padding: 150px 10px 10px 10px;\"><center>Неверный ответ!<br>Это был фильм "
+                       + game.getRightAnswerNameStr(actualGame) + ".</center></td></tr></table>");
     }
 }
 
@@ -411,7 +424,7 @@ void MainWindow::updateTimer()
 {
     ui->timerLabel->setText(QString::number(++seconds));
     if (seconds == 60)
-        playerLose("Закончилось время!");
+        playerLose("<table width=\"490\"><tr><td style=\"padding: 170px 10px 10px 10px;\"><center>Закончилось время!</center></td></tr></table>");
 }
 
 void MainWindow::updateButton()
@@ -479,20 +492,30 @@ void MainWindow::playerLose(QString message)
 {
     backgroundMusic();
     on_statButton_clicked();
-    ui->statsLabel->setText(message);
+    ui->statsLabel->setText("");
+    ui->statBrowser->clear();
+    ui->statBrowser->insertHtml(message);
+    tmr_end->start();
     tmr->stop();
 }
-
 
 void MainWindow::playerWin()
 {
     backgroundMusic();
     on_statButton_clicked();
-    ui->statsLabel->setText("Вы выиграли!");
+    ui->statsLabel->setText("");
+    ui->statBrowser->clear();
+    ui->statsLabel->setText("<table width=\"490\"><tr><td style=\"padding: 170px 10px 10px 10px;\"><center>Вы выиграли!</center></td></tr></table>");
     if (actualGame == "music")
         ui->countRightAnswers->setText(QString::number((game.getRightAnswerCount(actualGame)).toInt()+1));
     else
 
         ui->countRightAnswers->setText(QString::number((game.getRightAnswerCount(actualGame)).toInt()+1));
     tmr->stop();
+    tmr_end->start();
+}
+
+void MainWindow::gameEnd()
+{
+    on_statButton_clicked();
 }
