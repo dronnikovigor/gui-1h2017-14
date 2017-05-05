@@ -143,40 +143,76 @@ void MainWindow::on_playFilm_clicked()
 
 void MainWindow::on_mainpageButton_clicked()
 {
-    tmr_end->stop();
+    bool check = true;
     if (checkInGame)
     {
-        checkInGame = false;
-        backgroundMusic();
-    }
-    ui->gameWidget->setCurrentWidget(ui->pageMain);
-    if(game.isLogin()){
-        showUserInfo();
-        hideLoginButtons();
-    }
-    else{
-        hideUserInfo();
-        showLoginButtons();
-    }
+        check = QMessageBox::warning(0,
+                                     "Внимание!",
+                                     "Вы потеряете игровой процесс."
+                                     "\nВыйти на главный экран?",
+                                     "Нет",
+                                     "Да",
+                                     QString(),
+                                     0,
+                                     1
+                                    );
 
-    showSpecialButtons();
+    }
+    if (check)
+    {
+        tmr_btn->stop();
+        tmr_end->stop();
+        if (checkInGame){
+            checkInGame = false;
+            backgroundMusic();
+        }
+        ui->gameWidget->setCurrentWidget(ui->pageMain);
+        if(game.isLogin()){
+            showUserInfo();
+            hideLoginButtons();
+        }
+        else{
+            hideUserInfo();
+            showLoginButtons();
+        }
+
+        showSpecialButtons();
+    }
 }
 
 void MainWindow::on_statButton_clicked()
 {
-    tmr_end->stop();
+    bool check = true;
     if (checkInGame)
     {
-        checkInGame = false;
-        backgroundMusic();
+        check = QMessageBox::warning(0,
+                                     "Внимание!",
+                                     "Вы потеряете игровой процесс."
+                                     "\nОткрыть статистику?",
+                                     "Нет",
+                                     "Да",
+                                     QString(),
+                                     0,
+                                     1
+                                    );
+
     }
-    ui->gameWidget->setCurrentWidget(ui->pageStats);
-    showUserInfo();
-    hideLoginButtons();
+    if (check)
+    {
+        tmr_btn->stop();
+        tmr_end->stop();
+        if (checkInGame){
+            checkInGame = false;
+            backgroundMusic();
+        };
+        ui->gameWidget->setCurrentWidget(ui->pageStats);
+        showUserInfo();
+        hideLoginButtons();
 
-    hideSpecialButtons();
+        hideSpecialButtons();
 
-    statsOut();
+        statsOut();
+    }
 }
 
 void MainWindow::on_loginButton_clicked()
@@ -330,19 +366,38 @@ void MainWindow::on_musicPlayerVolumeSlider_valueChanged(int value)
 
 void MainWindow::on_rulesButton_clicked()
 {
-    tmr_end->stop();
+    bool check = true;
     if (checkInGame)
     {
-        checkInGame = false;
-        backgroundMusic();
+        check = QMessageBox::warning(0,
+                                     "Внимание!",
+                                     "Вы потеряете игровой процесс."
+                                     "\nОткрыть правила игры?",
+                                     "Нет",
+                                     "Да",
+                                     QString(),
+                                     0,
+                                     1
+                                    );
+
     }
-    ui->gameWidget->setCurrentWidget(ui->pageHelp);
-    showUserInfo();
-    hideLoginButtons();
+    if (check)
+    {
+        tmr_btn->stop();
+        tmr_end->stop();
+        if (checkInGame){
+            checkInGame = false;
+            backgroundMusic();
+        }
+        ui->gameWidget->setCurrentWidget(ui->pageHelp);
+        showUserInfo();
+        hideLoginButtons();
 
-    hideSpecialButtons();
+        hideSpecialButtons();
 
-    howtoOut();
+        howtoOut();
+    }
+
 }
 
 void MainWindow::statsOut()
@@ -538,6 +593,7 @@ void MainWindow::howtoOut()
 
 void MainWindow::playerLose(QString message)
 {
+    checkInGame=false;
     backgroundMusic();
     on_statButton_clicked();
     ui->statBrowser->clear();
@@ -548,6 +604,7 @@ void MainWindow::playerLose(QString message)
 
 void MainWindow::playerWin()
 {
+    checkInGame=false;
     backgroundMusic();
     on_statButton_clicked();
     ui->statBrowser->clear();
@@ -563,6 +620,7 @@ void MainWindow::playerWin()
 
 void MainWindow::gameEnd()
 {
+    checkInGame=false;
     on_statButton_clicked();
 }
 

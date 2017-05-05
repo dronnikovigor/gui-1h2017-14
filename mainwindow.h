@@ -10,6 +10,7 @@
 #include <QFile>
 #include <QTimer>
 #include <QDir>
+#include <QMessageBox>
 
 namespace Ui {
 class MainWindow;
