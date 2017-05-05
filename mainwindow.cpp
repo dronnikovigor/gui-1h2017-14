@@ -491,7 +491,9 @@ void MainWindow::backgroundMusic()
     if (dir.exists())
     {
         dir.setFilter(QDir::Files | QDir::Hidden | QDir::NoSymLinks);
+        dir.setSorting(QDir::IgnoreCase);
         QFileInfoList list = dir.entryInfoList();
+        std::random_shuffle(list.begin(), list.end());
 
         for (int i = 0; i < list.size(); ++i)
         {
@@ -512,19 +514,11 @@ void MainWindow::setNameAndScore()
             "<span style=\" font-size:18pt; color:#6aaa49;\">" +
             game.getPlayer().getName() +
             "</span></p></body></html>");
-    /*ui->name_2->setText("<html><head/><body><p align=\"center\">"
-            "<span style=\" font-size:18pt; color:#6aaa49;\">" +
-            game.getPlayer().getName() +
-            "</span></p></body></html>");*/
 
     ui->score->setText("<html><head/><body><p align=\"center\">"
             "<span style=\" font-size:18pt; color:#ffffff;\">" +
             QString::number(game.getPlayer().getSumScore()) +
             "</span></p></body></html>");
-    /*ui->score_2->setText("<html><head/><body><p align=\"center\">"
-            "<span style=\" font-size:18pt; color:#ffffff;\">" +
-            QString::number(game.getPlayer().getSumScore()) +
-            "</span></p></body></html>");*/
 }
 
 void MainWindow::updateTimer()
