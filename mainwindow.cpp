@@ -27,7 +27,11 @@ MainWindow::MainWindow(QWidget *parent) :
     setNameAndScore();
 
     ui->gameWidget->setCurrentWidget(ui->pageMain);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuLogout);
+    ui->menuWidget->setCurrentWidget(ui->pageMenu);
+
+    hideUserInfo();
+    showSpecialButtons();
+    showLoginButtons();
 
     mediaPlayer = new QMediaPlayer;
     mediaPlaylist = new QMediaPlaylist(mediaPlayer);
@@ -53,11 +57,64 @@ MainWindow::~MainWindow()
     delete tmr;
 }
 
+void MainWindow::hideUserInfo()
+{
+    ui->name->hide();
+    ui->score->hide();
+    ui->answerLabel->hide();
+    ui->countRightAnswers->hide();
+    ui->timeLabel->hide();
+    ui->secondsLabel->hide();
+}
+
+void MainWindow::showUserInfo()
+{
+    ui->name->show();
+    ui->score->show();
+    ui->answerLabel->show();
+    ui->countRightAnswers->show();
+    ui->timeLabel->show();
+    ui->secondsLabel->show();
+}
+
+void MainWindow::hideSpecialButtons()
+{
+    ui->settingsButton->hide();
+    ui->creatorsButton->hide();
+    ui->exitButton->hide();
+    ui->mainpageButton->show();
+}
+
+void MainWindow::showSpecialButtons()
+{
+    ui->settingsButton->show();
+    ui->creatorsButton->show();
+    ui->exitButton->show();
+    ui->mainpageButton->hide();
+}
+
+void MainWindow::hideLoginButtons()
+{
+    ui->loginButton->hide();
+    ui->signupButton_2->hide();
+}
+
+void MainWindow::showLoginButtons()
+{
+    ui->loginButton->show();
+    ui->signupButton_2->show();
+}
+
 void MainWindow::on_playMusic_clicked()
 {
     actualGame = "music";
+    checkInGame = true;
+
     ui->gameWidget->setCurrentWidget(ui->pageMusic);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+    showUserInfo();
+    hideLoginButtons();
+    hideSpecialButtons();
+
     tmr->start();
     tmr_btn->start();
 
@@ -69,8 +126,13 @@ void MainWindow::on_playMusic_clicked()
 void MainWindow::on_playFilm_clicked()
 {
     actualGame = "films";
+    checkInGame = true;
+
     ui->gameWidget->setCurrentWidget(ui->pageFilm);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+    showUserInfo();
+    hideLoginButtons();
+    hideSpecialButtons();
+
     tmr->start();
     tmr_btn->start();
 
@@ -79,53 +141,40 @@ void MainWindow::on_playFilm_clicked()
     updatePlayScreen();
 }
 
-void MainWindow::on_exitButton_2_clicked()
-{
-    close();
-}
-
-void MainWindow::on_exitButton_3_clicked()
-{
-    close();
-}
-
 void MainWindow::on_mainpageButton_clicked()
 {
     tmr_end->stop();
-    mediaPlayer->setVolume(bkgdMusicValue);
+    if (checkInGame)
+    {
+        checkInGame = false;
+        backgroundMusic();
+    }
     ui->gameWidget->setCurrentWidget(ui->pageMain);
     if(game.isLogin()){
-        ui->menuWidget->setCurrentWidget(ui->pageMenuLogin);
+        showUserInfo();
+        hideLoginButtons();
     }
     else{
-        ui->menuWidget->setCurrentWidget(ui->pageMenuLogout);
+        hideUserInfo();
+        showLoginButtons();
     }
+
+    showSpecialButtons();
 }
 
 void MainWindow::on_statButton_clicked()
 {
     tmr_end->stop();
-    mediaPlayer->setVolume(bkgdMusicValue);
+    if (checkInGame)
+    {
+        checkInGame = false;
+        backgroundMusic();
+    }
     ui->gameWidget->setCurrentWidget(ui->pageStats);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+    showUserInfo();
+    hideLoginButtons();
 
-    statsOut();
-}
-
-void MainWindow::on_statButton_2_clicked()
-{
-    tmr_end->stop();
-    ui->gameWidget->setCurrentWidget(ui->pageStats);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
-
-    statsOut();
-}
-
-void MainWindow::on_statButton_3_clicked()
-{
-    tmr_end->stop();
-    ui->gameWidget->setCurrentWidget(ui->pageStats);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+    hideSpecialButtons();
 
     statsOut();
 }
@@ -133,13 +182,20 @@ void MainWindow::on_statButton_3_clicked()
 void MainWindow::on_loginButton_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageLogin);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+    showUserInfo();
+    hideLoginButtons();
+
+    hideSpecialButtons();
 }
 
 void MainWindow::on_cancelButton_clicked()
 {
-    ui->gameWidget->setCurrentWidget(ui->pageMain);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuLogout);
+    on_mainpageButton_clicked();
+}
+
+void MainWindow::on_exitButton_clicked()
+{
+    close();
 }
 
 void MainWindow::on_loginButton_3_clicked()
@@ -149,9 +205,7 @@ void MainWindow::on_loginButton_3_clicked()
         if (game.login(ui->username->text(), ui->password->text()))
         {
             setNameAndScore();
-
-            ui->gameWidget->setCurrentWidget(ui->pageMain);
-            ui->menuWidget->setCurrentWidget(ui->pageMenuLogin);
+            on_mainpageButton_clicked();
         }
         else
         {
@@ -173,16 +227,13 @@ void MainWindow::on_signupButton_clicked()
         if(game.signup(ui->username_2->text(), ui->password_2->text()))
         {
             setNameAndScore();
-
-            ui->gameWidget->setCurrentWidget(ui->pageMain);
-            ui->menuWidget->setCurrentWidget(ui->pageMenuLogin);
+            on_mainpageButton_clicked();
         }
         else
         {
             ui->label_6->setText("<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">"
                                  "Игрок с таким логином</span></p><p align=\"center\"><span style=\" color:#ffffff;\">"
                                  "уже зарегистрирован!</span></p></body></html>");
-
         }
     }
     else
@@ -190,6 +241,16 @@ void MainWindow::on_signupButton_clicked()
         ui->label_6->setText("<html><head/><body><p align=\"center\"><span style=\" color:#ffffff;\">"
                              "Все поля должны быть заполнены!</span></p></body></html>");
     }
+}
+
+
+void MainWindow::on_signupButton_2_clicked()
+{
+     ui->gameWidget->setCurrentWidget(ui->pageSignup);
+     showUserInfo();
+     hideLoginButtons();
+
+     hideSpecialButtons();
 }
 
 void MainWindow::on_answerButton_1_clicked()
@@ -232,41 +293,28 @@ void MainWindow::on_answerButton_8_clicked()
     checkAnswer(4);
 }
 
-void MainWindow::on_signupButton_2_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageSignup);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
-}
 
 void MainWindow::on_cancelButton_2_clicked()
 {
-    ui->gameWidget->setCurrentWidget(ui->pageMain);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuLogout);
+    on_mainpageButton_clicked();
 }
 
 void MainWindow::on_creatorsButton_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageCreators);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
-}
+    showUserInfo();
+    hideLoginButtons();
 
-void MainWindow::on_creatorsButton_2_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageCreators);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+    hideSpecialButtons();
 }
 
 void MainWindow::on_settingsButton_clicked()
 {
     ui->gameWidget->setCurrentWidget(ui->pageSettings);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
-}
+    showUserInfo();
+    hideLoginButtons();
 
-
-void MainWindow::on_settingsButton_2_clicked()
-{
-    ui->gameWidget->setCurrentWidget(ui->pageSettings);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+    hideSpecialButtons();
 }
 
 void MainWindow::on_bkgdMusicVolumeSlider_valueChanged(int value)
@@ -283,26 +331,16 @@ void MainWindow::on_musicPlayerVolumeSlider_valueChanged(int value)
 void MainWindow::on_rulesButton_clicked()
 {
     tmr_end->stop();
+    if (checkInGame)
+    {
+        checkInGame = false;
+        backgroundMusic();
+    }
     ui->gameWidget->setCurrentWidget(ui->pageHelp);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+    showUserInfo();
+    hideLoginButtons();
 
-    howtoOut();
-}
-
-void MainWindow::on_rulesButton_2_clicked()
-{
-    tmr_end->stop();
-    ui->gameWidget->setCurrentWidget(ui->pageHelp);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
-
-    howtoOut();
-}
-
-void MainWindow::on_rulesButton_3_clicked()
-{    
-    tmr_end->stop();
-    ui->gameWidget->setCurrentWidget(ui->pageHelp);
-    ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
+    hideSpecialButtons();
 
     howtoOut();
 }
@@ -367,7 +405,7 @@ void MainWindow::updatePlayScreen()
             ui->answerButton_7->setText(game.getAnswer(actualGame, 3));
             ui->answerButton_8->setText(game.getAnswer(actualGame, 4));
         }
-        ui->timerLabel->setText(QString::number(seconds=0));
+        ui->secondsLabel->setText(QString::number(seconds=0));
     }
 }
 
@@ -415,24 +453,24 @@ void MainWindow::setNameAndScore()
             "<span style=\" font-size:18pt; color:#6aaa49;\">" +
             game.getPlayer().getName() +
             "</span></p></body></html>");
-    ui->name_2->setText("<html><head/><body><p align=\"center\">"
+    /*ui->name_2->setText("<html><head/><body><p align=\"center\">"
             "<span style=\" font-size:18pt; color:#6aaa49;\">" +
             game.getPlayer().getName() +
-            "</span></p></body></html>");
+            "</span></p></body></html>");*/
 
     ui->score->setText("<html><head/><body><p align=\"center\">"
             "<span style=\" font-size:18pt; color:#ffffff;\">" +
             QString::number(game.getPlayer().getSumScore()) +
             "</span></p></body></html>");
-    ui->score_2->setText("<html><head/><body><p align=\"center\">"
+    /*ui->score_2->setText("<html><head/><body><p align=\"center\">"
             "<span style=\" font-size:18pt; color:#ffffff;\">" +
             QString::number(game.getPlayer().getSumScore()) +
-            "</span></p></body></html>");
+            "</span></p></body></html>");*/
 }
 
 void MainWindow::updateTimer()
 {
-    ui->timerLabel->setText(QString::number(++seconds));
+    ui->secondsLabel->setText(QString::number(++seconds));
     if (seconds == 60)
         playerLose("<table width=\"490\"><tr><td style=\"padding: 170px 10px 10px 10px;\"><center>Закончилось время!</center></td></tr></table>");
 }
@@ -527,3 +565,4 @@ void MainWindow::gameEnd()
 {
     on_statButton_clicked();
 }
+
