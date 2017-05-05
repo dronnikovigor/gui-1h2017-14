@@ -105,7 +105,6 @@ void MainWindow::on_mainpageButton_clicked()
 void MainWindow::on_statButton_clicked()
 {
     tmr_end->stop();
-    ui->statsLabel->setText("Статистика");
     mediaPlayer->setVolume(bkgdMusicValue);
     ui->gameWidget->setCurrentWidget(ui->pageStats);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
@@ -116,7 +115,6 @@ void MainWindow::on_statButton_clicked()
 void MainWindow::on_statButton_2_clicked()
 {
     tmr_end->stop();
-    ui->statsLabel->setText("Статистика");
     ui->gameWidget->setCurrentWidget(ui->pageStats);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 
@@ -126,7 +124,6 @@ void MainWindow::on_statButton_2_clicked()
 void MainWindow::on_statButton_3_clicked()
 {
     tmr_end->stop();
-    ui->statsLabel->setText("Статистика");
     ui->gameWidget->setCurrentWidget(ui->pageStats);
     ui->menuWidget->setCurrentWidget(ui->pageMenuGame);
 
@@ -313,6 +310,7 @@ void MainWindow::on_rulesButton_3_clicked()
 void MainWindow::statsOut()
 {
     ui->statBrowser->clear();
+    ui->statBrowser->insertHtml("<p style=\"font-size: 20pt; padding: 30px 10px 10px 10px;\"><center><b>Статистика</b></center></p>");
     QSqlQuery query = game.getStats();
 
     QString html;
@@ -504,7 +502,6 @@ void MainWindow::playerLose(QString message)
 {
     backgroundMusic();
     on_statButton_clicked();
-    ui->statsLabel->setText("");
     ui->statBrowser->clear();
     ui->statBrowser->insertHtml(message);
     tmr_end->start();
@@ -515,9 +512,8 @@ void MainWindow::playerWin()
 {
     backgroundMusic();
     on_statButton_clicked();
-    ui->statsLabel->setText("");
     ui->statBrowser->clear();
-    ui->statsLabel->setText("<table width=\"490\"><tr><td style=\"padding: 170px 10px 10px 10px;\"><center>Вы выиграли!</center></td></tr></table>");
+    ui->statBrowser->insertHtml("<table width=\"490\"><tr><td style=\"padding: 170px 10px 10px 10px;\"><center>Вы выиграли!</center></td></tr></table>");
     if (actualGame == "music")
         ui->countRightAnswers->setText(QString::number((game.getRightAnswerCount(actualGame)).toInt()+1));
     else
