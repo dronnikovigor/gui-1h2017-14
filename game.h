@@ -41,8 +41,6 @@ public:
     QString getRightAnswerCount(QString type);
     bool checkAnswerId(QString type, int id);
     void eraseContent(QString type);
-
-    QString playBkgdMusic();
 };
 
 #endif // GAME_H

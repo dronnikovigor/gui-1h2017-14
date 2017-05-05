@@ -89,10 +89,3 @@ bool QuestCards::checkAnswer(int id)
     else
         return false;
 }
-
-QString QuestCards::backgroundMusic()
-{
-    QSqlQuery query("SELECT id FROM music");
-    query.last();
-    return QString::number((qrand() % (query.at()+1))+1);
-}

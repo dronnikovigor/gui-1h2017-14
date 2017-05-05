@@ -9,6 +9,7 @@
 #include <QMediaPlaylist>
 #include <QFile>
 #include <QTimer>
+#include <QDir>
 
 namespace Ui {
 class MainWindow;

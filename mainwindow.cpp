@@ -392,8 +392,20 @@ void MainWindow::checkAnswer(int id)
 void MainWindow::backgroundMusic()
 {
     mediaPlaylist->clear();
-    for (int i = 0; i <= 60; i++)
-        mediaPlaylist->addMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/music/"+game.playBkgdMusic()+".mp3"));
+    QDir dir(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/background_music/");
+    if (dir.exists())
+    {
+        dir.setFilter(QDir::Files | QDir::Hidden | QDir::NoSymLinks);
+        QFileInfoList list = dir.entryInfoList();
+
+        for (int i = 0; i < list.size(); ++i)
+        {
+            QFileInfo fileInfo = list.at(i);
+            mediaPlaylist->addMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+
+                                                        "/../../gui-1h2017-14/res/background_music/"+
+                                                        fileInfo.fileName()));
+        }
+    }
     mediaPlayer->setPlaylist(mediaPlaylist);
     mediaPlayer->setVolume(bkgdMusicValue);
     mediaPlayer->play();

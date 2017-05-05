@@ -30,8 +30,6 @@ public:
 
     bool checkAnswer(int id);
     void erase();
-
-    QString backgroundMusic();
 };
 
 #endif // QUESTCARDS_H

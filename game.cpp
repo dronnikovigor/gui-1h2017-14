@@ -297,10 +297,3 @@ void Game::eraseContent(QString type)
     }
 }
 
-/*
- * Функция для получения рандомной песни для фона
-*/
-QString Game::playBkgdMusic()
-{
-    return questCards[0]->backgroundMusic();
-}
