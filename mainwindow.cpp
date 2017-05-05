@@ -65,6 +65,8 @@ void MainWindow::hideUserInfo()
     ui->countRightAnswers->hide();
     ui->timeLabel->hide();
     ui->secondsLabel->hide();
+    ui->verticalSpacer_2->changeSize(20,0, QSizePolicy::Minimum, QSizePolicy::Minimum);
+    ui->verticalSpacer_16->changeSize(20,0, QSizePolicy::Minimum, QSizePolicy::Minimum);
 }
 
 void MainWindow::showUserInfo()
@@ -75,6 +77,8 @@ void MainWindow::showUserInfo()
     ui->countRightAnswers->show();
     ui->timeLabel->show();
     ui->secondsLabel->show();
+    ui->verticalSpacer_2->changeSize(20, 10, QSizePolicy::Minimum, QSizePolicy::Minimum);
+    ui->verticalSpacer_16->changeSize(20, 10, QSizePolicy::Minimum, QSizePolicy::Minimum);
 }
 
 void MainWindow::hideSpecialButtons()
