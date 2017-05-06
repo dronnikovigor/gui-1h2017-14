@@ -628,6 +628,7 @@ void MainWindow::gameEnd()
 
 void MainWindow::on_tryagainButton_clicked()
 {
+    tmr_end->stop();
     if (actualGame == "music")
         on_playMusic_clicked();
     else
