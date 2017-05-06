@@ -452,11 +452,19 @@ void MainWindow::updatePlayScreen()
         }
         else
         {
-            ui->filmLabel->setPixmap(QPixmap(QApplication::applicationDirPath() +
+            /*ui->filmLabel->setPixmap(QPixmap(QApplication::applicationDirPath() +
                                                                   "/../../gui-1h2017-14/res/films/" +
                                                                   game.getRightAnswerId(actualGame) + ".jpg"));
             ui->filmLabel->setScaledContents(true);
-            ui->filmLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+            ui->filmLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);*/
+            QPalette palette;
+            QPixmap bkgnd2(QApplication::applicationDirPath() +
+                           "/../../gui-1h2017-14/res/films/" +
+                           game.getRightAnswerId(actualGame) + ".jpg");
+            bkgnd2 = bkgnd2.scaled(ui->filmLabel->size(), Qt::IgnoreAspectRatio);
+            palette.setBrush(QPalette::Background, bkgnd2);
+            ui->filmLabel->setAutoFillBackground(true);
+            ui->filmLabel->setPalette(palette);
 
             ui->countRightAnswers->setText(game.getRightAnswerCount(actualGame));
             ui->answerButton_5->setText(game.getAnswer(actualGame, 1));
