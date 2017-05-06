@@ -452,11 +452,9 @@ void MainWindow::updatePlayScreen()
         }
         else
         {
-            ui->filmLabel->setPixmap(QPixmap(QApplication::applicationDirPath() +
-                                                                  "/../../gui-1h2017-14/res/films/" +
-                                                                  game.getRightAnswerId(actualGame) + ".jpg"));
-            ui->filmLabel->setScaledContents(true);
-            ui->filmLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+            ui->filmLabel->setStyleSheet("border-image: url("+QApplication::applicationDirPath() +
+                                         "/../../gui-1h2017-14/res/films/" +
+                                         game.getRightAnswerId(actualGame) + ".jpg)  0 0 0 0 stretch stretch;");
 
             ui->countRightAnswers->setText(game.getRightAnswerCount(actualGame));
             ui->answerButton_5->setText(game.getAnswer(actualGame, 1));

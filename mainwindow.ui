@@ -64,7 +64,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>4</number>
       </property>
       <widget class="QWidget" name="pageLogin">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -1404,7 +1404,7 @@ padding: 0 10 0 10;</string>
                </size>
               </property>
               <property name="text">
-               <string>label</string>
+               <string/>
               </property>
              </widget>
             </item>
