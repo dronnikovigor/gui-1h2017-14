@@ -431,7 +431,6 @@ void MainWindow::statsOut()
 void MainWindow::updatePlayScreen()
 {
     if(!game.playGame(actualGame)){
-        on_statButton_clicked();
         playerWin();
     }
     else
@@ -476,11 +475,11 @@ void MainWindow::checkAnswer(int id)
     else
     {
         if (actualGame == "music")
-            playerLose("<table width=\"490\"><tr><td style=\"padding: 150px 10px 10px 10px;\"><center>Неверный ответ!<br>Это был трек "
-                       + game.getRightAnswerNameStr(actualGame) + ".</center></td></tr></table>");
+            playerLose("<table width=\"490\"><tr><td style=\"padding: 150px 10px 10px 10px;\"><center>Неверный ответ!<br>Это был трек \""
+                       + game.getRightAnswerNameStr(actualGame) + "\".</center></td></tr></table>");
         else
-            playerLose("<table width=\"490\"><tr><td style=\"padding: 150px 10px 10px 10px;\"><center>Неверный ответ!<br>Это был фильм "
-                       + game.getRightAnswerNameStr(actualGame) + ".</center></td></tr></table>");
+            playerLose("<table width=\"490\"><tr><td style=\"padding: 150px 10px 10px 10px;\"><center>Неверный ответ!<br>Это был фильм \""
+                       + game.getRightAnswerNameStr(actualGame) + "\".</center></td></tr></table>");
     }
 }
 
