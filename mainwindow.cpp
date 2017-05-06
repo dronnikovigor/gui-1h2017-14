@@ -214,6 +214,7 @@ void MainWindow::on_statButton_clicked()
         hideLoginButtons();
 
         hideSpecialButtons();
+        ui->tryagainButton->hide();
 
         statsOut();
     }
@@ -593,6 +594,7 @@ void MainWindow::playerLose(QString message)
     checkInGame=false;
     backgroundMusic();
     on_statButton_clicked();
+    ui->tryagainButton->show();
     ui->statBrowser->clear();
     ui->statBrowser->insertHtml(message);
     tmr_end->start();
@@ -604,6 +606,7 @@ void MainWindow::playerWin()
     checkInGame=false;
     backgroundMusic();
     on_statButton_clicked();
+    ui->tryagainButton->show();
     ui->statBrowser->clear();
     ui->statBrowser->insertHtml("<table width=\"490\"><tr><td style=\"padding: 170px 10px 10px 10px;\"><center>Вы выиграли!</center></td></tr></table>");
     if (actualGame == "music")
@@ -619,5 +622,15 @@ void MainWindow::gameEnd()
 {
     checkInGame=false;
     on_statButton_clicked();
+    ui->tryagainButton->show();
 }
 
+
+void MainWindow::on_tryagainButton_clicked()
+{
+    if (actualGame == "music")
+        on_playMusic_clicked();
+    else
+        on_playFilm_clicked();
+
+}

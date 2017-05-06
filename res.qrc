@@ -8,6 +8,7 @@
         <file>res/background_menu.png</file>
         <file>res/button.png</file>
         <file>res/background_login.png</file>
+        <file>res/button_green.png</file>
     </qresource>
     <qresource prefix="/text">
         <file>res/how_to_play.txt</file>

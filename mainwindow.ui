@@ -64,7 +64,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="pageLogin">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -1690,6 +1690,52 @@ background-image: url(:/images/res/background_login.png);
 background-color: rgba(255, 255, 255, 0);
 font: 17pt &quot;Comic Sans MS&quot;;
 border: 0px;</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="tryagainButton">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>492</width>
+              <height>65</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>492</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Comic Sans MS</family>
+              <pointsize>16</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+background-image: url(:/images/res/button_green.png);
+margin-left: 3px;</string>
+            </property>
+            <property name="text">
+             <string>Попробовать еще раз</string>
+            </property>
+            <property name="flat">
+             <bool>true</bool>
             </property>
            </widget>
           </item>

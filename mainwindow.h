@@ -56,6 +56,8 @@ private slots:
     void updateButton();
     void gameEnd();
 
+    void on_tryagainButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 
