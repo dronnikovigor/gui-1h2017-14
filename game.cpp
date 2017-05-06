@@ -179,7 +179,7 @@ void Game::connectDB()
     if (!db.isOpen())
     {
         db = QSqlDatabase::addDatabase("QSQLITE");
-        db.setDatabaseName(QApplication::applicationDirPath()+"/../../gui-1h2017-14/db/database.db");
+        db.setDatabaseName(QApplication::applicationDirPath()+"/db/database.db");
         db.open();
     }
 }

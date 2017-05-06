@@ -439,7 +439,7 @@ void MainWindow::updatePlayScreen()
         tmr_btn->setInterval(5000);
         if (actualGame=="music"){
             mediaPlayer->setMedia(QUrl::fromLocalFile(QApplication::applicationDirPath() +
-                                                   "/../../gui-1h2017-14/res/music/" +
+                                                   "/res/music/" +
                                                    game.getRightAnswerId(actualGame) + ".mp3"));
             mediaPlayer->setVolume(musicPlayerValue);
             mediaPlayer->setPosition(0);
@@ -453,7 +453,7 @@ void MainWindow::updatePlayScreen()
         else
         {
             ui->filmLabel->setPixmap(QPixmap(QApplication::applicationDirPath() +
-                                                                  "/../../gui-1h2017-14/res/films/" +
+                                                                  "/res/films/" +
                                                                   game.getRightAnswerId(actualGame) + ".jpg"));
             ui->filmLabel->setScaledContents(true);
             ui->filmLabel->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
@@ -487,7 +487,7 @@ void MainWindow::checkAnswer(int id)
 void MainWindow::backgroundMusic()
 {
     mediaPlaylist->clear();
-    QDir dir(QApplication::applicationDirPath()+"/../../gui-1h2017-14/res/background_music/");
+    QDir dir(QApplication::applicationDirPath()+"/res/background_music/");
     if (dir.exists())
     {
         dir.setFilter(QDir::Files | QDir::Hidden | QDir::NoSymLinks);
@@ -499,7 +499,7 @@ void MainWindow::backgroundMusic()
         {
             QFileInfo fileInfo = list.at(i);
             mediaPlaylist->addMedia(QUrl::fromLocalFile(QApplication::applicationDirPath()+
-                                                        "/../../gui-1h2017-14/res/background_music/"+
+                                                        "/res/background_music/"+
                                                         fileInfo.fileName()));
         }
     }
