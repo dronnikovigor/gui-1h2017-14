@@ -37,7 +37,6 @@ MainWindow::MainWindow(QWidget *parent) :
     mediaPlaylist = new QMediaPlaylist(mediaPlayer);
     backgroundMusic();
 
-    seconds = 0;
     tmr = new QTimer(this);
     tmr->setInterval(1000);
     connect(tmr, SIGNAL(timeout()), this, SLOT(updateTimer()));
@@ -51,6 +50,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(tmr_end, SIGNAL(timeout()), this, SLOT(gameEnd()));
 
     maxSeconds = MAX_SECONDS_MIDDLE;
+    seconds = maxSeconds;
 }
 
 MainWindow::~MainWindow()
@@ -487,7 +487,7 @@ void MainWindow::updatePlayScreen()
             ui->answerButton_7->setText(game.getAnswer(actualGame, 3));
             ui->answerButton_8->setText(game.getAnswer(actualGame, 4));
         }
-        ui->secondsLabel->setText(QString::number(seconds = 0));
+        ui->secondsLabel->setText(QString::number(seconds = maxSeconds));
     }
 }
 
@@ -548,8 +548,8 @@ void MainWindow::setNameAndScore()
 
 void MainWindow::updateTimer()
 {
-    ui->secondsLabel->setText(QString::number(++seconds));
-    if (seconds == MAX_SECONDS_MIDDLE)
+    ui->secondsLabel->setText(QString::number(seconds--));
+    if (seconds == 0)
         playerLose("<table width=\"490\"><tr><td style=\"padding: 170px 10px 10px 10px;\">"
                    "<center>Закончилось время!\nВаш счет:</center></td></tr></table>");
 }
