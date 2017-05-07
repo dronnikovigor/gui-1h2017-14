@@ -50,6 +50,8 @@ int Player::getMusicScore() const
 void Player::setMusicScore(int value)
 {
     musicScore = value;
+
+    sumScore = filmScore + musicScore;
 }
 int Player::getFilmScore() const
 {
@@ -59,6 +61,8 @@ int Player::getFilmScore() const
 void Player::setFilmScore(int value)
 {
     filmScore = value;
+
+    sumScore = filmScore + musicScore;
 }
 
 int Player::getSumScore() const
@@ -71,14 +75,3 @@ void Player::setSumScore(int value)
     sumScore = value;
 }
 
-void Player::addMusicScore(int value)
-{
-    musicScore += value;
-    sumScore = musicScore + filmScore;
-}
-
-void Player::addFilmScore(int value)
-{
-    filmScore += value;
-    sumScore = musicScore + filmScore;
-}

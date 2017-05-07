@@ -9,10 +9,13 @@ Game::Game()
         connectDB();
 
     QTime midnight(0,0,0);
-    qsrand(midnight.secsTo(QTime::currentTime()));    
+    qsrand(midnight.secsTo(QTime::currentTime()));
 
     questCards[0] = new Music();
     questCards[1] = new Film();
+
+    currentScore = 0;
+    level = middle;
 }
 
 /*
@@ -40,6 +43,11 @@ Player Game::getPlayer() const
 void Game::setPlayer(const Player &value)
 {
     player = value;
+}
+
+void Game::setPlayerScore(int value, QString type)
+{
+    type == "music" ? player.setMusicScore(value) : player.setFilmScore(value);
 }
 
 /* Функция производит логин пользователя.
@@ -297,3 +305,42 @@ void Game::eraseContent(QString type)
     }
 }
 
+/*
+ * Функция возвращает текущий счет в игре
+*/
+int Game::getCurrentScore() const
+{
+    return currentScore;
+}
+
+/*
+ * Функция изменяет текущий счет в игре
+ * Параметры:
+ * @value - новое значение текущего счета
+ */
+void Game::setCurrentScore(int value)
+{
+    currentScore = value;
+}
+
+/*
+ * Функция вычисляет количество баллов, начисляемых игроку за верный ответ
+ * Параметры:
+ * @sec - количество секунд, прошедших со старта текущей карточки +1
+ * @type - тип игры
+ */
+int Game::calculateScore(int sec, QString type)
+{
+    return ((type == "music") ? 100 : 75) / std::sqrt(sec) * level;
+}
+
+void Game::changeScoreInDB(QString type, int score)
+{
+    if (!db.isOpen()){
+        connectDB();
+    }
+
+    QSqlQuery query("UPDATE players"
+                    "SET " + type + "_score = " + QString::number(score) +
+                    "WHERE login = " + player.getName());
+}

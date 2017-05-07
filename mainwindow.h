@@ -12,6 +12,10 @@
 #include <QDir>
 #include <QMessageBox>
 
+const int MAX_SECONDS_EASY = 30;
+const int MAX_SECONDS_MIDDLE = 15;
+const int MAX_SECONDS_DIFFICULT = 5;
+
 namespace Ui {
 class MainWindow;
 }
@@ -72,6 +76,7 @@ private:
     int seconds;
     QString actualGame;
     bool checkInGame = false;
+    int maxSeconds;
 
     void hideUserInfo();
     void showUserInfo();
@@ -88,6 +93,9 @@ private:
     void setNameAndScore();
     void playerLose(QString message);
     void playerWin();
+    void changeCurrentScore(int value);
+
+    void closeEvent(QCloseEvent *event);
 };
 
 #endif // MAINWINDOW_H

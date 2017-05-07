@@ -31,9 +31,6 @@ public:
 
     int getSumScore() const;
     void setSumScore(int value);
-
-    void addMusicScore(int value);
-    void addFilmScore(int value);
 };
 
 #endif // PLAYER_H

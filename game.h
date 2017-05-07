@@ -10,12 +10,16 @@
 #include "QSqlQuery"
 #include "QApplication"
 
+enum levelType {easy = 1, middle, difficult};
+
 class Game
 {
 private:
     Player player;
     QuestCards *questCards[2];
     QSqlDatabase db;
+    int currentScore;
+    levelType level;
 
 public:
     Game();
@@ -23,6 +27,8 @@ public:
 
     Player getPlayer() const;
     void setPlayer(const Player &value);
+    void setPlayerScore(int value, QString type);
+
 
     bool login(QString name, QString pass);
     void logout();
@@ -41,6 +47,10 @@ public:
     QString getRightAnswerCount(QString type);
     bool checkAnswerId(QString type, int id);
     void eraseContent(QString type);
+    int getCurrentScore() const;
+    void setCurrentScore(int value);
+    int calculateScore(int sec, QString type);
+    void changeScoreInDB(QString type, int score);
 };
 
 #endif // GAME_H
