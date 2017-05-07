@@ -340,7 +340,14 @@ void Game::changeScoreInDB(QString type, int score)
         connectDB();
     }
 
-    QSqlQuery query("UPDATE players"
-                    " SET " + type + "_score = '" + QString::number(score) +
-                    "' WHERE login = '" + player.getName()+"'");
-}
+    if (type == "music"){
+        QSqlQuery query("UPDATE players"
+                        " SET music_score = '" + QString::number(score) +
+                        "' WHERE login = '" + player.getName()+"'");
+    }
+    else
+    {
+        QSqlQuery query("UPDATE players"
+                        " SET film_score = '" + QString::number(score) +
+                        "' WHERE login = '" + player.getName()+"'");
+    }
