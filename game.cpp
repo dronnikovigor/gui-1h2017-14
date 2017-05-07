@@ -120,7 +120,7 @@ bool Game::signup(QString name, QString pass)
     QString n = query_check.value(0).toString();
     if (n == "" && name != "Player"){
         QSqlQuery query;
-        query.prepare("INSERT INTO players (login, password, music_score, film_score, type)"
+        query.prepare("INSERT INTO players (login, password, music_score, films_score, type)"
                       "VALUES(?, ?, ?, ?, ?);");
         query.addBindValue(name);
         query.addBindValue(pass);
@@ -160,7 +160,7 @@ QSqlQuery Game::getUserFromDB(QString username)
 {
     if (!db.isOpen())
         connectDB();
-    QSqlQuery query("SELECT login, password, music_score, film_score, type "
+    QSqlQuery query("SELECT login, password, music_score, films_score, type "
                     "FROM players "
                     "WHERE login IS \"" + username + "\"");
     return query;
@@ -173,7 +173,7 @@ QSqlQuery Game::getStats()
 {
     if (!db.isOpen())
         connectDB();
-    QSqlQuery query("SELECT login, music_score, film_score, (music_score+film_score) as total "
+    QSqlQuery query("SELECT login, music_score, films_score, (music_score+films_score) as total "
                     "FROM players "
                     "ORDER BY total DESC");
     return query;
