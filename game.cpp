@@ -341,6 +341,6 @@ void Game::changeScoreInDB(QString type, int score)
     }
 
     QSqlQuery query("UPDATE players"
-                    "SET " + type + "_score = " + QString::number(score) +
-                    "WHERE login = " + player.getName());
+                    " SET " + type + "_score = '" + QString::number(score) +
+                    "' WHERE login = '" + player.getName()+"'");
 }
