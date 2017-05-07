@@ -62,6 +62,8 @@ private slots:
 
     void on_tryagainButton_clicked();
 
+    void on_levelDiffSlider_valueChanged(int value);
+
 private:
     Ui::MainWindow *ui;
 

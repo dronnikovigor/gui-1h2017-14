@@ -725,3 +725,25 @@ void MainWindow::closeEvent(QCloseEvent *event)
     }
 
 }
+
+void MainWindow::on_levelDiffSlider_valueChanged(int value)
+{
+    switch (value)
+      {
+         case 1:
+         {
+            maxSeconds = MAX_SECONDS_EASY;
+            break;
+         }
+         case 2:
+         {
+            maxSeconds = MAX_SECONDS_MIDDLE;
+            break;
+         }
+         case 3:
+         {
+            maxSeconds = MAX_SECONDS_DIFFICULT;
+            break;
+         }
+      }
+}
