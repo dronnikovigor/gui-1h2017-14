@@ -442,11 +442,11 @@ void MainWindow::statsOut()
         {
         QString login = query.value(0).toString();
         QString music_score = query.value(1).toString();
-        QString films_score = query.value(2).toString();
-        int total = music_score.toInt() + films_score.toInt();
+        QString film_score = query.value(2).toString();
+        int total = music_score.toInt() + film_score.toInt();
         html += "<tr><td style=\"padding: 5px 0px 0px 10px\">" + login + "</td><td style=\"padding: 5px 0px 0px 5px\">" +
                 music_score + "</td><td style=\"padding: 5px 0px 0px 5px\">" +
-                films_score + "</td><td style=\"padding: 5px 0px 0px 5px\">" + QString::number(total) + "</td></tr>";
+                film_score + "</td><td style=\"padding: 5px 0px 0px 5px\">" + QString::number(total) + "</td></tr>";
         }
     html += "</table>";
     ui->statBrowser->insertHtml(html);
