@@ -699,6 +699,29 @@ void MainWindow::changeCurrentScore(int value)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    game.changeScoreInDB("music", game.getPlayer().getMusicScore());
-    game.changeScoreInDB("film", game.getPlayer().getFilmScore());
+    bool check = true;
+    if (checkInGame)
+    {
+        check = QMessageBox::warning(0,
+                                     "Внимание!",
+                                     "Вы потеряете игровой процесс."
+                                     "\nВыйти из игры?",
+                                     "Нет",
+                                     "Да",
+                                     QString(),
+                                     0,
+                                     1
+                                    );
+
+    }
+    if (!check)
+            event->ignore();
+        else
+    {
+        event->accept();
+        game.changeScoreInDB("music", game.getPlayer().getMusicScore());
+        game.changeScoreInDB("film", game.getPlayer().getFilmScore());
+
+    }
+
 }
