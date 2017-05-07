@@ -351,3 +351,4 @@ void Game::changeScoreInDB(QString type, int score)
                         " SET film_score = '" + QString::number(score) +
                         "' WHERE login = '" + player.getName()+"'");
     }
+}
