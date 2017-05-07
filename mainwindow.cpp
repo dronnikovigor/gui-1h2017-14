@@ -623,10 +623,12 @@ void MainWindow::playerLose(QString message)
     {
         if (game.getPlayer().getMusicScore() < game.getCurrentScore()){
             game.setPlayerScore(game.getCurrentScore(), actualGame);
+            game.changeScoreInDB(actualGame, game.getCurrentScore());
         }
     }else {
         if (game.getPlayer().getFilmScore() < game.getCurrentScore()){
             game.setPlayerScore(game.getCurrentScore(), actualGame);
+            game.changeScoreInDB(actualGame, game.getCurrentScore());
         }
     }
 
@@ -647,13 +649,14 @@ void MainWindow::playerWin()
     {
         if (game.getPlayer().getMusicScore() < game.getCurrentScore()){
             game.getPlayer().setMusicScore(game.getCurrentScore());
+            game.changeScoreInDB(actualGame, game.getCurrentScore());
         }
     }else {
         if (game.getPlayer().getFilmScore() < game.getCurrentScore()){
             game.getPlayer().setFilmScore(game.getCurrentScore());
+            game.changeScoreInDB(actualGame, game.getCurrentScore());
         }
     }
-
     backgroundMusic();
     on_statButton_clicked();
     ui->tryagainButton->show();
