@@ -27,6 +27,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    bool eventFilter(QObject *obj, QEvent *event);
 
 private slots:
     void on_playMusic_clicked();
@@ -58,6 +59,7 @@ private slots:
 
     void updateTimer();
     void updateButton();
+    void returnButton();
     void gameEnd();
     void resizeBtnUp();
     void resizeBtnDown();
@@ -85,6 +87,7 @@ private:
     int maxSeconds;
     int sizeBtn = 170;
     QString actualBtn = "music";
+    QObject *buttonToUpd;
 
     void hideUserInfo();
     void showUserInfo();
