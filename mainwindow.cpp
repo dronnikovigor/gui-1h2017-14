@@ -559,11 +559,11 @@ void MainWindow::setNameAndScore()
 
 void MainWindow::updateTimer()
 {
-    ui->secondsLabel->setText(QString::number(seconds--));
     if (seconds == 0)
         playerLose("<table width=\"490\"><tr><td style=\"padding: 170px 10px 10px 10px;\">"
                    "<center>Закончилось время!<br>Ваш счет: "+QString::number(game.getCurrentScore())
                    +"</center></td></tr></table>");
+    ui->secondsLabel->setText(QString::number(seconds--));
 }
 
 void MainWindow::updateButton()
