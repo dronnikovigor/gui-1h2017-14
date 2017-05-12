@@ -47,10 +47,19 @@ MainWindow::MainWindow(QWidget *parent) :
 
     tmr_end = new QTimer(this);
     tmr_end->setInterval(5000);
-    connect(tmr_end, SIGNAL(timeout()), this, SLOT(gameEnd()));
+    connect(tmr_end, SIGNAL(timeout()), this, SLOT(gameEnd()));    
+
+    tmr_mainUp = new QTimer(this);
+    tmr_mainUp->setInterval(3000);
+    connect(tmr_mainUp, SIGNAL(timeout()), this, SLOT(resizeBtnUp()));
+
+    tmr_mainDown = new QTimer(this);
+    tmr_mainDown->setInterval(50);
+    connect(tmr_mainDown, SIGNAL(timeout()), this, SLOT(resizeBtnDown()));
 
     maxSeconds = MAX_SECONDS_MIDDLE;
     seconds = maxSeconds;
+    tmr_mainUp->start();
 }
 
 MainWindow::~MainWindow()
@@ -677,6 +686,67 @@ void MainWindow::gameEnd()
     ui->tryagainButton->show();
 }
 
+void MainWindow::resizeBtnUp()
+{
+    if (actualBtn == "music")
+        if(sizeBtn<=190)
+        {
+            ui->playMusic->setFixedHeight(sizeBtn);
+            ui->playMusic->setFixedWidth(sizeBtn);
+            tmr_mainUp->start(40);
+            sizeBtn+=2;
+        }
+        else
+        {
+            tmr_mainUp->stop();
+            tmr_mainDown->start();
+        }
+    else
+        if(sizeBtn<=190)
+        {
+            ui->playFilm->setFixedHeight(sizeBtn);
+            ui->playFilm->setFixedWidth(sizeBtn);
+            tmr_mainUp->start(40);
+            sizeBtn+=2;
+        }
+        else
+        {
+            tmr_mainUp->stop();
+            tmr_mainDown->start();
+        }
+}
+
+void MainWindow::resizeBtnDown()
+{
+    if (actualBtn == "music")
+        if(sizeBtn>=170)
+        {
+            ui->playMusic->setFixedHeight(sizeBtn);
+            ui->playMusic->setFixedWidth(sizeBtn--);
+            tmr_mainDown->start(40);
+            sizeBtn-=2;
+        }
+        else
+        {
+            tmr_mainDown->stop();
+            tmr_mainUp->start(300);
+            actualBtn = "film";
+        }
+    else
+        if(sizeBtn>=170)
+        {
+            ui->playFilm->setFixedHeight(sizeBtn);
+            ui->playFilm->setFixedWidth(sizeBtn--);
+            tmr_mainDown->start(40);
+            sizeBtn-=2;
+        }
+        else
+        {
+            tmr_mainDown->stop();
+            tmr_mainUp->start(3000);
+            actualBtn = "music";
+        }
+}
 
 void MainWindow::on_tryagainButton_clicked()
 {

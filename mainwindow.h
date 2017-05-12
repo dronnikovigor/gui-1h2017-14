@@ -59,6 +59,8 @@ private slots:
     void updateTimer();
     void updateButton();
     void gameEnd();
+    void resizeBtnUp();
+    void resizeBtnDown();
 
     void on_tryagainButton_clicked();
 
@@ -73,12 +75,16 @@ private:
     QTimer *tmr;
     QTimer *tmr_btn;
     QTimer *tmr_end;
+    QTimer *tmr_mainUp;
+    QTimer *tmr_mainDown;
     int bkgdMusicValue = 20;
     int musicPlayerValue = 80;
     int seconds;
     QString actualGame;
     bool checkInGame = false;
     int maxSeconds;
+    int sizeBtn = 170;
+    QString actualBtn = "music";
 
     void hideUserInfo();
     void showUserInfo();
