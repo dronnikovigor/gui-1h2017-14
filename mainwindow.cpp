@@ -510,11 +510,13 @@ void MainWindow::checkAnswer(int id)
     else
     {
         if (actualGame == "music")
-            playerLose("<table width=\"490\"><tr><td style=\"padding: 150px 10px 10px 10px;\"><center>Неверный ответ!<br>Это был трек \""
-                       + game.getRightAnswerNameStr(actualGame) + "\".</center></td></tr></table>");
+            playerLose("<table width=\"490\"><tr><td style=\"padding: 140px 10px 10px 10px;\"><center>Неверный ответ!<br>Это был трек \""
+                       + game.getRightAnswerNameStr(actualGame) + "\".<br><br>Ваш счет: "+QString::number(game.getCurrentScore())
+                       +"</center></td></tr></table>");
         else
-            playerLose("<table width=\"490\"><tr><td style=\"padding: 150px 10px 10px 10px;\"><center>Неверный ответ!<br>Это был фильм \""
-                       + game.getRightAnswerNameStr(actualGame) + "\".</center></td></tr></table>");
+            playerLose("<table width=\"490\"><tr><td style=\"padding: 140px 10px 10px 10px;\"><center>Неверный ответ!<br>Это был фильм \""
+                       + game.getRightAnswerNameStr(actualGame) + "\".<br><br>Ваш счет: "+QString::number(game.getCurrentScore())
+                       +"</center></td></tr></table>");
     }
 }
 
@@ -560,7 +562,8 @@ void MainWindow::updateTimer()
     ui->secondsLabel->setText(QString::number(seconds--));
     if (seconds == 0)
         playerLose("<table width=\"490\"><tr><td style=\"padding: 170px 10px 10px 10px;\">"
-                   "<center>Закончилось время!\nВаш счет:</center></td></tr></table>");
+                   "<center>Закончилось время!<br>Ваш счет: "+QString::number(game.getCurrentScore())
+                   +"</center></td></tr></table>");
 }
 
 void MainWindow::updateButton()
