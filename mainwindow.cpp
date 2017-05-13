@@ -572,6 +572,8 @@ void MainWindow::setNameAndScore()
             "<span style=\" font-size:18pt; color:#ffffff;\">" +
             QString::number(game.getPlayer().getSumScore()) +
             "</span></p></body></html>");
+    ui->countRightAnswers->setText("0");
+    ui->secondsLabel->setText("0");
 }
 
 void MainWindow::updateTimer()
