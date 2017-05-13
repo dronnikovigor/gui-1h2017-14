@@ -453,7 +453,7 @@ void MainWindow::statsOut()
     QSqlQuery query = game.getStats();
 
     QString html;
-    html = "<table width=\"490\"><tr><td style=\"padding: 10px 0px 0px 10px\"><b>Имя игрока</b></td><td style=\"padding: 10px 0px 0px 5px\"><b>Музыка</b></td>"
+    html = "<center><table width=\"470\"><tr><td style=\"padding: 10px 0px 0px 10px\" width=\"120\"><b>Игрок</b></td><td style=\"padding: 10px 0px 0px 5px\"><b>Музыка</b></td>"
            "<td style=\"padding: 10px 0px 0px 5px\"><b>Фильмы</b></td><td style=\"padding: 10px 0px 0px 5px\"><b>Всего</b></td></tr>";
 
     while (query.next())
@@ -466,7 +466,7 @@ void MainWindow::statsOut()
                 music_score + "</td><td style=\"padding: 5px 0px 0px 5px\">" +
                 film_score + "</td><td style=\"padding: 5px 0px 0px 5px\">" + QString::number(total) + "</td></tr>";
         }
-    html += "</table>";
+    html += "</table></center>";
     ui->statBrowser->insertHtml(html);
 }
 

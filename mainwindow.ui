@@ -64,7 +64,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="pageLogin">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -1744,6 +1744,9 @@ padding: 0 10 0 10;</string>
        </layout>
       </widget>
       <widget class="QWidget" name="pageStats">
+       <property name="contextMenuPolicy">
+        <enum>Qt::DefaultContextMenu</enum>
+       </property>
        <layout class="QHBoxLayout" name="horizontalLayout_8">
         <item>
          <spacer name="horizontalSpacer_23">
@@ -1804,10 +1807,9 @@ padding: 0 10 0 10;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(255, 255, 255);
-background-image: url(:/images/res/background_login.png);
-background-color: rgba(255, 255, 255, 0);
 font: 17pt &quot;Comic Sans MS&quot;;
-border: 0px;</string>
+border: 0px;
+background-color: rgb(52, 78, 127);</string>
             </property>
            </widget>
           </item>
@@ -1821,7 +1823,7 @@ border: 0px;</string>
             </property>
             <property name="minimumSize">
              <size>
-              <width>492</width>
+              <width>500</width>
               <height>65</height>
              </size>
             </property>
@@ -1846,8 +1848,7 @@ border: 0px;</string>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button_green.png);
-margin-left: 3px;</string>
+background-image: url(:/images/res/button_green.png);</string>
             </property>
             <property name="text">
              <string>Попробовать еще раз</string>

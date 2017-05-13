@@ -116,9 +116,7 @@ bool Game::signup(QString name, QString pass)
     int ms = player.getMusicScore();
     int fs = player.getFilmScore();
 
-    query_check.next();
-    QString n = query_check.value(0).toString();
-    if (n == "" && name != "Player"){
+    if (!query_check.next() && name != "Player"){
         QSqlQuery query;
         query.prepare("INSERT INTO players (login, password, music_score, film_score, type)"
                       "VALUES(?, ?, ?, ?, ?);");
