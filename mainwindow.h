@@ -96,6 +96,8 @@ private:
     void showSpecialButtons();
     void hideLoginButtons();
     void showLoginButtons();
+    void installEventFilterOnBtns();
+    void removeEventFilterOnBtns();
 
     void statsOut();
     void howtoOut();

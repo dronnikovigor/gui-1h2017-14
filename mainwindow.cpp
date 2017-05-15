@@ -62,16 +62,7 @@ MainWindow::MainWindow(QWidget *parent) :
     seconds = maxSeconds;
     tmr_mainUp->start();
 
-    ui->answerButton_1->installEventFilter(this);
-    ui->answerButton_2->installEventFilter(this);
-    ui->answerButton_3->installEventFilter(this);
-    ui->answerButton_4->installEventFilter(this);
-    ui->answerButton_5->installEventFilter(this);
-    ui->answerButton_6->installEventFilter(this);
-    ui->answerButton_7->installEventFilter(this);
-    ui->answerButton_8->installEventFilter(this);
-    ui->pageMusic->installEventFilter(this);
-    ui->pageFilm->installEventFilter(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -140,6 +131,34 @@ void MainWindow::showLoginButtons()
     ui->signupButton_2->show();
 }
 
+void MainWindow::installEventFilterOnBtns()
+{
+    ui->answerButton_1->installEventFilter(this);
+    ui->answerButton_2->installEventFilter(this);
+    ui->answerButton_3->installEventFilter(this);
+    ui->answerButton_4->installEventFilter(this);
+    ui->answerButton_5->installEventFilter(this);
+    ui->answerButton_6->installEventFilter(this);
+    ui->answerButton_7->installEventFilter(this);
+    ui->answerButton_8->installEventFilter(this);
+    ui->pageMusic->installEventFilter(this);
+    ui->pageFilm->installEventFilter(this);
+}
+
+void MainWindow::removeEventFilterOnBtns()
+{
+    ui->answerButton_1->removeEventFilter(this);
+    ui->answerButton_2->removeEventFilter(this);
+    ui->answerButton_3->removeEventFilter(this);
+    ui->answerButton_4->removeEventFilter(this);
+    ui->answerButton_5->removeEventFilter(this);
+    ui->answerButton_6->removeEventFilter(this);
+    ui->answerButton_7->removeEventFilter(this);
+    ui->answerButton_8->removeEventFilter(this);
+    ui->pageMusic->removeEventFilter(this);
+    ui->pageFilm->removeEventFilter(this);
+}
+
 void MainWindow::on_playMusic_clicked()
 {
     actualGame = "music";
@@ -158,6 +177,8 @@ void MainWindow::on_playMusic_clicked()
     game.eraseContent(actualGame);
 
     updatePlayScreen();
+
+    installEventFilterOnBtns();
 }
 
 void MainWindow::on_playFilm_clicked()
@@ -177,8 +198,9 @@ void MainWindow::on_playFilm_clicked()
 
     game.eraseContent(actualGame);
 
-
     updatePlayScreen();
+
+    installEventFilterOnBtns();
 }
 
 void MainWindow::on_mainpageButton_clicked()
@@ -207,6 +229,7 @@ void MainWindow::on_mainpageButton_clicked()
             checkInGame = false;
             backgroundMusic();
             hideScoreInfo();
+            removeEventFilterOnBtns();
         }
         ui->score->setText("<html><head/><body><p align=\"center\">"
                            "<span style=\" font-size:18pt; color:#ffffff;\">" +
@@ -252,6 +275,7 @@ void MainWindow::on_statButton_clicked()
             checkInGame = false;
             backgroundMusic();
             hideScoreInfo();
+            removeEventFilterOnBtns();
         }
         ui->score->setText("<html><head/><body><p align=\"center\">"
                            "<span style=\" font-size:18pt; color:#ffffff;\">" +
@@ -444,6 +468,7 @@ void MainWindow::on_rulesButton_clicked()
             checkInGame = false;
             backgroundMusic();            
             hideScoreInfo();
+            removeEventFilterOnBtns();
         }
         ui->score->setText("<html><head/><body><p align=\"center\">"
                            "<span style=\" font-size:18pt; color:#ffffff;\">" +
