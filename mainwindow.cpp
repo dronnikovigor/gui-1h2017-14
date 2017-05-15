@@ -526,13 +526,9 @@ void MainWindow::updatePlayScreen()
             mediaPlayer->play();
             ui->countRightAnswers->setText(game.getRightAnswerCount(actualGame));
             ui->answerButton_1->setText(game.getAnswer(actualGame, 1));
-            if (ui->answerButton_1->text().size() >=27 ) ui->answerButton_1->setStyleSheet("background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); background-image: url(:/images/res/button.png); padding: 0 10 0 10; text-align:left");
             ui->answerButton_2->setText(game.getAnswer(actualGame, 2));
-            if (ui->answerButton_2->text().size() >=27 ) ui->answerButton_2->setStyleSheet("background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); background-image: url(:/images/res/button.png); padding: 0 10 0 10; text-align:left");
             ui->answerButton_3->setText(game.getAnswer(actualGame, 3));
-            if (ui->answerButton_3->text().size() >=27 ) ui->answerButton_3->setStyleSheet("background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); background-image: url(:/images/res/button.png); padding: 0 10 0 10; text-align:left");
             ui->answerButton_4->setText(game.getAnswer(actualGame, 4));
-            if (ui->answerButton_4->text().size() >=27 ) ui->answerButton_4->setStyleSheet("background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); background-image: url(:/images/res/button.png); padding: 0 10 0 10; text-align:left");
         }
         else
         {
@@ -544,13 +540,9 @@ void MainWindow::updatePlayScreen()
 
             ui->countRightAnswers->setText(game.getRightAnswerCount(actualGame));
             ui->answerButton_5->setText(game.getAnswer(actualGame, 1));
-            if (ui->answerButton_5->text().size() >=27 ) ui->answerButton_5->setStyleSheet("background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); background-image: url(:/images/res/button.png); padding: 0 10 0 10; text-align:left");
             ui->answerButton_6->setText(game.getAnswer(actualGame, 2));
-            if (ui->answerButton_6->text().size() >=27 ) ui->answerButton_6->setStyleSheet("background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); background-image: url(:/images/res/button.png); padding: 0 10 0 10; text-align:left");
             ui->answerButton_7->setText(game.getAnswer(actualGame, 3));
-            if (ui->answerButton_7->text().size() >=27 ) ui->answerButton_7->setStyleSheet("background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); background-image: url(:/images/res/button.png); padding: 0 10 0 10; text-align:left");
             ui->answerButton_8->setText(game.getAnswer(actualGame, 4));
-            if (ui->answerButton_8->text().size() >=27 ) ui->answerButton_8->setStyleSheet("background-color: rgb(255, 255, 255); color: rgb(255, 255, 255); background-image: url(:/images/res/button.png); padding: 0 10 0 10; text-align:left");
         }
         ui->secondsLabel->setText(QString::number(seconds = maxSeconds));
     }
@@ -729,9 +721,7 @@ void MainWindow::howtoOut()
         return;
     else
     {
-         QString html;
-         html = "<p style=\"margin: 30px 20px 20px 20px;\">"+ QString::fromUtf8(file.readAll())+"</p>";
-         ui->howtoBrowser->insertHtml(html);
+         ui->howtoBrowser->insertHtml(QString::fromUtf8(file.readAll()));
     }
 }
 
