@@ -206,6 +206,7 @@ void MainWindow::on_mainpageButton_clicked()
         if (checkInGame){
             checkInGame = false;
             backgroundMusic();
+            hideScoreInfo();
         }
         ui->score->setText("<html><head/><body><p align=\"center\">"
                            "<span style=\" font-size:18pt; color:#ffffff;\">" +
