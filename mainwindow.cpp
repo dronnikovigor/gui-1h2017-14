@@ -30,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->menuWidget->setCurrentWidget(ui->pageMenu);
 
     hideUserInfo();
+    hideScoreInfo();
     showSpecialButtons();
     showLoginButtons();
 
@@ -83,24 +84,32 @@ void MainWindow::hideUserInfo()
 {
     ui->name->hide();
     ui->score->hide();
-    ui->answerLabel->hide();
-    ui->countRightAnswers->hide();
-    ui->timeLabel->hide();
-    ui->secondsLabel->hide();
-    ui->verticalSpacer_2->changeSize(20,0, QSizePolicy::Minimum, QSizePolicy::Minimum);
-    ui->verticalSpacer_16->changeSize(20,0, QSizePolicy::Minimum, QSizePolicy::Minimum);
+    ui->verticalSpacer_16->changeSize(20, 0, QSizePolicy::Minimum, QSizePolicy::Minimum);
 }
 
 void MainWindow::showUserInfo()
 {
     ui->name->show();
     ui->score->show();
+    ui->verticalSpacer_16->changeSize(20, 10, QSizePolicy::Minimum, QSizePolicy::Minimum);
+}
+
+void MainWindow::hideScoreInfo()
+{
+    ui->answerLabel->hide();
+    ui->countRightAnswers->hide();
+    ui->timeLabel->hide();
+    ui->secondsLabel->hide();
+    ui->verticalSpacer_2->changeSize(20, 0, QSizePolicy::Minimum, QSizePolicy::Minimum);
+}
+
+void MainWindow::showScoreInfo()
+{
     ui->answerLabel->show();
     ui->countRightAnswers->show();
     ui->timeLabel->show();
     ui->secondsLabel->show();
     ui->verticalSpacer_2->changeSize(20, 10, QSizePolicy::Minimum, QSizePolicy::Minimum);
-    ui->verticalSpacer_16->changeSize(20, 10, QSizePolicy::Minimum, QSizePolicy::Minimum);
 }
 
 void MainWindow::hideSpecialButtons()
@@ -140,6 +149,7 @@ void MainWindow::on_playMusic_clicked()
 
     ui->gameWidget->setCurrentWidget(ui->pageMusic);
     showUserInfo();
+    showScoreInfo();
     hideLoginButtons();
     hideSpecialButtons();
 
@@ -159,6 +169,7 @@ void MainWindow::on_playFilm_clicked()
 
     ui->gameWidget->setCurrentWidget(ui->pageFilm);
     showUserInfo();
+    showScoreInfo();
     hideLoginButtons();
     hideSpecialButtons();
 
@@ -239,7 +250,8 @@ void MainWindow::on_statButton_clicked()
         if (checkInGame){
             checkInGame = false;
             backgroundMusic();
-        };
+            hideScoreInfo();
+        }
         ui->score->setText("<html><head/><body><p align=\"center\">"
                            "<span style=\" font-size:18pt; color:#ffffff;\">" +
                            QString::number(game.getPlayer().getSumScore()) +
@@ -429,7 +441,8 @@ void MainWindow::on_rulesButton_clicked()
         tmr_end->stop();
         if (checkInGame){
             checkInGame = false;
-            backgroundMusic();
+            backgroundMusic();            
+            hideScoreInfo();
         }
         ui->score->setText("<html><head/><body><p align=\"center\">"
                            "<span style=\" font-size:18pt; color:#ffffff;\">" +
@@ -756,6 +769,7 @@ void MainWindow::gameEnd()
     checkInGame = false;
     on_statButton_clicked();
     ui->tryagainButton->show();
+    hideScoreInfo();
 }
 
 void MainWindow::resizeBtnUp()

@@ -91,6 +91,8 @@ private:
 
     void hideUserInfo();
     void showUserInfo();
+    void hideScoreInfo();
+    void showScoreInfo();
     void hideSpecialButtons();
     void showSpecialButtons();
     void hideLoginButtons();
