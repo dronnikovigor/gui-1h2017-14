@@ -232,7 +232,6 @@ void MainWindow::on_mainpageButton_clicked()
         if (checkInGame){
             checkInGame = false;
             backgroundMusic();
-            hideScoreInfo();
             removeEventFilterOnBtns();
         }
         ui->score->setText("<html><head/><body><p align=\"center\">"
@@ -249,6 +248,7 @@ void MainWindow::on_mainpageButton_clicked()
             showLoginButtons();
         }
 
+        hideScoreInfo();
         showSpecialButtons();
     }
 }
