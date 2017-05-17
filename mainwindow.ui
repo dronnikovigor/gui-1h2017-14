@@ -64,7 +64,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>7</number>
       </property>
       <widget class="QWidget" name="pageLogin">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -112,6 +112,12 @@
             </property>
             <property name="autoFillBackground">
              <bool>false</bool>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;
+border: 0px;
+background-color: rgb(52, 78, 127);</string>
             </property>
             <layout class="QGridLayout" name="gridLayout">
              <item row="2" column="0">
@@ -213,7 +219,10 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
                    <property name="font">
                     <font>
                      <family>Comic Sans MS</family>
-                     <pointsize>14</pointsize>
+                     <pointsize>-1</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="autoFillBackground">
@@ -258,7 +267,10 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
                    <property name="font">
                     <font>
                      <family>Comic Sans MS</family>
-                     <pointsize>14</pointsize>
+                     <pointsize>-1</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="autoFillBackground">
@@ -539,6 +551,12 @@ font: 19px &quot;Comic Sans MS&quot;;</string>
             <property name="autoFillBackground">
              <bool>false</bool>
             </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;
+border: 0px;
+background-color: rgb(52, 78, 127);</string>
+            </property>
             <layout class="QGridLayout" name="gridLayout_2">
              <item row="1" column="0">
               <spacer name="verticalSpacer_22">
@@ -758,7 +776,10 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
                    <property name="font">
                     <font>
                      <family>Comic Sans MS</family>
-                     <pointsize>14</pointsize>
+                     <pointsize>-1</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="autoFillBackground">
@@ -803,7 +824,10 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
                    <property name="font">
                     <font>
                      <family>Comic Sans MS</family>
-                     <pointsize>14</pointsize>
+                     <pointsize>-1</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="autoFillBackground">
@@ -2079,7 +2103,10 @@ background-color: rgb(52, 78, 127);</string>
              <bool>false</bool>
             </property>
             <property name="styleSheet">
-             <string notr="true">color: rgb(255, 255, 255);</string>
+             <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;
+border: 0px;
+background-color: rgb(52, 78, 127);</string>
             </property>
             <layout class="QGridLayout" name="gridLayout_4">
              <item row="6" column="5">
@@ -2190,7 +2217,11 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>8</pointsize>
+                 <family>Comic Sans MS</family>
+                 <pointsize>-1</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
                 </font>
                </property>
                <property name="maximum">
@@ -2282,7 +2313,11 @@ font-weight: bold;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>8</pointsize>
+                 <family>Comic Sans MS</family>
+                 <pointsize>-1</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
                 </font>
                </property>
                <property name="maximum">
@@ -2371,7 +2406,11 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
                </property>
                <property name="font">
                 <font>
-                 <pointsize>8</pointsize>
+                 <family>Comic Sans MS</family>
+                 <pointsize>-1</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
                 </font>
                </property>
                <property name="minimum">
@@ -2570,7 +2609,10 @@ background-color: rgb(52, 78, 127);</string>
        </size>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-image: url(:/images/res/background_menu.png);</string>
+       <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;
+border: 0px;
+background-color: rgb(52, 78, 127);</string>
       </property>
       <property name="currentIndex">
        <number>0</number>
@@ -2772,7 +2814,7 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
           <item>
            <widget class="QPushButton" name="loginButton">
             <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+             <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
               <horstretch>0</horstretch>
               <verstretch>0</verstretch>
              </sizepolicy>
@@ -2785,7 +2827,7 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>230</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -2828,7 +2870,7 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>230</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -2871,7 +2913,7 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>230</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -2914,7 +2956,7 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>230</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -2973,7 +3015,7 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>230</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -3016,7 +3058,7 @@ font: 17px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>230</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -3059,7 +3101,7 @@ font: 17px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>230</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>
@@ -3102,7 +3144,7 @@ font: 17px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="maximumSize">
              <size>
-              <width>230</width>
+              <width>16777215</width>
               <height>16777215</height>
              </size>
             </property>

@@ -10,6 +10,7 @@
 #include <QTimer>
 #include <QDir>
 #include <QMessageBox>
+#include <QGraphicsDropShadowEffect>
 
 const int MAX_SECONDS_EASY = 30;
 const int MAX_SECONDS_MIDDLE = 15;
@@ -71,6 +72,7 @@ private:
     Game game;
     QMediaPlayer * mediaPlayer;
     QMediaPlaylist * mediaPlaylist;
+    QGraphicsDropShadowEffect * shadowEffect;
     QTimer *tmr;
     QTimer *tmr_btn;
     QTimer *tmr_end;

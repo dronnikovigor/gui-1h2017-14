@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     musicPlayerValue = 80;
     sizeBtn = 170;
     actualBtn = "music";
-    lenBtn = 31;
+    lenBtn = 30;
     checkInGame = false;
 
     ui->bkgdMusicVolumeSlider->setValue(bkgdMusicValue);
@@ -23,15 +23,10 @@ MainWindow::MainWindow(QWidget *parent) :
     palette.setBrush(QPalette::Background, bkgnd);
     this->setPalette(palette);
 
-    QPixmap bkgnd2(":/images/res/background_login.png");
-    bkgnd2 = bkgnd2.scaled(ui->widgetLogin->size(), Qt::IgnoreAspectRatio);
-    palette.setBrush(QPalette::Background, bkgnd2);
-    ui->widgetLogin->setAutoFillBackground(true);
-    ui->widgetLogin->setPalette(palette);
-    ui->widgetLogin_2->setAutoFillBackground(true);
-    ui->widgetLogin_2->setPalette(palette);
-    ui->widgetSettings->setAutoFillBackground(true);
-    ui->widgetSettings->setPalette(palette);
+    shadowEffect = new QGraphicsDropShadowEffect(this);
+    shadowEffect->setBlurRadius(15);
+    shadowEffect->setOffset(3);
+    ui->centralWidget->setGraphicsEffect(shadowEffect);
 
     setNameAndScore();
 
@@ -428,7 +423,6 @@ void MainWindow::on_aboutButton_clicked()
     aboutOut();
     showUserInfo();
     hideLoginButtons();
-
     hideSpecialButtons();
 }
 
@@ -437,7 +431,6 @@ void MainWindow::on_settingsButton_clicked()
     ui->gameWidget->setCurrentWidget(ui->pageSettings);
     showUserInfo();
     hideLoginButtons();
-
     hideSpecialButtons();
 }
 
