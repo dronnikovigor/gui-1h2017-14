@@ -65,8 +65,8 @@ bool Game::login(QString name, QString pass)
     QSqlQuery query = getUserFromDB(name);
     QString l;
     QString p;
-    int ms;
-    int fs;
+    int ms = 0;
+    int fs = 0;
     QString t;
 
     while (query.next()) {
