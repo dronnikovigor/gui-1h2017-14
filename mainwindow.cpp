@@ -11,7 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     musicPlayerValue = 80;
     sizeBtn = 170;
     actualBtn = "music";
-    lenBtn = 30;
+    lenBtn = 320;
     checkInGame = false;
 
     ui->bkgdMusicVolumeSlider->setValue(bkgdMusicValue);
@@ -622,8 +622,10 @@ void MainWindow::updateTimer()
 void MainWindow::updateButton()
 {    
     tmr_btn->start(100);
+    QFont font("Comic Sans MC", 16);
+    QFontMetrics fm(font);
     if (buttonToUpd->objectName() == "answerButton_1"){
-        if (ui->answerButton_1->text().size() <= lenBtn){
+        if (fm.width(ui->answerButton_1->text()) <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_1->setText(game.getAnswer(actualGame, 1));
             tmr_btn->start(3000);
@@ -632,7 +634,7 @@ void MainWindow::updateButton()
             ui->answerButton_1->setText(ui->answerButton_1->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_2"){
-        if (ui->answerButton_2->text().size() <= lenBtn){
+        if (fm.width(ui->answerButton_2->text()) <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_2->setText(game.getAnswer(actualGame, 2));
             tmr_btn->start(3000);
@@ -641,7 +643,7 @@ void MainWindow::updateButton()
             ui->answerButton_2->setText(ui->answerButton_2->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_3"){
-        if (ui->answerButton_3->text().size() <= lenBtn){
+        if (fm.width(ui->answerButton_3->text()) <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_3->setText(game.getAnswer(actualGame, 3));
             tmr_btn->start(3000);
@@ -650,7 +652,7 @@ void MainWindow::updateButton()
             ui->answerButton_3->setText(ui->answerButton_3->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_4"){
-        if (ui->answerButton_4->text().size() <= lenBtn){
+        if (fm.width(ui->answerButton_4->text()) <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_4->setText(game.getAnswer(actualGame, 4));
             tmr_btn->start(3000);
@@ -659,7 +661,7 @@ void MainWindow::updateButton()
             ui->answerButton_4->setText(ui->answerButton_4->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_5"){
-        if (ui->answerButton_5->text().size() <= lenBtn){
+        if (fm.width(ui->answerButton_5->text()) <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_5->setText(game.getAnswer(actualGame, 1));
             tmr_btn->start(3000);
@@ -668,7 +670,7 @@ void MainWindow::updateButton()
             ui->answerButton_5->setText(ui->answerButton_5->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_6"){
-        if (ui->answerButton_6->text().size() <= lenBtn){
+        if (fm.width(ui->answerButton_6->text()) <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_6->setText(game.getAnswer(actualGame, 2));
             tmr_btn->start(3000);
@@ -677,7 +679,7 @@ void MainWindow::updateButton()
             ui->answerButton_6->setText(ui->answerButton_6->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_7"){
-        if (ui->answerButton_7->text().size() <= lenBtn){
+        if (fm.width(ui->answerButton_7->text()) <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_7->setText(game.getAnswer(actualGame, 3));
             tmr_btn->start(3000);
@@ -686,7 +688,7 @@ void MainWindow::updateButton()
             ui->answerButton_7->setText(ui->answerButton_7->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_8"){
-        if (ui->answerButton_8->text().size() <= lenBtn){
+        if (fm.width(ui->answerButton_8->text()) <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_8->setText(game.getAnswer(actualGame, 4));
             tmr_btn->start(3000);

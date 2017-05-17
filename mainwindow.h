@@ -11,6 +11,7 @@
 #include <QDir>
 #include <QMessageBox>
 #include <QGraphicsDropShadowEffect>
+#include <QFontMetrics>
 
 const int MAX_SECONDS_EASY = 30;
 const int MAX_SECONDS_MIDDLE = 15;
