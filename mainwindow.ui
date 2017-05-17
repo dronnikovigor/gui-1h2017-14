@@ -64,7 +64,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>7</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="pageLogin">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -229,7 +229,8 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
                     <bool>false</bool>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                    <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                    </property>
                   </widget>
                  </item>
@@ -277,7 +278,8 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
                     <bool>false</bool>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                    <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                    </property>
                    <property name="frame">
                     <bool>true</bool>
@@ -786,7 +788,8 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
                     <bool>false</bool>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                    <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                    </property>
                   </widget>
                  </item>
@@ -834,7 +837,8 @@ font: 21px &quot;Comic Sans MS&quot;;</string>
                     <bool>false</bool>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background-color: rgb(255, 255, 255);</string>
+                    <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
                    </property>
                    <property name="frame">
                     <bool>true</bool>
