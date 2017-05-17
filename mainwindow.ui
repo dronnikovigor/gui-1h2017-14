@@ -64,7 +64,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>8</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="pageLogin">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -115,166 +115,54 @@
             </property>
             <layout class="QGridLayout" name="gridLayout">
              <item row="2" column="0">
-              <widget class="QLabel" name="label_5">
-               <property name="font">
-                <font>
-                 <family>Comic Sans MS</family>
-                 <pointsize>16</pointsize>
-                 <strikeout>false</strikeout>
-                 <kerning>true</kerning>
-                </font>
-               </property>
-               <property name="cursor">
-                <cursorShape>ArrowCursor</cursorShape>
-               </property>
-               <property name="autoFillBackground">
-                <bool>false</bool>
-               </property>
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Введите логин и пароль&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-               <property name="textFormat">
-                <enum>Qt::AutoText</enum>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <spacer name="verticalSpacer_14">
+              <spacer name="verticalSpacer_13">
                <property name="orientation">
                 <enum>Qt::Vertical</enum>
                </property>
                <property name="sizeType">
-                <enum>QSizePolicy::Maximum</enum>
+                <enum>QSizePolicy::Fixed</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>10</width>
+                 <width>20</width>
                  <height>40</height>
                 </size>
                </property>
               </spacer>
              </item>
-             <item row="6" column="0">
-              <layout class="QHBoxLayout" name="horizontalLayout_6">
-               <item>
-                <spacer name="horizontalSpacer_8">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <widget class="QPushButton" name="cancelButton">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>150</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>230</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Comic Sans MS</family>
-                   <pointsize>14</pointsize>
-                   <weight>50</weight>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
-                 </property>
-                 <property name="text">
-                  <string>Отмена</string>
-                 </property>
-                 <property name="flat">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="loginButton_3">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                 <property name="minimumSize">
-                  <size>
-                   <width>150</width>
-                   <height>40</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>230</width>
-                   <height>16777215</height>
-                  </size>
-                 </property>
-                 <property name="font">
-                  <font>
-                   <family>Comic Sans MS</family>
-                   <pointsize>14</pointsize>
-                   <weight>50</weight>
-                   <italic>false</italic>
-                   <bold>false</bold>
-                  </font>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
-                 </property>
-                 <property name="text">
-                  <string>Вход</string>
-                 </property>
-                 <property name="flat">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_11">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Expanding</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>20</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-              </layout>
+             <item row="0" column="0">
+              <spacer name="verticalSpacer_12">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
              </item>
              <item row="4" column="0">
+              <spacer name="verticalSpacer_14">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="3" column="0">
               <layout class="QHBoxLayout" name="horizontalLayout_9">
                <item>
                 <spacer name="horizontalSpacer_9">
@@ -296,14 +184,18 @@ background-image: url(:/images/res/button.png);</string>
                    <property name="font">
                     <font>
                      <family>Comic Sans MS</family>
-                     <pointsize>10</pointsize>
+                     <pointsize>-1</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true"/>
+                    <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;</string>
                    </property>
                    <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Логин&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    <string>Логин</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -337,11 +229,18 @@ background-image: url(:/images/res/button.png);</string>
                    <property name="font">
                     <font>
                      <family>Comic Sans MS</family>
-                     <pointsize>10</pointsize>
+                     <pointsize>-1</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
                     </font>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;</string>
+                   </property>
                    <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Пароль&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    <string>Пароль</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -393,42 +292,164 @@ background-image: url(:/images/res/button.png);</string>
                </item>
               </layout>
              </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="label_5">
+               <property name="font">
+                <font>
+                 <family>Comic Sans MS</family>
+                 <pointsize>-1</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>ArrowCursor</cursorShape>
+               </property>
+               <property name="autoFillBackground">
+                <bool>false</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);
+font: 26px &quot;Comic Sans MS&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Введите логин и пароль</string>
+               </property>
+               <property name="textFormat">
+                <enum>Qt::AutoText</enum>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
              <item row="5" column="0">
-              <spacer name="verticalSpacer_12">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Maximum</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
+              <layout class="QHBoxLayout" name="horizontalLayout_6">
+               <item>
+                <spacer name="horizontalSpacer_8">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QPushButton" name="cancelButton">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>230</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Comic Sans MS</family>
+                   <pointsize>-1</pointsize>
+                   <weight>50</weight>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+background-image: url(:/images/res/button.png);
+font: 19px &quot;Comic Sans MS&quot;;</string>
+                 </property>
+                 <property name="text">
+                  <string>Отмена</string>
+                 </property>
+                 <property name="flat">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="loginButton_3">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>230</width>
+                   <height>16777215</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <family>Comic Sans MS</family>
+                   <pointsize>-1</pointsize>
+                   <weight>50</weight>
+                   <italic>false</italic>
+                   <bold>false</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(255, 255, 255);
+background-image: url(:/images/res/button.png);
+font: 19px &quot;Comic Sans MS&quot;;</string>
+                 </property>
+                 <property name="text">
+                  <string>Вход</string>
+                 </property>
+                 <property name="flat">
+                  <bool>true</bool>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_11">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeType">
+                  <enum>QSizePolicy::Expanding</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>20</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
              </item>
-             <item row="3" column="0">
-              <spacer name="verticalSpacer_13">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Maximum</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="7" column="0">
+             <item row="6" column="0">
               <spacer name="verticalSpacer_15">
                <property name="orientation">
                 <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeType">
+                <enum>QSizePolicy::Fixed</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
@@ -439,11 +460,6 @@ background-image: url(:/images/res/button.png);</string>
               </spacer>
              </item>
             </layout>
-            <zorder>verticalSpacer_12</zorder>
-            <zorder>verticalSpacer_13</zorder>
-            <zorder>verticalSpacer_14</zorder>
-            <zorder>label_5</zorder>
-            <zorder>verticalSpacer_15</zorder>
            </widget>
           </item>
           <item>
@@ -545,9 +561,10 @@ background-image: url(:/images/res/button.png);</string>
                <property name="font">
                 <font>
                  <family>Comic Sans MS</family>
-                 <pointsize>16</pointsize>
-                 <strikeout>false</strikeout>
-                 <kerning>true</kerning>
+                 <pointsize>-1</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
                 </font>
                </property>
                <property name="cursor">
@@ -556,8 +573,12 @@ background-image: url(:/images/res/button.png);</string>
                <property name="autoFillBackground">
                 <bool>false</bool>
                </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);
+font: 26px &quot;Comic Sans MS&quot;;</string>
+               </property>
                <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Введите логин и пароль&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string>Введите логин и пароль</string>
                </property>
                <property name="textFormat">
                 <enum>Qt::AutoText</enum>
@@ -605,7 +626,7 @@ background-image: url(:/images/res/button.png);</string>
                  <property name="font">
                   <font>
                    <family>Comic Sans MS</family>
-                   <pointsize>14</pointsize>
+                   <pointsize>-1</pointsize>
                    <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
@@ -614,7 +635,8 @@ background-image: url(:/images/res/button.png);</string>
                  <property name="styleSheet">
                   <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+font: 19px &quot;Comic Sans MS&quot;;</string>
                  </property>
                  <property name="text">
                   <string>Отмена</string>
@@ -647,7 +669,7 @@ background-image: url(:/images/res/button.png);</string>
                  <property name="font">
                   <font>
                    <family>Comic Sans MS</family>
-                   <pointsize>14</pointsize>
+                   <pointsize>-1</pointsize>
                    <weight>50</weight>
                    <italic>false</italic>
                    <bold>false</bold>
@@ -656,7 +678,8 @@ background-image: url(:/images/res/button.png);</string>
                  <property name="styleSheet">
                   <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+font: 19px &quot;Comic Sans MS&quot;;</string>
                  </property>
                  <property name="text">
                   <string>Регистрация</string>
@@ -706,14 +729,18 @@ background-image: url(:/images/res/button.png);</string>
                    <property name="font">
                     <font>
                      <family>Comic Sans MS</family>
-                     <pointsize>10</pointsize>
+                     <pointsize>-1</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
                     </font>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true"/>
+                    <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;</string>
                    </property>
                    <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Логин&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    <string>Логин</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -747,11 +774,18 @@ background-image: url(:/images/res/button.png);</string>
                    <property name="font">
                     <font>
                      <family>Comic Sans MS</family>
-                     <pointsize>10</pointsize>
+                     <pointsize>-1</pointsize>
+                     <weight>50</weight>
+                     <italic>false</italic>
+                     <bold>false</bold>
                     </font>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;</string>
+                   </property>
                    <property name="text">
-                    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; color:#ffffff;&quot;&gt;Пароль&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    <string>Пароль</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
@@ -1286,7 +1320,7 @@ background-image: url(:/images/res/button.png);</string>
                   <property name="font">
                    <font>
                     <family>Comic Sans MS</family>
-                    <pointsize>16</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1297,7 +1331,8 @@ background-image: url(:/images/res/button.png);</string>
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);
 text-align: left;
-padding: 0 10 0 10;</string>
+padding: 0 10 0 10;
+font: 21px &quot;Comic Sans MS&quot;;</string>
                   </property>
                   <property name="text">
                    <string>ans_1</string>
@@ -1333,7 +1368,7 @@ padding: 0 10 0 10;</string>
                   <property name="font">
                    <font>
                     <family>Comic Sans MS</family>
-                    <pointsize>16</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1344,7 +1379,8 @@ padding: 0 10 0 10;</string>
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);
 text-align: left;
-padding: 0 10 0 10;</string>
+padding: 0 10 0 10;
+font: 21px &quot;Comic Sans MS&quot;;</string>
                   </property>
                   <property name="text">
                    <string>ans_2</string>
@@ -1397,7 +1433,7 @@ padding: 0 10 0 10;</string>
                   <property name="font">
                    <font>
                     <family>Comic Sans MS</family>
-                    <pointsize>16</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1408,7 +1444,8 @@ padding: 0 10 0 10;</string>
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);
 text-align: left;
-padding: 0 10 0 10;</string>
+padding: 0 10 0 10;
+font: 21px &quot;Comic Sans MS&quot;;</string>
                   </property>
                   <property name="text">
                    <string>ans_3</string>
@@ -1444,7 +1481,7 @@ padding: 0 10 0 10;</string>
                   <property name="font">
                    <font>
                     <family>Comic Sans MS</family>
-                    <pointsize>16</pointsize>
+                    <pointsize>-1</pointsize>
                     <weight>50</weight>
                     <italic>false</italic>
                     <bold>false</bold>
@@ -1455,7 +1492,8 @@ padding: 0 10 0 10;</string>
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);
 text-align: left;
-padding: 0 10 0 10;</string>
+padding: 0 10 0 10;
+font: 21px &quot;Comic Sans MS&quot;;</string>
                   </property>
                   <property name="text">
                    <string>ans_4</string>
@@ -1564,7 +1602,10 @@ padding: 0 10 0 10;</string>
                   <property name="font">
                    <font>
                     <family>Comic Sans MS</family>
-                    <pointsize>16</pointsize>
+                    <pointsize>-1</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="styleSheet">
@@ -1572,7 +1613,8 @@ padding: 0 10 0 10;</string>
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);
 text-align:left;
-padding: 0 10 0 10;</string>
+padding: 0 10 0 10;
+font: 21px &quot;Comic Sans MS&quot;;</string>
                   </property>
                   <property name="text">
                    <string>ans_7</string>
@@ -1599,7 +1641,10 @@ padding: 0 10 0 10;</string>
                   <property name="font">
                    <font>
                     <family>Comic Sans MS</family>
-                    <pointsize>16</pointsize>
+                    <pointsize>-1</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="styleSheet">
@@ -1607,7 +1652,8 @@ padding: 0 10 0 10;</string>
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);
 text-align:left;
-padding: 0 10 0 10;</string>
+padding: 0 10 0 10;
+font: 21px &quot;Comic Sans MS&quot;;</string>
                   </property>
                   <property name="text">
                    <string>ans_8</string>
@@ -1651,7 +1697,10 @@ padding: 0 10 0 10;</string>
                   <property name="font">
                    <font>
                     <family>Comic Sans MS</family>
-                    <pointsize>16</pointsize>
+                    <pointsize>-1</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="styleSheet">
@@ -1659,7 +1708,8 @@ padding: 0 10 0 10;</string>
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);
 text-align:left;
-padding: 0 10 0 10;</string>
+padding: 0 10 0 10;
+font: 21px &quot;Comic Sans MS&quot;;</string>
                   </property>
                   <property name="text">
                    <string>ans_6</string>
@@ -1686,7 +1736,10 @@ padding: 0 10 0 10;</string>
                   <property name="font">
                    <font>
                     <family>Comic Sans MS</family>
-                    <pointsize>16</pointsize>
+                    <pointsize>-1</pointsize>
+                    <weight>50</weight>
+                    <italic>false</italic>
+                    <bold>false</bold>
                    </font>
                   </property>
                   <property name="styleSheet">
@@ -1694,7 +1747,8 @@ padding: 0 10 0 10;</string>
 color: rgb(255, 255, 255);
 background-image: url(:/images/res/button.png);
 text-align:left;
-padding: 0 10 0 10;</string>
+padding: 0 10 0 10;
+font: 21px &quot;Comic Sans MS&quot;;</string>
                   </property>
                   <property name="text">
                    <string>ans_5</string>
@@ -1799,7 +1853,7 @@ padding: 0 10 0 10;</string>
             <property name="font">
              <font>
               <family>Comic Sans MS</family>
-              <pointsize>17</pointsize>
+              <pointsize>-1</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -1807,7 +1861,7 @@ padding: 0 10 0 10;</string>
             </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(255, 255, 255);
-font: 17pt &quot;Comic Sans MS&quot;;
+font: 21px &quot;Comic Sans MS&quot;;
 border: 0px;
 background-color: rgb(52, 78, 127);</string>
             </property>
@@ -1836,7 +1890,7 @@ background-color: rgb(52, 78, 127);</string>
             <property name="font">
              <font>
               <family>Comic Sans MS</family>
-              <pointsize>16</pointsize>
+              <pointsize>-1</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -1848,7 +1902,8 @@ background-color: rgb(52, 78, 127);</string>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button_green.png);</string>
+background-image: url(:/images/res/button_green.png);
+font: 21px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="text">
              <string>Попробовать еще раз</string>
@@ -1888,7 +1943,7 @@ background-image: url(:/images/res/button_green.png);</string>
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="pageCreators">
+      <widget class="QWidget" name="pageAbout">
        <layout class="QHBoxLayout" name="horizontalLayout_7">
         <item>
          <spacer name="horizontalSpacer_21">
@@ -1906,7 +1961,7 @@ background-image: url(:/images/res/button_green.png);</string>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_16">
           <item>
-           <spacer name="verticalSpacer_37">
+           <spacer name="verticalSpacer_3">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>
@@ -1919,7 +1974,13 @@ background-image: url(:/images/res/button_green.png);</string>
            </spacer>
           </item>
           <item>
-           <widget class="QWidget" name="widgetCreators" native="true">
+           <widget class="QTextBrowser" name="aboutBrowser">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>500</width>
@@ -1932,130 +1993,16 @@ background-image: url(:/images/res/button_green.png);</string>
               <height>400</height>
              </size>
             </property>
-            <property name="autoFillBackground">
-             <bool>false</bool>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+font: 20px &quot;Comic Sans MS&quot;;
+border: 0px;
+background-color: rgb(52, 78, 127);</string>
             </property>
-            <layout class="QGridLayout" name="gridLayout_3">
-             <item row="4" column="0">
-              <widget class="QTextBrowser" name="textBrowser">
-               <property name="font">
-                <font>
-                 <family>Comic Sans MS</family>
-                 <pointsize>14</pointsize>
-                </font>
-               </property>
-               <property name="autoFillBackground">
-                <bool>false</bool>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-color: rgb(52, 78, 127);</string>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-               </property>
-               <property name="lineWidth">
-                <number>0</number>
-               </property>
-               <property name="verticalScrollBarPolicy">
-                <enum>Qt::ScrollBarAlwaysOff</enum>
-               </property>
-               <property name="html">
-                <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Comic Sans MS'; font-size:14pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#6aaa49;&quot;&gt;Дронников Игорь&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://vk.com/dronnikovigor&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#f4f4f4;&quot;&gt;vk.com/dronnikovigor&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#6aaa49;&quot;&gt;Люшнина Елена&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://vk.com/elenalyushnina&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#f4f4f4;&quot;&gt;vk.com/elenalyushnina&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; color:#6aaa49;&quot;&gt;Худякова Дарьяна&lt;/span&gt;&lt;/p&gt;
-&lt;p align=&quot;center&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;a href=&quot;https://vk.com/daryanad&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#f4f4f4;&quot;&gt;vk.com/daryanad&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-               <property name="openExternalLinks">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_9">
-               <property name="font">
-                <font>
-                 <family>Comic Sans MS</family>
-                 <pointsize>16</pointsize>
-                 <strikeout>false</strikeout>
-                 <kerning>true</kerning>
-                </font>
-               </property>
-               <property name="cursor">
-                <cursorShape>ArrowCursor</cursorShape>
-               </property>
-               <property name="autoFillBackground">
-                <bool>false</bool>
-               </property>
-               <property name="text">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Разработчики&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-               </property>
-               <property name="textFormat">
-                <enum>Qt::AutoText</enum>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <spacer name="verticalSpacer_38">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Maximum</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>10</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="5" column="0">
-              <spacer name="verticalSpacer_39">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Maximum</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>40</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="3" column="0">
-              <spacer name="verticalSpacer_3">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Fixed</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>10</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-            </layout>
            </widget>
           </item>
           <item>
-           <spacer name="verticalSpacer_42">
+           <spacer name="verticalSpacer_29">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>
@@ -2135,7 +2082,7 @@ p, li { white-space: pre-wrap; }
              <string notr="true">color: rgb(255, 255, 255);</string>
             </property>
             <layout class="QGridLayout" name="gridLayout_4">
-             <item row="4" column="4">
+             <item row="6" column="5">
               <spacer name="horizontalSpacer_29">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -2148,7 +2095,7 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="4" column="0">
+             <item row="6" column="0">
               <spacer name="horizontalSpacer_28">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -2161,20 +2108,7 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="4" column="2">
-              <spacer name="horizontalSpacer_27">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="5" column="0">
+             <item row="7" column="0">
               <spacer name="horizontalSpacer_30">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -2187,33 +2121,60 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="5" column="1">
+             <item row="7" column="1">
               <widget class="QLabel" name="label_11">
                <property name="font">
                 <font>
                  <family>Comic Sans MS</family>
-                 <pointsize>16</pointsize>
+                 <pointsize>-1</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;</string>
                </property>
                <property name="text">
                 <string>Мелодии</string>
                </property>
               </widget>
              </item>
-             <item row="4" column="1">
+             <item row="6" column="1">
               <widget class="QLabel" name="label_10">
                <property name="font">
                 <font>
                  <family>Comic Sans MS</family>
-                 <pointsize>16</pointsize>
+                 <pointsize>-1</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
                 </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;</string>
                </property>
                <property name="text">
                 <string>Фоновая музыка</string>
                </property>
               </widget>
              </item>
-             <item row="4" column="3">
+             <item row="6" column="2">
+              <spacer name="horizontalSpacer_27">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="6" column="4">
               <widget class="QSlider" name="bkgdMusicVolumeSlider">
                <property name="minimumSize">
                 <size>
@@ -2243,7 +2204,20 @@ p, li { white-space: pre-wrap; }
                </property>
               </widget>
              </item>
-             <item row="5" column="4">
+             <item row="7" column="2">
+              <spacer name="horizontalSpacer_31">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="7" column="5">
               <spacer name="horizontalSpacer_32">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -2256,7 +2230,43 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="5" column="3">
+             <item row="1" column="0" colspan="6">
+              <widget class="QLabel" name="label_12">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="maximumSize">
+                <size>
+                 <width>16777215</width>
+                 <height>50</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Comic Sans MS</family>
+                 <pointsize>-1</pointsize>
+                 <weight>75</weight>
+                 <italic>false</italic>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);
+font: 26px &quot;Comic Sans MS&quot;;
+font-weight: bold;</string>
+               </property>
+               <property name="text">
+                <string>Настройки</string>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+              </widget>
+             </item>
+             <item row="7" column="4">
               <widget class="QSlider" name="musicPlayerVolumeSlider">
                <property name="minimumSize">
                 <size>
@@ -2286,8 +2296,8 @@ p, li { white-space: pre-wrap; }
                </property>
               </widget>
              </item>
-             <item row="5" column="2">
-              <spacer name="horizontalSpacer_31">
+             <item row="3" column="5">
+              <spacer name="horizontalSpacer_40">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
                </property>
@@ -2299,48 +2309,7 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="0" column="0" colspan="5">
-              <widget class="QLabel" name="label_12">
-               <property name="minimumSize">
-                <size>
-                 <width>0</width>
-                 <height>50</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>50</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>Comic Sans MS</family>
-                 <pointsize>16</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Настройки</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLabel" name="label_13">
-               <property name="font">
-                <font>
-                 <family>Comic Sans MS</family>
-                 <pointsize>16</pointsize>
-                </font>
-               </property>
-               <property name="text">
-                <string>Сложность игры</string>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
+             <item row="3" column="0">
               <spacer name="horizontalSpacer_38">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -2353,7 +2322,7 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="2">
+             <item row="3" column="2">
               <spacer name="horizontalSpacer_39">
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
@@ -2366,7 +2335,27 @@ p, li { white-space: pre-wrap; }
                </property>
               </spacer>
              </item>
-             <item row="1" column="3">
+             <item row="3" column="1">
+              <widget class="QLabel" name="label_13">
+               <property name="font">
+                <font>
+                 <family>Comic Sans MS</family>
+                 <pointsize>-1</pointsize>
+                 <weight>50</weight>
+                 <italic>false</italic>
+                 <bold>false</bold>
+                </font>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;</string>
+               </property>
+               <property name="text">
+                <string>Сложность игры</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="4">
               <widget class="QSlider" name="levelDiffSlider">
                <property name="minimumSize">
                 <size>
@@ -2399,15 +2388,28 @@ p, li { white-space: pre-wrap; }
                </property>
               </widget>
              </item>
-             <item row="1" column="4">
-              <spacer name="horizontalSpacer_40">
+             <item row="2" column="2">
+              <spacer name="verticalSpacer_31">
                <property name="orientation">
-                <enum>Qt::Horizontal</enum>
+                <enum>Qt::Vertical</enum>
                </property>
                <property name="sizeHint" stdset="0">
                 <size>
-                 <width>40</width>
-                 <height>20</height>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="8" column="2">
+              <spacer name="verticalSpacer_30">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
                 </size>
                </property>
               </spacer>
@@ -2498,7 +2500,7 @@ p, li { white-space: pre-wrap; }
             <property name="font">
              <font>
               <family>Comic Sans MS</family>
-              <pointsize>17</pointsize>
+              <pointsize>-1</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -2506,7 +2508,7 @@ p, li { white-space: pre-wrap; }
             </property>
             <property name="styleSheet">
              <string notr="true">color: rgb(255, 255, 255);
-font: 17pt &quot;Comic Sans MS&quot;;
+font: 20px &quot;Comic Sans MS&quot;;
 border: 0px;
 background-color: rgb(52, 78, 127);</string>
             </property>
@@ -2598,10 +2600,21 @@ background-color: rgb(52, 78, 127);</string>
             <property name="font">
              <font>
               <family>Comic Sans MS</family>
+              <pointsize>-1</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
              </font>
             </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;</string>
+            </property>
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; color:#ffffff;&quot;&gt;Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>Name</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -2610,10 +2623,21 @@ background-color: rgb(52, 78, 127);</string>
             <property name="font">
              <font>
               <family>Comic Sans MS</family>
+              <pointsize>-1</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
              </font>
             </property>
+            <property name="styleSheet">
+             <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;</string>
+            </property>
             <property name="text">
-             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; color:#ffffff;&quot;&gt;Score&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             <string>Score</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
             </property>
            </widget>
           </item>
@@ -2640,11 +2664,15 @@ background-color: rgb(52, 78, 127);</string>
               <property name="font">
                <font>
                 <family>Comic Sans MS</family>
-                <pointsize>16</pointsize>
+                <pointsize>-1</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
+               <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;</string>
               </property>
               <property name="text">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Угадано:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -2659,11 +2687,15 @@ background-color: rgb(52, 78, 127);</string>
               <property name="font">
                <font>
                 <family>Comic Sans MS</family>
-                <pointsize>16</pointsize>
+                <pointsize>-1</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: rgb(106, 170, 73);</string>
+               <string notr="true">color: rgb(106, 170, 73);
+font: 21px &quot;Comic Sans MS&quot;;</string>
               </property>
               <property name="text">
                <string>0</string>
@@ -2678,11 +2710,15 @@ background-color: rgb(52, 78, 127);</string>
               <property name="font">
                <font>
                 <family>Comic Sans MS</family>
-                <pointsize>16</pointsize>
+                <pointsize>-1</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
+               <string notr="true">color: rgb(255, 255, 255);
+font: 21px &quot;Comic Sans MS&quot;;</string>
               </property>
               <property name="text">
                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Время:&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -2697,11 +2733,15 @@ background-color: rgb(52, 78, 127);</string>
               <property name="font">
                <font>
                 <family>Comic Sans MS</family>
-                <pointsize>16</pointsize>
+                <pointsize>-1</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">color: rgb(106, 170, 73);</string>
+               <string notr="true">color: rgb(106, 170, 73);
+font: 21px &quot;Comic Sans MS&quot;;</string>
               </property>
               <property name="text">
                <string>0</string>
@@ -2752,7 +2792,7 @@ background-color: rgb(52, 78, 127);</string>
             <property name="font">
              <font>
               <family>Comic Sans MS</family>
-              <pointsize>16</pointsize>
+              <pointsize>-1</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -2761,7 +2801,8 @@ background-color: rgb(52, 78, 127);</string>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+font: 21px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="text">
              <string>Вход</string>
@@ -2794,7 +2835,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Comic Sans MS</family>
-              <pointsize>16</pointsize>
+              <pointsize>-1</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -2803,7 +2844,8 @@ background-image: url(:/images/res/button.png);</string>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+font: 21px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="text">
              <string>Регистрация</string>
@@ -2836,7 +2878,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Comic Sans MS</family>
-              <pointsize>16</pointsize>
+              <pointsize>-1</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -2845,7 +2887,8 @@ background-image: url(:/images/res/button.png);</string>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+font: 21px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="text">
              <string>Статистика</string>
@@ -2878,7 +2921,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Comic Sans MS</family>
-              <pointsize>16</pointsize>
+              <pointsize>-1</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -2890,7 +2933,8 @@ background-image: url(:/images/res/button.png);</string>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+font: 21px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="text">
              <string>Правила игры</string>
@@ -2936,7 +2980,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Comic Sans MS</family>
-              <pointsize>13</pointsize>
+              <pointsize>-1</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -2945,7 +2989,8 @@ background-image: url(:/images/res/button.png);</string>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+font: 17px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="text">
              <string>Настройки</string>
@@ -2956,7 +3001,7 @@ background-image: url(:/images/res/button.png);</string>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="creatorsButton">
+           <widget class="QPushButton" name="aboutButton">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -2978,7 +3023,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Comic Sans MS</family>
-              <pointsize>13</pointsize>
+              <pointsize>-1</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -2987,10 +3032,11 @@ background-image: url(:/images/res/button.png);</string>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+font: 17px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="text">
-             <string>Разработчики</string>
+             <string>Справка</string>
             </property>
             <property name="flat">
              <bool>true</bool>
@@ -3020,7 +3066,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Comic Sans MS</family>
-              <pointsize>13</pointsize>
+              <pointsize>-1</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -3029,7 +3075,8 @@ background-image: url(:/images/res/button.png);</string>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+font: 17px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="text">
              <string>На главную</string>
@@ -3062,7 +3109,7 @@ background-image: url(:/images/res/button.png);</string>
             <property name="font">
              <font>
               <family>Comic Sans MS</family>
-              <pointsize>13</pointsize>
+              <pointsize>-1</pointsize>
               <weight>50</weight>
               <italic>false</italic>
               <bold>false</bold>
@@ -3071,7 +3118,8 @@ background-image: url(:/images/res/button.png);</string>
             <property name="styleSheet">
              <string notr="true">background-color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
-background-image: url(:/images/res/button.png);</string>
+background-image: url(:/images/res/button.png);
+font: 17px &quot;Comic Sans MS&quot;;</string>
             </property>
             <property name="text">
              <string>Выход</string>

@@ -39,8 +39,8 @@ private slots:
     void on_signupButton_2_clicked();
     void on_cancelButton_clicked();
     void on_cancelButton_2_clicked();
-    void on_creatorsButton_clicked();
     void on_settingsButton_clicked();
+    void on_aboutButton_clicked();
     void on_rulesButton_clicked();
     void on_exitButton_clicked();
 
@@ -52,9 +52,11 @@ private slots:
     void on_answerButton_6_clicked();
     void on_answerButton_7_clicked();
     void on_answerButton_8_clicked();
+    void on_tryagainButton_clicked();
 
     void on_bkgdMusicVolumeSlider_valueChanged(int value);
     void on_musicPlayerVolumeSlider_valueChanged(int value);
+    void on_levelDiffSlider_valueChanged(int value);
 
     void updateTimer();
     void updateButton();
@@ -62,10 +64,6 @@ private slots:
     void gameEnd();
     void resizeBtnUp();
     void resizeBtnDown();
-
-    void on_tryagainButton_clicked();
-
-    void on_levelDiffSlider_valueChanged(int value);
 
 private:
     Ui::MainWindow *ui;
@@ -78,14 +76,15 @@ private:
     QTimer *tmr_end;
     QTimer *tmr_mainUp;
     QTimer *tmr_mainDown;
-    int bkgdMusicValue = 20;
-    int musicPlayerValue = 80;
+    int bkgdMusicValue;
+    int musicPlayerValue;
     int seconds;
     QString actualGame;
-    bool checkInGame = false;
+    bool checkInGame;
     int maxSeconds;
-    int sizeBtn = 170;
-    QString actualBtn = "music";
+    int sizeBtn;
+    QString actualBtn;
+    int lenBtn;
     QObject *buttonToUpd;
 
     void hideUserInfo();
@@ -101,6 +100,7 @@ private:
 
     void statsOut();
     void howtoOut();
+    void aboutOut();
     void updatePlayScreen();
     void checkAnswer(int id);
     void backgroundMusic();

@@ -6,6 +6,17 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    bkgdMusicValue = 20;
+    musicPlayerValue = 80;
+    sizeBtn = 170;
+    actualBtn = "music";
+    lenBtn = 31;
+    checkInGame = false;
+
+    ui->bkgdMusicVolumeSlider->setValue(bkgdMusicValue);
+    ui->musicPlayerVolumeSlider->setValue(musicPlayerValue);
+
     QPixmap bkgnd(":/images/res/background.jpg");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
@@ -19,8 +30,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->widgetLogin->setPalette(palette);
     ui->widgetLogin_2->setAutoFillBackground(true);
     ui->widgetLogin_2->setPalette(palette);
-    ui->widgetCreators->setAutoFillBackground(true);
-    ui->widgetCreators->setPalette(palette);
     ui->widgetSettings->setAutoFillBackground(true);
     ui->widgetSettings->setPalette(palette);
 
@@ -106,7 +115,7 @@ void MainWindow::showScoreInfo()
 void MainWindow::hideSpecialButtons()
 {
     ui->settingsButton->hide();
-    ui->creatorsButton->hide();
+    ui->aboutButton->hide();
     ui->exitButton->hide();
     ui->mainpageButton->show();
 }
@@ -114,7 +123,7 @@ void MainWindow::hideSpecialButtons()
 void MainWindow::showSpecialButtons()
 {
     ui->settingsButton->show();
-    ui->creatorsButton->show();
+    ui->aboutButton->show();
     ui->exitButton->show();
     ui->mainpageButton->hide();
 }
@@ -413,9 +422,10 @@ void MainWindow::on_cancelButton_2_clicked()
     on_mainpageButton_clicked();
 }
 
-void MainWindow::on_creatorsButton_clicked()
+void MainWindow::on_aboutButton_clicked()
 {
-    ui->gameWidget->setCurrentWidget(ui->pageCreators);
+    ui->gameWidget->setCurrentWidget(ui->pageAbout);
+    aboutOut();
     showUserInfo();
     hideLoginButtons();
 
@@ -488,7 +498,7 @@ void MainWindow::on_rulesButton_clicked()
 void MainWindow::statsOut()
 {
     ui->statBrowser->clear();
-    ui->statBrowser->insertHtml("<p style=\"font-size: 20pt; padding: 30px 10px 10px 10px;\"><center><b>Статистика</b></center></p>");
+    ui->statBrowser->insertHtml("<p style=\"font-size: 26px; padding: 30px 10px 10px 10px;\"><center><b>Статистика</b></center></p>");
     QSqlQuery query = game.getStats();
 
     QString html;
@@ -620,7 +630,7 @@ void MainWindow::updateButton()
 {    
     tmr_btn->start(100);
     if (buttonToUpd->objectName() == "answerButton_1"){
-        if (ui->answerButton_1->text().size() <= 27){
+        if (ui->answerButton_1->text().size() <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_1->setText(game.getAnswer(actualGame, 1));
             tmr_btn->start(3000);
@@ -629,7 +639,7 @@ void MainWindow::updateButton()
             ui->answerButton_1->setText(ui->answerButton_1->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_2"){
-        if (ui->answerButton_2->text().size() <= 27){
+        if (ui->answerButton_2->text().size() <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_2->setText(game.getAnswer(actualGame, 2));
             tmr_btn->start(3000);
@@ -638,7 +648,7 @@ void MainWindow::updateButton()
             ui->answerButton_2->setText(ui->answerButton_2->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_3"){
-        if (ui->answerButton_3->text().size() <= 27){
+        if (ui->answerButton_3->text().size() <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_3->setText(game.getAnswer(actualGame, 3));
             tmr_btn->start(3000);
@@ -647,7 +657,7 @@ void MainWindow::updateButton()
             ui->answerButton_3->setText(ui->answerButton_3->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_4"){
-        if (ui->answerButton_4->text().size() <= 27){
+        if (ui->answerButton_4->text().size() <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_4->setText(game.getAnswer(actualGame, 4));
             tmr_btn->start(3000);
@@ -656,7 +666,7 @@ void MainWindow::updateButton()
             ui->answerButton_4->setText(ui->answerButton_4->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_5"){
-        if (ui->answerButton_5->text().size() <= 27){
+        if (ui->answerButton_5->text().size() <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_5->setText(game.getAnswer(actualGame, 1));
             tmr_btn->start(3000);
@@ -665,7 +675,7 @@ void MainWindow::updateButton()
             ui->answerButton_5->setText(ui->answerButton_5->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_6"){
-        if (ui->answerButton_6->text().size() <= 27){
+        if (ui->answerButton_6->text().size() <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_6->setText(game.getAnswer(actualGame, 2));
             tmr_btn->start(3000);
@@ -674,7 +684,7 @@ void MainWindow::updateButton()
             ui->answerButton_6->setText(ui->answerButton_6->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_7"){
-        if (ui->answerButton_7->text().size() <= 27){
+        if (ui->answerButton_7->text().size() <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_7->setText(game.getAnswer(actualGame, 3));
             tmr_btn->start(3000);
@@ -683,7 +693,7 @@ void MainWindow::updateButton()
             ui->answerButton_7->setText(ui->answerButton_7->text().remove(0,1));
     }
     if (buttonToUpd->objectName() == "answerButton_8"){
-        if (ui->answerButton_8->text().size() <= 27){
+        if (ui->answerButton_8->text().size() <= lenBtn){
             tmr_btn->stop();
             ui->answerButton_8->setText(game.getAnswer(actualGame, 4));
             tmr_btn->start(3000);
@@ -722,6 +732,18 @@ void MainWindow::howtoOut()
     else
     {
          ui->howtoBrowser->insertHtml(QString::fromUtf8(file.readAll()));
+    }
+}
+
+void MainWindow::aboutOut()
+{
+    ui->aboutBrowser->clear();
+    QFile file(":/text/res/about.txt");
+    if (!file.open(QIODevice::ReadOnly))
+        return;
+    else
+    {
+         ui->aboutBrowser->insertHtml(QString::fromUtf8(file.readAll()));
     }
 }
 
@@ -945,3 +967,5 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
         return QWidget::eventFilter(obj, event);
     }
 }
+
+

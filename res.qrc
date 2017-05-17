@@ -12,5 +12,6 @@
     </qresource>
     <qresource prefix="/text">
         <file>res/how_to_play.txt</file>
+        <file>res/about.txt</file>
     </qresource>
 </RCC>
